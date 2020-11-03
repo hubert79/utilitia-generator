@@ -1,0 +1,49 @@
+*, *::before, *::after {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	padding: 2em;
+	font: 18px/1.5 -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+h1 {
+	margin: 0;
+	text-transform: uppercase;
+	font-weight: normal;
+}
+
+.row {
+	margin: 2em 0;
+}
+
+form * {
+	font: inherit;
+}
+
+form div + div {
+	margin-top: 1em;
+}
+
+form *:not(div) {
+	display: block;
+	margin-top: .5em;
+}
+
+form fieldset {
+	margin-top: 1em;
+	padding-bottom: 1em;
+}
+
+.status-is-hidden {
+	display: none;
+}
+
+.declaration-is-hidden {
+	display: none;
+}
+
+.mobileApp-is-hidden {
+	display: none;
+}

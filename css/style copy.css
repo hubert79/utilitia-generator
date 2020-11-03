@@ -1,0 +1,32 @@
+
+
+.row
+{
+	margin: 20px 10px;
+}
+
+form div
+{
+	margin-top: 1em;
+}
+
+form div > *:not(div)
+{
+	display: block;
+	margin-top: .5em;
+}
+
+.status-is-hidden
+{
+	display: none;
+}
+
+.declaration-is-hidden
+{
+	display: none;
+}
+
+.mobileApp-is-hidden
+{
+	display: none;
+}
