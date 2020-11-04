@@ -26,9 +26,22 @@
 		$dayDateOfLastUpdate = $_SESSION['s_dayDateOfLastUpdate'];
 			
 		$selectStatus = $_SESSION['s_selectStatus'];
+		$contentNotAccessibleStatus = $_SESSION['s_contentNotAccessibleStatus'];
+		$offStatus = $_SESSION['s_offStatus'];
+		$linkStatus = $_SESSION['s_linkStatus'];
+		
 		$declaration = $_SESSION['s_declaration'];
+		$nameExtermalEntity = $_SESSION['s_nameExtermalEntity'];
+		$yearDateOfMade = $_SESSION['s_yearDateOfMade'];
+		$monthDateOfMade = $_SESSION['s_monthDateOfMade'];
+		$dayDateOfMade = $_SESSION['s_dayDateOfMade'];
+		
 		$archaccess = $_SESSION['s_archaccess'];
+		$addInformation = $_SESSION['s_addInformation'];
+		
 		$mobApp = $_SESSION['s_mobApp'];
+		$describeMobileApp = $_SESSION['s_describeMobileApp'];
+		$linkMobileApp = $_SESSION['s_linkMobileApp'];
 		
 		$generalInfo = '<h1 id="a11y-deklaracja">Deklaracja dostępności</h1>'.'<h2>Informacje ogólne</2>'.
 			'<p id="a11y-informacje_ogolne"><span id="a11y-podmiot">'.$entityName.'</span> zobowiązuje się zapewnić dostępność swojej strony internetowej zgodnie z przepisami ustawy z dnia 4 kwietnia 2019 r. o dostępności cyfrowej stron internetowych i aplikacji mobilnych podmiotów publicznych. Oświadczenie w sprawie dostępności ma zastosowanie do strony internetowej '.
@@ -48,20 +61,59 @@
 			$dayDateOfLastUpdate.'</time></li>'.
 			'</ul>';
 		
-		$statusInfo = '<h2>Status pod względem zgodności z ustawą</h2> '.
+		if($selectStatus === "Zgodna"){
+			$statusInfo = '<h2>Status pod względem zgodności z ustawą</h2> '.
 			'<p>Strona internetowa jest <strong id="a11y-status">'.
 			$selectStatus.'</strong>  z ustawą o dostępności cyfrowej stron internetowych i aplikacji 
 			mobilnych podmiotów publicznych z powodu niezgodności lub wyłączeń wymienionych poniżej. Zapewnienie dostępności niosłoby za sobą nadmierne obciążenia dla podmiotu 
 			publicznego. </p> ';
-			
-		$preInfo = '<h3> Przygotowanie deklaracji w sprawie dostępności</h3>'.
+		} else {
+			$statusInfo = '<h2>Status pod względem zgodności z ustawą</h2> '.
+			'<p>Strona internetowa jest <strong id="a11y-status">'.
+			$selectStatus.'</strong>  z ustawą o dostępności cyfrowej stron internetowych i aplikacji 
+			mobilnych podmiotów publicznych z powodu niezgodności lub wyłączeń wymienionych poniżej. Zapewnienie dostępności niosłoby za sobą nadmierne obciążenia dla podmiotu 
+			publicznego. </p> '.
+			'<h3>Treść niedostępna</h3>'.
+			'<p>'.$contentNotAccessibleStatus.'</p>'.
+			'<h3>wyłączenia</h3>'.
+			'<p>'.$offStatus.'</p>'.
+			'<h3>link</h3>'.
+			'<p>'.$linkStatus.'</p>';
+		}
+		
+		if($declaration === "Samooceny przeprowadzonej przez podmiot publiczny"){
+			$preInfo = '<h3> Przygotowanie deklaracji w sprawie dostępności</h3>'.
 			'<ul> '.
-			'<li>Deklarację sporządzono dnia:  <time id="a11y-data-sporzadzenie" datetime="1990-01-01">1990-01-01</time></li>'. 
-			'<li>Deklarację została ostatnio poddana przeglądowi i aktualizacji dnia:  <time id="a11y-data-deklaracja-przeglad" datetime="1990-01-01">1990-01-01</time></li>' .
+			'<li>Deklarację sporządzono dnia:  <time id="a11y-data-sporzadzenie" datetime="'.
+			$yearDateOfMade.'-'.
+			$monthDateOfMade.'-'.
+			$dayDateOfMade.'">'.
+			$yearDateOfMade.'-'.
+			$monthDateOfMade.'-'.
+			$dayDateOfMade.'</time></li>'. 
 			'</ul> '.
 			'<p>Deklarację sporządzono na podstawie'.
 			$declaration.
 			'.</p> ';
+		} else {
+			$preInfo = '<h3> Przygotowanie deklaracji w sprawie dostępności</h3>'.
+			'<ul> '.
+			'<li>Deklarację sporządzono dnia:  <time id="a11y-data-sporzadzenie" datetime="'.
+			$yearDateOfMade.'-'.
+			$monthDateOfMade.'-'.
+			$dayDateOfMade.'">'.
+			$yearDateOfMade.'-'.
+			$monthDateOfMade.'-'.
+			$dayDateOfMade.'</time></li>'. 
+			'</ul> '.
+			'<p>Deklarację sporządzono na podstawie'.
+			$declaration.
+			'.</p> '.
+			'<h3>Nazwa podmiotu zewnętrznego</h3>'.
+			'<p>'.$nameExtermalEntity.'</p>'
+			;
+		}
+		
 
 		$KontaktInfo = '<h2 id="a11y-kontakt">Informacje zwrotne i dane kontaktowe</h2> 
 			<p>Za rozpatrywanie uwag i wniosków odpowiada: <span id=”a11y-imię-osoby-kontaktowej”>imie<span><span id=”a11y-nazwisko-osoby-kontaktowej”> nazwisko</span>, e-mail: <span id=”a11y-email-osoby-kontaktowej”> email@osoby.kontaktowej </span>, telefon:<span id+”a11y-telefon-osoby-kontaktowej"> 123123123</span>.</p> 
@@ -81,14 +133,19 @@
 			
 		$prawoInfo = '<h3>Skargi i odwołania</h3> 
 			<p> W przypadku, gdy podmiot publiczny odmówi realizacji żądania zapewnienia dostępności lub alternatywnego sposobu dostępu do informacji, wnoszący żądanie możne złożyć skargę w sprawie zapewniana dostępności cyfrowej strony internetowej, aplikacji mobilnej lub elementu strony internetowej, lub aplikacji mobilnej. Po wyczerpaniu wskazanej wyżej procedury można także złożyć wniosek do <a href=”www.rpo”> Rzecznika Praw Obywatelskich</a>.</p>  
-			<h2 id="a11y-dostępność-architektoniczna">Dostępność architektoniczna</h2> 
-			<p>dostepnosc architektoniczna</p> 
-			<p>dostepnosc architektoniczna</p> 
-			<p>dostepnosc architektoniczna</p> 
-			<h2 id=”a11y-informacje-dodatkowe”>Informacje dodatkowe</h2> 
-			<h3>Ułatwienia</h3> 
-			<p>udogodnienia</p>  
-			';	
+			<h2 id="a11y-dostępność-architektoniczna">Dostępność architektoniczna</h2>'. 
+			'<p>'.$archaccess.'</p>'.
+			'<h2 id=”a11y-informacje-dodatkowe”>Informacje dodatkowe</h2>' .
+			'<p>'.$addInformation.'</p>'
+			;	
+		
+		if($mobApp === "Tak"){
+			$amInfo = '<h2 id="a11y-aplikacja-mobilna">Aplikacja mobilna</h2>'.
+			'<a href="'.$linkMobileApp.'">'.$describeMobileApp.'</a>';
+		} else {
+			$amInfo = "";
+		}
+
 			
 	?>
 	<textarea>
@@ -96,7 +153,7 @@
 			
 			
 			$deklaracja = $generalInfo.$statusInfo.
-			$preInfo.$KontaktInfo.$prawoInfo;
+			$preInfo.$KontaktInfo.$amInfo.$prawoInfo;
 			
 			
 			echo $deklaracja;
@@ -104,11 +161,9 @@
 	</textarea>
 	<?php
 		echo $deklaracja;
-		echo $selectStatus;
-			echo $declaration;
-			echo $archaccess;
-			echo $mobApp;
+		
 			
+
 	?>
 </body>
 </html>
