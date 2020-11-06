@@ -258,6 +258,16 @@
 		$dayDateOfMade = $_POST['dayDateOfMade'];
 		$_SESSION['s_dayDateOfMade'] = $dayDateOfMade;
 		
+		//Contact 
+		$contactName = $_POST['contactName'];
+		$_SESSION['s_contactName'] = $contactName;
+		
+		$contactEmail = $_POST['contactEmail'];
+		$_SESSION['s_contactEmail'] = $contactEmail;
+		
+		$contactTelephon = $_POST['contactTelephon'];
+		$_SESSION['s_contactTelephon'] = $contactTelephon;
+		
 		// Arch access valid
 		$archaccess = $_POST['archaccess'];
 		$_SESSION['s_archaccess'] = $archaccess;
@@ -722,6 +732,7 @@
 								<option value="31" <?php check_dayDateOfPublication('31',$_session['option_dayDateOfPublication']);?> >31</option>
 							</select>
 						</div>
+						
 						<div>
 							<?php
 								if (isset($_SESSION['publication_data']))
@@ -842,15 +853,13 @@
 						</select>
 					</div>
 							
-					<div>
-						<?php
-							if (isset($_SESSION['update_data']))
-							{
-								echo '<div class="error">'.$_SESSION['update_data'].'</div>';
-								unset($_SESSION['update_data']);
-							}
-						?>
-					</div>
+					<?php
+						if (isset($_SESSION['update_data']))
+						{
+							echo '<div class="error">'.$_SESSION['update_data'].'</div>';
+							unset($_SESSION['update_data']);
+						}
+					?>
 				</fieldset>
 				
 				<!-- Status -->
@@ -859,9 +868,9 @@
 					<div>
 						<label for="selectStatus">Status zgodności</label>
 						<select name="selectStatus" id="selectStatus">
-							<option value="Zgodna" <?php check_selected('Zgodna',$_session['option_selectStatus']);?> >Zgodna</option>
-							<option value="Częściowo zgodna" <?php check_selected('Częściowo zgodna',$_session['option_selectStatus']);?> >Częściowo zgodna</option>
-							<option value="Niezgodna" <?php check_selected('Niezgodna',$_session['option_selectStatus']);?> >Niezgodna</option>
+							<option value="zgodna" <?php check_selected('Zgodna',$_session['option_selectStatus']);?> >Zgodna</option>
+							<option value="częściowo zgodna" <?php check_selected('Częściowo zgodna',$_session['option_selectStatus']);?> >Częściowo zgodna</option>
+							<option value="niezgodna" <?php check_selected('Niezgodna',$_session['option_selectStatus']);?> >Niezgodna</option>
 						</select>
 					</div>
 					
@@ -924,7 +933,6 @@
 				<fieldset>
 					<legend>Data sporządzenia deklaracji</legend>
 					<div>
-							
 						<div>
 							<label for="yearDateOfMade">Rok</label>
 							<select name="yearDateOfMade" id="yearDateOfMade">
@@ -1035,15 +1043,14 @@
 								<option value="31" <?php check_dayDateOfMade('31',$_session['option_dayDateOfPublication']);?> >31</option>
 							</select>
 						</div>
-						<div>
-							<?php
-								if (isset($_SESSION['publication_data']))
-								{
-									echo '<div class="error">'.$_SESSION['publication_data'].'</div>';
-									unset($_SESSION['publication_data']);
-								}
-							?>
-						</div>
+						
+						<?php
+							if (isset($_SESSION['publication_data']))
+							{
+								echo '<div class="error">'.$_SESSION['publication_data'].'</div>';
+								unset($_SESSION['publication_data']);
+							}
+						?>
 					</div>
 				</fieldset>
 
@@ -1051,18 +1058,16 @@
 				<fieldset>
 					<legend>Przygotowanie deklaracji</legend>
 					<div>
-						<div>
-							<label for="declaration">Deklaracje sporządzona została na podstawie</label>
-						</div>
+						<label for="declaration">Deklaracje sporządzona została na podstawie</label>
 						<select id="declaration" name="declaration">
-							<option value="Samooceny przeprowadzonej przez podmiot publiczny" 
+							<option value="samooceny przeprowadzonej przez podmiot publiczny" 
 								<?php
 									check_declaration('Samooceny przeprowadzonej przez podmiot publiczny',$_session['option_declaration']);
 								?>
 								>Samooceny przeprowadzonej przez podmiot publiczny
 							</option>
 							
-							<option value="Badania przeprowadzonego przez podmiot zewnętrzny" 
+							<option value="badania przeprowadzonego przez podmiot zewnętrzny" 
 								<?php
 									check_declaration('Badania przeprowadzonego przez podmiot zewnętrzny',$_session['option_declaration']);
 								?>
@@ -1092,6 +1097,67 @@
 								?>
 							</div>	
 						</div>
+					</div>
+				</fieldset>
+				
+				<!--Personal date-->
+				<fieldset>
+					<legend>Dane osoby kontaktowej</legend>
+					<div>
+						<label for="contactName">Imię i nazwisko</label>
+						<input type="text" value="<?php
+							if (isset($_SESSION['fr_contactName']))
+							{
+								echo $_SESSION['fr_contactName'];
+								unset($_SESSION['fr_contactName']);
+							}
+							?>" name="contactName" id="contactName" />
+							
+							<?php
+								if (isset($_SESSION['e_contactName']))
+								{
+									echo '<div class="error">'.$_SESSION['e_contactName'].'</div>';
+									unset($_SESSION['e_contactName']);
+								}
+							?>
+					</div>
+					
+					<div>
+						<label for="contactEmail">Adres e-mail</label>
+						<input type="text" value="<?php
+							if (isset($_SESSION['fr_contactEmail']))
+							{
+								echo $_SESSION['fr_contactEmail'];
+								unset($_SESSION['fr_contactEmail']);
+							}
+							?>" name="contactEmail" id="contactEmail" />
+							
+							<?php
+								if (isset($_SESSION['e_contactEmail']))
+								{
+									echo '<div class="error">'.$_SESSION['e_contactEmail'].'</div>';
+									unset($_SESSION['e_contactEmail']);
+								}
+							?>
+					</div>
+					
+					<div>
+						<label for="contactTelephon">Imię i nazwisko</label>
+						<input type="text" value="<?php
+							if (isset($_SESSION['fr_contactTelephon']))
+							{
+								echo $_SESSION['fr_contactTelephon'];
+								unset($_SESSION['fr_contactTelephon']);
+							}
+							?>" name="contactTelephon" id="contactTelephon" />
+							
+							<?php
+								if (isset($_SESSION['e_contactTelephon']))
+								{
+									echo '<div class="error">'.$_SESSION['e_contactTelephon'].'</div>';
+									unset($_SESSION['e_contactTelephon']);
+								}
+							?>
 					</div>
 				</fieldset>
 				

@@ -36,6 +36,10 @@
 		$monthDateOfMade = $_SESSION['s_monthDateOfMade'];
 		$dayDateOfMade = $_SESSION['s_dayDateOfMade'];
 		
+		$contactName = $_SESSION['s_contactName'];
+		$contactEmail = $_SESSION['s_contactEmail'];
+		$contactTelephon = $_SESSION['s_contactTelephon'];
+		
 		$archaccess = $_SESSION['s_archaccess'];
 		$addInformation = $_SESSION['s_addInformation'];
 		
@@ -92,7 +96,7 @@
 			$monthDateOfMade.'-'.
 			$dayDateOfMade.'</time></li>'. 
 			'</ul> '.
-			'<p>Deklarację sporządzono na podstawie'.
+			'<p>Deklarację sporządzono na podstawie '.
 			$declaration.
 			'.</p> ';
 		} else {
@@ -116,7 +120,9 @@
 		
 
 		$KontaktInfo = '<h2 id="a11y-kontakt">Informacje zwrotne i dane kontaktowe</h2> 
-			<p>Za rozpatrywanie uwag i wniosków odpowiada: <span id=”a11y-imię-osoby-kontaktowej”>imie<span><span id=”a11y-nazwisko-osoby-kontaktowej”> nazwisko</span>, e-mail: <span id=”a11y-email-osoby-kontaktowej”> email@osoby.kontaktowej </span>, telefon:<span id+”a11y-telefon-osoby-kontaktowej"> 123123123</span>.</p> 
+			<p>Za rozpatrywanie uwag i wniosków odpowiada: <span id=”a11y-imię-i-nazwisko-osoby-kontaktowej”>'.$contactName.'<span>,
+			 e-mail: <span id=”a11y-email-osoby-kontaktowej”>'.$contactEmail.'</span>, 
+			 telefon:<span id+”a11y-telefon-osoby-kontaktowej">'.$contactTelephon.'</span>.</p> 
 			<p id="a11y-procedura">Każdy ma prawo:</p> 
 			<ul> 
 			<li>zgłosić uwagi dotyczące dostępności cyfrowej strony lub jej elementu,</li> 
