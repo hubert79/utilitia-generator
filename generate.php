@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
-	<input type="button" id="button_1" onclick="location.href='mini.php'" value="Kliknij mnie">
+	<input type="button" id="button_1" onclick="location.href='mini.php'" value="Wersja mini">
 
 	<h1>Wersja podstawowa</h1>
 	<?php
