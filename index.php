@@ -71,7 +71,6 @@
 		
 		// Imposible data
 		
-		
 		if($yearDateOfPublication > $yearDateOfLastUpdate)
 		{
 			$_SESSION['e_imposible_data'] = "Wprowadzono nieprawidłowe daty";
@@ -228,6 +227,10 @@
 			}
 		
 			$_SESSION['fr_linkStatus'] = $linkStatus;
+		} else {
+			$_SESSION['s_contentNotAccessibleStatus'] = "";
+$_SESSION['s_offStatus'] = "";
+$_SESSION['s_linkStatus'] = "";
 		}
 		
 		// Declaration valid
@@ -307,6 +310,9 @@
 			}
 			
 			$_SESSION['fr_linkMobileApp'] = $linkMobileApp;
+		} else {
+			$_SESSION['s_describeMobileApp'] = "";
+			$_SESSION['s_linkMobileApp'] = "";
 		}
 		
 		$_SESSION['fr_mobApp'] = $mobApp;
@@ -1142,7 +1148,7 @@
 					</div>
 					
 					<div>
-						<label for="contactTelephon">Imię i nazwisko</label>
+						<label for="contactTelephon">Telefon</label>
 						<input type="text" value="<?php
 							if (isset($_SESSION['fr_contactTelephon']))
 							{
