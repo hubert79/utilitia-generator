@@ -11,9 +11,7 @@
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
-	<input type="button" id="button_1" onclick="location.href='mini.php'" value="Kliknij mnie">
-
-	<h1>Wersja podstawowa</h1>
+	<h1>Wersja mini</h1>
 	<?php
 		$entityName = $_SESSION['s_entityName'];
 		$serviceName = $_SESSION['s_serviceName'];

@@ -51,7 +51,7 @@ form.addEventListener("submit", e => {
 	
 	//validate selectStatus
 	var x = document.getElementById('selectStatus').value;
-	if(x != 'Zgodna'){
+	if(x != 'zgodna'){
 		if(inContentNotAccessibleStatus .value.length < 1){
 			messageErrors += "Treść niedostępna\n";
 			error = true;

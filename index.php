@@ -868,7 +868,7 @@
 					<div>
 						<label for="selectStatus">Status zgodności</label>
 						<select name="selectStatus" id="selectStatus">
-							<option value="zgodna" <?php check_selected('Zgodna',$_session['option_selectStatus']);?> >Zgodna</option>
+							<option value="zgodna" <?php check_selected('zgodna',$_session['option_selectStatus']);?> >Zgodna</option>
 							<option value="częściowo zgodna" <?php check_selected('Częściowo zgodna',$_session['option_selectStatus']);?> >Częściowo zgodna</option>
 							<option value="niezgodna" <?php check_selected('Niezgodna',$_session['option_selectStatus']);?> >Niezgodna</option>
 						</select>
