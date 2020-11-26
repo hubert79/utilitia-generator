@@ -21,6 +21,7 @@
 		$serviceName = $_POST['serviceName'];
 		$_SESSION['s_serviceName'] = $serviceName;
 							
+		$_SESSION['fr_serviceName'] = $serviceName;
 		
 		// Entity Adress URL valid
 		$entityURLAdress = $_POST['entityURLAdress'];
@@ -39,35 +40,35 @@
 		$_SESSION['s_yearDateOfPublication'] = $yearDateOfPublication;
 		
 		$monthDateOfPublication = $_POST['monthDateOfPublication'];
-		if(monthDateOfPublication < 10){
-			$_SESSION['s_monthDateOfPublication'] = '0'.$monthDateOfPublication;
-		} else {
-			$_SESSION['s_monthDateOfPublication'] = $monthDateOfPublication;
-		}
+			/*if(monthDateOfPublication < 10){
+				$_SESSION['s_monthDateOfPublication'] = '0'.$monthDateOfPublication;
+			} else {*/
+				$_SESSION['s_monthDateOfPublication'] = $monthDateOfPublication;
+			/*}*/
 
 		$dayDateOfPublication = $_POST['dayDateOfPublication'];
-		if(dayDateOfPublication < 10){
+		/*if(dayDateOfPublication < 10){
 			$_SESSION['s_dayDateOfPublication'] = '0'.$dayDateOfPublication;
-		} else {
+		} else {*/
 			$_SESSION['s_dayDateOfPublication'] = $dayDateOfPublication;
-		}
+		/*}*/
 
 		$yearDateOfLastUpdate = $_POST['yearDateOfLastUpdate'];
 		$_SESSION['s_yearDateOfLastUpdate'] = $yearDateOfLastUpdate;
 		
 		$monthDateOfLastUpdate = $_POST['monthDateOfLastUpdate'];
-		if(monthDateOfLastUpdate < 10){
+		/*if(monthDateOfLastUpdate < 10){
 			$_SESSION['s_monthDateOfLastUpdate'] = '0'.$monthDateOfLastUpdate;
-		} else {
+		} else {*/
 			$_SESSION['s_monthDateOfLastUpdate'] = $monthDateOfLastUpdate;
-		}
+		/*}*/
 		
 		$dayDateOfLastUpdate = $_POST['dayDateOfLastUpdate'];
-		if(dayDateOfLastUpdate < 10){
+		/*if(dayDateOfLastUpdate < 10){
 			$_SESSION['s_dayDateOfLastUpdate'] = '0'.$dayDateOfLastUpdate;
-		} else {
+		} else {*/
 			$_SESSION['s_dayDateOfLastUpdate'] = $dayDateOfLastUpdate;
-		}
+		/*}*/
 		
 		// Imposible data
 		
@@ -281,7 +282,7 @@ $_SESSION['s_linkStatus'] = "";
 			$_SESSION['e_archaccess']="Wprowadź informacje dot. dostępności architektonicznej!";
 		}
 		
-		$_SESSION['fr_entityURLAdress'] = $entityURLAdress;
+		$_SESSION['fr_archaccess'] = $archaccess;
 		
 		// Mobile application valid
 		$mobApp = $_POST['mobApp'];
@@ -563,14 +564,14 @@ $_SESSION['s_linkStatus'] = "";
 				<fieldset>
 					<legend>Dane podmiotu i strony</legend>
 					<div>
-						<label for="entityName">Nazwa podmiotu</label>
+						<label for="entityName">*Nazwa podmiotu (wymagane)</label>
 						<input type="text" value="<?php
 							if (isset($_SESSION['fr_entityName']))
 							{
 								echo $_SESSION['fr_entityName'];
 								unset($_SESSION['fr_entityName']);
 							}
-							?>" name="entityName" id="entityName"
+							?>" name="entityName" id="entityName" required
 							placeholder="Należy wpisać nazwę podmiotu, który jest właścicielem strony."  />
 							
 							<?php
@@ -583,14 +584,14 @@ $_SESSION['s_linkStatus'] = "";
 					</div>
 					
 					<div>
-						<label for="serviceName">Nazwa strony internetowej</label>
+						<label for="serviceName">*Nazwa strony internetowej (wymagane)</label>
 						<input type="text" value="<?php
 							if (isset($_SESSION['fr_serviceName']))
 							{
 								echo $_SESSION['fr_serviceName'];
 								unset($_SESSION['fr_serviceName']);
 							}
-							?>" name="serviceName" id="serviceName"
+							?>" name="serviceName" id="serviceName" required
 							placeholder="Należy wpisać nazwę serwisu internetowego, którego dotyczy deklaracja."							/>
 							
 							<?php
@@ -603,14 +604,14 @@ $_SESSION['s_linkStatus'] = "";
 					</div>
 					
 					<div>
-						<label for="entityURLAdress">Adres URL podmiotu</label>
+						<label for="entityURLAdress">*Adres URL podmiotu (wymagane)</label>
 						<input type="url" value="<?php
 							if (isset($_SESSION['fr_entityURLAdress']))
 							{
 								echo $_SESSION['fr_entityURLAdress'];
 								unset($_SESSION['fr_entityURLAdress']);
 							}
-							?>" name="entityURLAdress" id="entityURLAdress"
+							?>" name="entityURLAdress" id="entityURLAdress" required
 							placeholder="Należy wpisać adres URL strony internetowej, której dotyczy deklaracja."	/>
 							
 							<?php
@@ -637,7 +638,7 @@ $_SESSION['s_linkStatus'] = "";
 								
 						<div>
 							<label for="yearDateOfPublication">Rok</label>
-							<select name="yearDateOfPublication" id="yearDateOfPublication">
+							<select name="yearDateOfPublication" id="yearDateOfPublication" required >
 								<option value="1980" <?php check_yearDateOfPublication('1980',$_session['option_yearDateOfPublication']);?> >1980</option>
 								<option value="1981" <?php check_yearDateOfPublication('1981',$_session['option_yearDateOfPublication']);?> >1981</option>
 								<option value="1982" <?php check_yearDateOfPublication('1982',$_session['option_yearDateOfPublication']);?> >1982</option>
@@ -687,7 +688,7 @@ $_SESSION['s_linkStatus'] = "";
 								
 						<div>
 							<label for="monthDateOfPublication">Miesiąc</label>
-							<select name="monthDateOfPublication" id="monthDateOfPublication">
+							<select name="monthDateOfPublication" id="monthDateOfPublication" required >
 								<option value="1" <?php check_monthDateOfPublication('1',$_session['option_monthDateOfPublication']);?> >styczeń</option>
 								<option value="2" <?php check_monthDateOfPublication('2',$_session['option_monthDateOfPublication']);?> >Luty</option>
 								<option value="3" <?php check_monthDateOfPublication('3',$_session['option_monthDateOfPublication']);?> >marzec</option>
@@ -705,7 +706,7 @@ $_SESSION['s_linkStatus'] = "";
 								
 						<div>
 							<label for="dayDateOfPublication">Dzień</label>
-							<select name="dayDateOfPublication" id="dayDateOfPublication">
+							<select name="dayDateOfPublication" id="dayDateOfPublication" required >
 								<option value="1" <?php check_dayDateOfPublication('1',$_session['option_dayDateOfPublication']);?> >01</option>
 								<option value="2" <?php check_dayDateOfPublication('2',$_session['option_dayDateOfPublication']);?> >02</option>
 								<option value="3" <?php check_dayDateOfPublication('3',$_session['option_dayDateOfPublication']);?> >03</option>
@@ -1152,7 +1153,7 @@ $_SESSION['s_linkStatus'] = "";
 					<div>
 					<label for="contactEmail">Adres e-mail</label>
 						<div>
-							<input type="text" value="<?php
+							<input type="email" value="<?php
 								if (isset($_SESSION['fr_contactEmail']))
 								{
 									echo $_SESSION['fr_contactEmail'];
@@ -1174,7 +1175,7 @@ $_SESSION['s_linkStatus'] = "";
 					<div>
 					<label for="contactTelephon">Telefon</label>
 						<div>
-							<input type="text" value="<?php
+							<input type="tel" value="<?php
 								if (isset($_SESSION['fr_contactTelephon']))
 								{
 									echo $_SESSION['fr_contactTelephon'];
@@ -1196,11 +1197,11 @@ $_SESSION['s_linkStatus'] = "";
 				
 				<!-- Arch access -->
 				<fieldset>
-					<legend>Dostępność architektoniczna</legend>
+					<legend>Dostępność architektoniczna (wymagane)</legend>
 					<div>
 						<label for="archaccess">Dostępność architektoniczna</label>
 						<div>
-							<textarea id="archaccess" name="archaccess" cols="25" rows="4"
+							<textarea id="archaccess" name="archaccess" cols="25" rows="4" required
 							placeholder="Należy opisać dostępność architektoniczną" ><?php
 								if (isset($_SESSION['fr_archaccess']))
 								{

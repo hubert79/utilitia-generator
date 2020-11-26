@@ -20,12 +20,32 @@
 		$entityURLAdress = $_SESSION['s_entityURLAdress'];
 			
 		$yearDateOfPublication = $_SESSION['s_yearDateOfPublication'];
-		$monthDateOfPublication = $_SESSION['s_monthDateOfPublication'];
-		$dayDateOfPublication = $_SESSION['s_dayDateOfPublication'];
+		if($_SESSION['s_monthDateOfPublication'] < 10){
+			$monthDateOfPublication = '0'.$_SESSION['s_monthDateOfPublication'];
+		} else {
+			$monthDateOfPublication = $_SESSION['s_monthDateOfPublication'];
+		}
+		/*$monthDateOfPublication = $_SESSION['s_monthDateOfPublication'];*/
+		if($_SESSION['s_dayDateOfPublication'] < 10){
+			$dayDateOfPublication = '0'.$_SESSION['s_dayDateOfPublication'];
+		} else {
+			$dayDateOfPublication = $_SESSION['s_dayDateOfPublication'];
+		}
+		/*$dayDateOfPublication = $_SESSION['s_dayDateOfPublication'];*/
 			
 		$yearDateOfLastUpdate = $_SESSION['s_yearDateOfLastUpdate'];
-		$monthDateOfLastUpdate = $_SESSION['s_monthDateOfLastUpdate'];
-		$dayDateOfLastUpdate = $_SESSION['s_dayDateOfLastUpdate'];
+		if($_SESSION['s_monthDateOfLastUpdate'] < 10){
+			$monthDateOfLastUpdate = '0'.$_SESSION['s_monthDateOfLastUpdate'];
+		} else {
+			$monthDateOfLastUpdate = $_SESSION['s_monthDateOfLastUpdate'];
+		}
+		/*$monthDateOfLastUpdate = $_SESSION['s_monthDateOfLastUpdate'];*/
+		if($_SESSION['s_dayDateOfLastUpdate'] < 10){
+			$dayDateOfLastUpdate = '0'.$_SESSION['s_dayDateOfLastUpdate'];
+		} else {
+			$dayDateOfLastUpdate = $_SESSION['s_dayDateOfLastUpdate'];
+		}
+		/*$dayDateOfLastUpdate = $_SESSION['s_dayDateOfLastUpdate'];*/
 			
 		$selectStatus = $_SESSION['s_selectStatus'];
 		$contentNotAccessibleStatus = $_SESSION['s_contentNotAccessibleStatus'];
