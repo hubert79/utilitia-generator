@@ -322,11 +322,11 @@ $_SESSION['s_linkStatus'] = "";
 		$addInformation = $_POST['addInformation'];
 		$_SESSION['s_addInformation'] = $addInformation;
 		
-		if (strlen($addInformation) < 1)
+		/*if (strlen($addInformation) < 1)
 		{
 			$valid_result=false;
 			$_SESSION['e_addInformation']="Wprowadź informacje dodatkowe!";
-		}
+		}*/
 		
 		$_SESSION['fr_addInformation'] = $addInformation;
 		
@@ -564,15 +564,16 @@ $_SESSION['s_linkStatus'] = "";
 				<fieldset>
 					<legend>Dane podmiotu i strony</legend>
 					<div>
-						<label for="entityName">*Nazwa podmiotu (wymagane)</label>
+						<label for="entityName">Nazwa podmiotu *</label>
 						<input type="text" value="<?php
 							if (isset($_SESSION['fr_entityName']))
 							{
 								echo $_SESSION['fr_entityName'];
 								unset($_SESSION['fr_entityName']);
 							}
-							?>" name="entityName" id="entityName" required
-							placeholder="Należy wpisać nazwę podmiotu, który jest właścicielem strony."  />
+							?>" name="entityName" id="entityName" required="required"
+							aria-describedby="entityNameHelp"
+							data-error="Musisz podać nazwę podmiotu" />
 							
 							<?php
 								if (isset($_SESSION['e_entityName']))
@@ -582,17 +583,19 @@ $_SESSION['s_linkStatus'] = "";
 								}
 							?>
 					</div>
+					<small id="entityNameHelp" aria-hidden="true" >Wpisz oficjalną nazwę podmiotu, który publikuje deklarację.</small>
 					
 					<div>
-						<label for="serviceName">*Nazwa strony internetowej (wymagane)</label>
+						<label for="serviceName">*Nazwa strony internetowej</label>
 						<input type="text" value="<?php
 							if (isset($_SESSION['fr_serviceName']))
 							{
 								echo $_SESSION['fr_serviceName'];
 								unset($_SESSION['fr_serviceName']);
 							}
-							?>" name="serviceName" id="serviceName" required
-							placeholder="Należy wpisać nazwę serwisu internetowego, którego dotyczy deklaracja."							/>
+							?>" name="serviceName" id="serviceName" required="required"
+							aria-describedby="serviceNameHelp"
+							data-error="Musisz podać nazwę strony internetowej" 							/>
 							
 							<?php
 								if (isset($_SESSION['e_serviceName']))
@@ -602,9 +605,10 @@ $_SESSION['s_linkStatus'] = "";
 								}
 							?>
 					</div>
+					<small id="serviceNameHelp" aria-hidden="true" >Wpisz oficjalną nazwę strony internetowej.</small>
 					
 					<div>
-						<label for="entityURLAdress">*Adres URL podmiotu (wymagane)</label>
+						<label for="entityURLAdress">*Adres URL podmiotu</label>
 						<input type="url" value="<?php
 							if (isset($_SESSION['fr_entityURLAdress']))
 							{
@@ -612,7 +616,9 @@ $_SESSION['s_linkStatus'] = "";
 								unset($_SESSION['fr_entityURLAdress']);
 							}
 							?>" name="entityURLAdress" id="entityURLAdress" required
-							placeholder="Należy wpisać adres URL strony internetowej, której dotyczy deklaracja."	/>
+							aria-describedby="entityURLAdresHelps"
+							data-error="Musisz podać adres strony internetowej"	
+							/>
 							
 							<?php
 								if (isset($_SESSION['e_entityURLAdress']))
@@ -622,6 +628,7 @@ $_SESSION['s_linkStatus'] = "";
 								}
 							?>
 					</div>
+					<small id="entityURLAdresHelps" aria-hidden="true" >Wpisz adres strony internetowej.</small>
 				</fieldset>
 				
 				<!-- Data of publication -->

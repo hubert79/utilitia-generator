@@ -45,9 +45,9 @@
 		} else {
 			$dayDateOfLastUpdate = $_SESSION['s_dayDateOfLastUpdate'];
 		}
+
 		/*$dayDateOfLastUpdate = $_SESSION['s_dayDateOfLastUpdate'];*/
-			
-		$selectStatus = $_SESSION['s_selectStatus'];
+ 		$selectStatus = $_SESSION['s_selectStatus'];
 		$contentNotAccessibleStatus = $_SESSION['s_contentNotAccessibleStatus'];
 		$offStatus = $_SESSION['s_offStatus'];
 		$linkStatus = $_SESSION['s_linkStatus'];
@@ -69,10 +69,23 @@
 		$describeMobileApp = $_SESSION['s_describeMobileApp'];
 		$linkMobileApp = $_SESSION['s_linkMobileApp'];
 		
-		$generalInfo = '<h1 id="a11y-deklaracja">Deklaracja dostępności</h1>'.'<h2>Informacje ogólne</2>'.
-			'<p id="a11y-informacje_ogolne"><span id="a11y-podmiot">'.$entityName.'</span> zobowiązuje się zapewnić dostępność swojej strony internetowej zgodnie z przepisami ustawy z dnia 4 kwietnia 2019 r. o dostępności cyfrowej stron internetowych i aplikacji mobilnych podmiotów publicznych. Oświadczenie w sprawie dostępności ma zastosowanie do strony internetowej '.
-			'<a id="a11y-url" href="'.$entityURLAdress.'">'.$serviceName.'</a>.</p>'.
-			'<ul>'.
+		$generalInfo = '<h1 id="a11y-deklaracja">Deklaracja dostępności</h1>
+		
+'.'	<h2>Informacje ogólne</2>
+
+'.'		<p id="a11y-informacje_ogólne">
+			<span id="a11y-podmiot">'.$entityName.'</span> zobowiązuje
+			się zapewnić dostępność swojej strony
+			internetowej zgodnie z przepisami ustawy z
+			dnia 4 kwietnia 2019 r. o dostępności cyfrowej
+			stron internetowych i aplikacji mobilnych
+			podmiotów publicznych. Oświadczenie w sprawie
+			dostępności ma zastosowanie do strony
+			internetowej
+			'.
+			'<a id="a11y-url" href="'.$entityURLAdress.'">'.$serviceName.'</a>.
+		'.'</p>
+			'.'<ul>'.
 			'<li>Data publikacji strony internetowej:'. 
 			'<time id="a11y-data-publikacja" datetime="'.
 			$yearDateOfPublication.'-'.$monthDateOfPublication.'-'.$dayDateOfPublication.'">'.
@@ -176,9 +189,7 @@
 
 			
 	?>
-	<textarea>
-		<?php
-			
+	<textarea cols="70" rows="45"><?php
 			
 			$deklaracja = $generalInfo.$statusInfo.
 			$preInfo.$KontaktInfo.$amInfo.$prawoInfo;
