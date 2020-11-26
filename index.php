@@ -570,7 +570,8 @@ $_SESSION['s_linkStatus'] = "";
 								echo $_SESSION['fr_entityName'];
 								unset($_SESSION['fr_entityName']);
 							}
-							?>" name="entityName" id="entityName" />
+							?>" name="entityName" id="entityName"
+							placeholder="Należy wpisać nazwę podmiotu, który jest właścicielem strony."  />
 							
 							<?php
 								if (isset($_SESSION['e_entityName']))
@@ -589,7 +590,8 @@ $_SESSION['s_linkStatus'] = "";
 								echo $_SESSION['fr_serviceName'];
 								unset($_SESSION['fr_serviceName']);
 							}
-							?>" name="serviceName" id="serviceName" />
+							?>" name="serviceName" id="serviceName"
+							placeholder="Należy wpisać nazwę serwisu internetowego, którego dotyczy deklaracja."							/>
 							
 							<?php
 								if (isset($_SESSION['e_serviceName']))
@@ -608,7 +610,8 @@ $_SESSION['s_linkStatus'] = "";
 								echo $_SESSION['fr_entityURLAdress'];
 								unset($_SESSION['fr_entityURLAdress']);
 							}
-							?>" name="entityURLAdress" id="entityURLAdress" />
+							?>" name="entityURLAdress" id="entityURLAdress"
+							placeholder="Należy wpisać adres URL strony internetowej, której dotyczy deklaracja."	/>
 							
 							<?php
 								if (isset($_SESSION['e_entityURLAdress']))
@@ -884,7 +887,8 @@ $_SESSION['s_linkStatus'] = "";
 						<div>
 						<label for="contentNotAccessibleStatus">Treść niedostępna</label>
 							<div>
-								<textarea id="contentNotAccessibleStatus" name="contentNotAccessibleStatus"><?php
+								<textarea id="contentNotAccessibleStatus" name="contentNotAccessibleStatus" cols="25" rows="4"
+								placeholder="Należy wpisać treści niedostępne prezentowane na stronie, której dotyczy deklaracja." ><?php
 									if (isset($_SESSION['fr_contentNotAccessibleStatus']))
 									{
 										echo $_SESSION['fr_contentNotAccessibleStatus'];
@@ -905,7 +909,8 @@ $_SESSION['s_linkStatus'] = "";
 						<div>
 						<label for="offStatus">Wyłączenia</label>
 							<div>
-								<textarea id="offStatus" name="offStatus"><?php
+								<textarea id="offStatus" name="offStatus" cols="25" rows="4"
+								placeholder="Należy wpisać treści ustawowo zwolnione z dostępności" ><?php
 									if (isset($_SESSION['fr_offStatus']))
 									{
 										echo $_SESSION['fr_offStatus'];
@@ -930,7 +935,7 @@ $_SESSION['s_linkStatus'] = "";
 								echo $_SESSION['fr_linkStatus'];
 								unset($_SESSION['fr_linkStatus']);
 							}
-						?>" name="linkStatus" /></div>
+						?>" name="linkStatus" placeholder="Należy wpisać adres URL do strony udostępniającej treści niedostępne w postaci alternatywnej." /></div>
 									
 						<?php
 							if (isset($_SESSION['e_linkStatus']))
@@ -1104,7 +1109,8 @@ $_SESSION['s_linkStatus'] = "";
 										echo $_SESSION['fr_nameExtermalEntity'];
 										unset($_SESSION['fr_nameExtermalEntity']);
 									}
-								?>"  name="nameExtermalEntity" />
+								?>"  name="nameExtermalEntity"
+								placeholder="Należy wpisać nazwę podmiotu zewnętrznego oceniającego dostępność strony internetowej." />
 									
 								<?php
 									if (isset($_SESSION['e_nameExtermalEntity']))
@@ -1130,7 +1136,8 @@ $_SESSION['s_linkStatus'] = "";
 								echo $_SESSION['fr_contactName'];
 								unset($_SESSION['fr_contactName']);
 							}
-							?>" name="contactName" id="contactName" />
+							?>" name="contactName" id="contactName" 
+							placeholder="Należy wpisać imię i nazwisko osoby odpowiedzialnej za kontakt w sprawie dostępności strony internetowej." />
 							
 							<?php
 								if (isset($_SESSION['e_contactName']))
@@ -1151,7 +1158,8 @@ $_SESSION['s_linkStatus'] = "";
 									echo $_SESSION['fr_contactEmail'];
 									unset($_SESSION['fr_contactEmail']);
 								}
-								?>" name="contactEmail" id="contactEmail" />
+								?>" name="contactEmail" id="contactEmail" 
+								placeholder="Należy wpisać adres e-mail osoby odpowiedzialnej za kontakt w sprawie dostępności strony internetowej."  />
 							
 								<?php
 									if (isset($_SESSION['e_contactEmail']))
@@ -1172,7 +1180,8 @@ $_SESSION['s_linkStatus'] = "";
 									echo $_SESSION['fr_contactTelephon'];
 									unset($_SESSION['fr_contactTelephon']);
 								}
-								?>" name="contactTelephon" id="contactTelephon" />
+								?>" name="contactTelephon" id="contactTelephon"
+								placeholder="Należy wpisać telefon osoby odpowiedzialnej za kontakt w sprawie dostępności strony internetowej." />
 							
 								<?php
 									if (isset($_SESSION['e_contactTelephon']))
@@ -1191,7 +1200,8 @@ $_SESSION['s_linkStatus'] = "";
 					<div>
 						<label for="archaccess">Dostępność architektoniczna</label>
 						<div>
-							<textarea id="archaccess" name="archaccess"><?php
+							<textarea id="archaccess" name="archaccess" cols="25" rows="4"
+							placeholder="Należy opisać dostępność architektoniczną" ><?php
 								if (isset($_SESSION['fr_archaccess']))
 								{
 									echo $_SESSION['fr_archaccess'];
@@ -1225,7 +1235,8 @@ $_SESSION['s_linkStatus'] = "";
 						<div>
 						<label for="describeMobileApp">Opis</label>
 							<div>
-								<textarea id="describeMobileApp" name="describeMobileApp"><?php
+								<textarea id="describeMobileApp" name="describeMobileApp" cols="25" rows="4"
+								placeholder="Należy wpisać opis aplikacji mobilnej" ><?php
 									if (isset($_SESSION['fr_describeMobileApp']))
 									{
 										echo $_SESSION['fr_describeMobileApp'];
@@ -1252,7 +1263,8 @@ $_SESSION['s_linkStatus'] = "";
 										echo $_SESSION['fr_linkMobileApp'];
 										unset($_SESSION['fr_linkMobileApp']);
 									}
-								?>" name="linkMobileApp" /></div>
+								?>" name="linkMobileApp"
+								placeholder="Należy wpisać adres URL udostępniający aplikacje mobilną" /></div>
 									
 								<?php
 									if (isset($_SESSION['e_linkMobileApp']))
@@ -1271,7 +1283,8 @@ $_SESSION['s_linkStatus'] = "";
 					<div>
 						<label for="addInformation">Informacje dodatkowe</label>
 						<div>
-							<textarea id="addInformation" name="addInformation"><?php
+							<textarea id="addInformation" name="addInformation" cols="25" rows="4"
+							placeholder="Pole do wpisania dowolnych informacji dotyczących strony internetowej." ><?php
 								if (isset($_SESSION['fr_addInformation']))
 								{
 									echo $_SESSION['fr_addInformation'];

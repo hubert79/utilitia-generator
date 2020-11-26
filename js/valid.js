@@ -123,7 +123,7 @@ form.addEventListener("submit", e => {
 		form.submit();
 	}
 	else {
-		alert(messageErrors);
+		form.submit();
 	}
 	
 });
