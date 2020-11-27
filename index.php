@@ -896,7 +896,8 @@ $_SESSION['s_linkStatus'] = "";
 						<label for="contentNotAccessibleStatus">Treść niedostępna</label>
 							<div>
 								<textarea id="contentNotAccessibleStatus" name="contentNotAccessibleStatus" cols="25" rows="4"
-								placeholder="Należy wpisać treści niedostępne prezentowane na stronie, której dotyczy deklaracja." ><?php
+								aria-describedby="contentNotAccessibleStatusHelp"
+								data-error="Musisz wpisać treść niedostępną" ><?php
 									if (isset($_SESSION['fr_contentNotAccessibleStatus']))
 									{
 										echo $_SESSION['fr_contentNotAccessibleStatus'];
@@ -913,12 +914,13 @@ $_SESSION['s_linkStatus'] = "";
 								?>
 							</div>
 						</div>
+						<small id="contentNotAccessibleStatusHelp" aria-hidden="true" >Wpisz treść  niedostępną.</small>
 									
 						<div>
 						<label for="offStatus">Wyłączenia</label>
 							<div>
 								<textarea id="offStatus" name="offStatus" cols="25" rows="4"
-								placeholder="Należy wpisać treści ustawowo zwolnione z dostępności" ><?php
+								aria-describedby="offStatusHelp" ><?php
 									if (isset($_SESSION['fr_offStatus']))
 									{
 										echo $_SESSION['fr_offStatus'];
@@ -935,23 +937,29 @@ $_SESSION['s_linkStatus'] = "";
 								?>
 							</div>
 						</div>
-									
-						<label for="linkStatus">Link</label>
-						<input type="url" id="linkStatus" value="<?php
+						<small id="offStatusHelp" aria-hidden="true" >Wpisz treści ustawowo zwolnione z dostępności.</small>
+						
+						<div>
+							<label for="linkStatus">Link</label>
+							<input type="url" id="linkStatus" value="<?php
 							if (isset($_SESSION['fr_linkStatus']))
 							{
 								echo $_SESSION['fr_linkStatus'];
 								unset($_SESSION['fr_linkStatus']);
 							}
-						?>" name="linkStatus" placeholder="Należy wpisać adres URL do strony udostępniającej treści niedostępne w postaci alternatywnej." /></div>
-									
+						?>" name="linkStatus" aria-describedby="linkStatusHelp"
+						data-error="Musisz wpisać link do strony z dostępnymi treściami" />
+						
 						<?php
-							if (isset($_SESSION['e_linkStatus']))
-							{
-								echo '<div class="error">'.$_SESSION['e_linkStatus'].'</div>';
-								unset($_SESSION['e_linkStatus']);
-							}
-						?>		
+								if (isset($_SESSION['e_linkStatus']))
+								{
+									echo '<div class="error">'.$_SESSION['e_linkStatus'].'</div>';
+									unset($_SESSION['e_linkStatus']);
+								}
+							?>
+						</div>
+						</div>
+						<small id="linkStatusHelp" aria-hidden="true" >Wpisz adres URL strony zawierającej dostępne treści.</small>
 					
 				</fieldset>
 
@@ -1118,7 +1126,8 @@ $_SESSION['s_linkStatus'] = "";
 										unset($_SESSION['fr_nameExtermalEntity']);
 									}
 								?>"  name="nameExtermalEntity"
-								placeholder="Należy wpisać nazwę podmiotu zewnętrznego oceniającego dostępność strony internetowej." />
+								aria-describedby="nameExtermalEntityHelp" 
+								data-error="Należy podać nazwę podmiotu oceniającego dostępność strony."/>
 									
 								<?php
 									if (isset($_SESSION['e_nameExtermalEntity']))
@@ -1129,6 +1138,7 @@ $_SESSION['s_linkStatus'] = "";
 								?>
 							</div>	
 						</div>
+						<small id="nameExtermalEntityHelp" aria-hidden="true">Wpisz nazwę podmiotu wykonującą oceniającego dostępność strony.</small>
 					</div>
 				</fieldset>
 				
@@ -1145,7 +1155,8 @@ $_SESSION['s_linkStatus'] = "";
 								unset($_SESSION['fr_contactName']);
 							}
 							?>" name="contactName" id="contactName" 
-							placeholder="Należy wpisać imię i nazwisko osoby odpowiedzialnej za kontakt w sprawie dostępności strony internetowej." />
+							aria-describedby="contactNameHelp"
+							data-error="Musisz podać imię i nazwisko osoby kontaktowej" />
 							
 							<?php
 								if (isset($_SESSION['e_contactName']))
@@ -1155,6 +1166,7 @@ $_SESSION['s_linkStatus'] = "";
 								}
 							?>
 						</div>
+						<small id="contactNameHelp" aria-hidden="true">Wpisz imię i nazwisko osoby kontaktowej w sprawie dostępności.</small>
 					</div>
 					
 					<div>
@@ -1167,7 +1179,8 @@ $_SESSION['s_linkStatus'] = "";
 									unset($_SESSION['fr_contactEmail']);
 								}
 								?>" name="contactEmail" id="contactEmail" 
-								placeholder="Należy wpisać adres e-mail osoby odpowiedzialnej za kontakt w sprawie dostępności strony internetowej."  />
+								aria-describedby="contactEmailHelp"
+								data-error="Prosze wpisać adres e-mail osoby kontaktowej." />
 							
 								<?php
 									if (isset($_SESSION['e_contactEmail']))
@@ -1177,6 +1190,7 @@ $_SESSION['s_linkStatus'] = "";
 									}
 								?>
 							</div>
+							<small id="contactEmailHelp" aria-hidden="true">Wprowadź adres email osoby kontaktowej.</small>
 					</div>
 					
 					<div>
@@ -1189,7 +1203,8 @@ $_SESSION['s_linkStatus'] = "";
 									unset($_SESSION['fr_contactTelephon']);
 								}
 								?>" name="contactTelephon" id="contactTelephon"
-								placeholder="Należy wpisać telefon osoby odpowiedzialnej za kontakt w sprawie dostępności strony internetowej." />
+								aria-describedby="contactTelephonHelp"
+								data-error="Proszę wprowadzić telefon kontaktowy" />
 							
 								<?php
 									if (isset($_SESSION['e_contactTelephon']))
@@ -1199,6 +1214,7 @@ $_SESSION['s_linkStatus'] = "";
 									}
 								?>
 							</div>
+							<small id="contactTelephonHelp" aria-hidden="true">Wprowadż telefon kontaktowy osoby odpowiedzialnej za dostępność.</small>
 					</div>
 				</fieldset>
 				
@@ -1209,7 +1225,8 @@ $_SESSION['s_linkStatus'] = "";
 						<label for="archaccess">Dostępność architektoniczna</label>
 						<div>
 							<textarea id="archaccess" name="archaccess" cols="25" rows="4" required
-							placeholder="Należy opisać dostępność architektoniczną" ><?php
+							aria-describedby="archaccessHelp"
+							data-error="Prosze opisać dostępność architektoniczną"><?php
 								if (isset($_SESSION['fr_archaccess']))
 								{
 									echo $_SESSION['fr_archaccess'];
@@ -1225,7 +1242,8 @@ $_SESSION['s_linkStatus'] = "";
 								}
 							?>
 						</div>
-					</div>
+						<small id="archaccessHelp" aria-hidden="true">Opisz dostępność architektoniczną</small>
+					</div
 				</fieldset>
 				
 				<!-- Mobile application -->
@@ -1244,7 +1262,8 @@ $_SESSION['s_linkStatus'] = "";
 						<label for="describeMobileApp">Opis</label>
 							<div>
 								<textarea id="describeMobileApp" name="describeMobileApp" cols="25" rows="4"
-								placeholder="Należy wpisać opis aplikacji mobilnej" ><?php
+								aria-describedby="describeMobileAppHelp"
+								data-error="P\Należy wpisać opis aplikacji mobilnej"><?php
 									if (isset($_SESSION['fr_describeMobileApp']))
 									{
 										echo $_SESSION['fr_describeMobileApp'];
@@ -1260,6 +1279,7 @@ $_SESSION['s_linkStatus'] = "";
 									}
 								?>
 							</div>
+							<small id="describeMobileAppHelp" aria-hidden="true">Wpisz opis aplikacji mobilnej</small>
 						</div>
 						
 						<div>
@@ -1272,7 +1292,8 @@ $_SESSION['s_linkStatus'] = "";
 										unset($_SESSION['fr_linkMobileApp']);
 									}
 								?>" name="linkMobileApp"
-								placeholder="Należy wpisać adres URL udostępniający aplikacje mobilną" /></div>
+								aria-describedby="linkMobileAppHelp"
+								data-error="Wpisz adres URL" /></div>
 									
 								<?php
 									if (isset($_SESSION['e_linkMobileApp']))
@@ -1282,6 +1303,7 @@ $_SESSION['s_linkStatus'] = "";
 									}
 								?>
 							</div>
+							<small id="linkMobileAppHelp" aria-hidden="true">Wpisz adres URL z którego można pobrak aplikację.</small>
 						</div>
 				</fieldset>
 				
@@ -1292,7 +1314,8 @@ $_SESSION['s_linkStatus'] = "";
 						<label for="addInformation">Informacje dodatkowe</label>
 						<div>
 							<textarea id="addInformation" name="addInformation" cols="25" rows="4"
-							placeholder="Pole do wpisania dowolnych informacji dotyczących strony internetowej." ><?php
+							arida-describedby="addInformationHelp"
+							data-error="Wpisz informacje dodatkowe"><?php
 								if (isset($_SESSION['fr_addInformation']))
 								{
 									echo $_SESSION['fr_addInformation'];
@@ -1308,6 +1331,7 @@ $_SESSION['s_linkStatus'] = "";
 								}
 							?>
 						</div>
+						<small id="addInformationHelp" aria-hidden="true" >Wpisz informacje dodatkowe</small>
 					</div>
 				</fieldset>
 			
