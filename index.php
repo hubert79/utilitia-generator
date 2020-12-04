@@ -12,7 +12,7 @@
 		if (strlen($entityName) < 1)
 		{
 			$valid_result=false;
-			$_SESSION['e_entityName']="Wprowadź nazwę swojej firmy!";
+			$_SESSION['e_entityName']="Wprowadź nazwę swojej instytucji!";
 		}
 		
 		$_SESSION['fr_entityName'] = $entityName;
@@ -24,7 +24,7 @@
 		if (strlen($serviceNames) < 1)
 		{
 			$valid_result=false;
-			$_SESSION['e_serviceName']="Wprowadź nazwę strony internetowej swojej firmy!";
+			$_SESSION['e_serviceName']="Wprowadź nazwę strony internetowej swojej instytucji!";
 		}
 		
 		$_SESSION['fr_serviceName'] = $serviceName;
@@ -36,7 +36,7 @@
 		if (strlen($entityURLAdress) < 1)
 		{
 			$valid_result=false;
-			$_SESSION['e_entityURLAdress']="Wprowadź adres URL swojej firmy!";
+			$_SESSION['e_entityURLAdress']="Wprowadź adres URL swojej instytucji!";
 		}
 		
 		$_SESSION['fr_entityURLAdress'] = $entityURLAdress;
