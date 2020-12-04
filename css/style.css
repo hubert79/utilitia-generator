@@ -108,6 +108,12 @@ form input[type="submit"]:focus {
 	background-color: #fed74d;
 }
 
+.error {
+	margin-top: .5em;
+	font-weight: 600;
+	color: #e60000;
+}
+
 .status-is-hidden {
 	display: none;
 }
