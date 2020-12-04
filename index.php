@@ -20,9 +20,15 @@
 		//Service Name
 		$serviceName = $_POST['serviceName'];
 		$_SESSION['s_serviceName'] = $serviceName;
-							
-		$_SESSION['fr_serviceName'] = $serviceName;
 		
+		if (strlen($serviceNames) < 1)
+		{
+			$valid_result=false;
+			$_SESSION['e_serviceName']="Wprowadź nazwę strony internetowej swojej firmy!";
+		}
+		
+		$_SESSION['fr_serviceName'] = $serviceName;
+
 		// Entity Adress URL valid
 		$entityURLAdress = $_POST['entityURLAdress'];
 		$_SESSION['s_entityURLAdress'] = $entityURLAdress;
