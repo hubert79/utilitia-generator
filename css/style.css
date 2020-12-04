@@ -75,9 +75,13 @@ form label {
 }
 
 form input,
-form textarea,
-form select {
+form textarea {
 	width: 100%;
+	max-width: 800px;
+	padding: 8px;
+}
+
+form select {
 	max-width: 800px;
 	padding: 8px;
 }
