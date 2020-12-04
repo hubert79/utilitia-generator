@@ -578,14 +578,14 @@ $_SESSION['s_linkStatus'] = "";
 								echo $_SESSION['fr_entityName'];
 								unset($_SESSION['fr_entityName']);
 							}
-							?>" name="entityName" id="entityName" required="required"
+							?>" name="entityName" id="entityName"
 							aria-describedby="entityNameHelp"
 							data-error="Musisz podać nazwę podmiotu" />
 							
 							<?php
 								if (isset($_SESSION['e_entityName']))
 								{
-									echo '<div class="error">'.$_SESSION['e_entityName'].'</div>';
+									echo '<div class="error" role="alert">'.$_SESSION['e_entityName'].'</div>';
 									unset($_SESSION['e_entityName']);
 								}
 							?>
@@ -602,14 +602,14 @@ $_SESSION['s_linkStatus'] = "";
 								echo $_SESSION['fr_serviceName'];
 								unset($_SESSION['fr_serviceName']);
 							}
-							?>" name="serviceName" id="serviceName" required="required"
+							?>" name="serviceName" id="serviceName"
 							aria-describedby="serviceNameHelp"
 							data-error="Musisz podać nazwę strony internetowej" 							/>
 							
 							<?php
 								if (isset($_SESSION['e_serviceName']))
 								{
-									echo '<div class="error">'.$_SESSION['e_serviceName'].'</div>';
+									echo '<div class="error" role="alert">'.$_SESSION['e_serviceName'].'</div>';
 									unset($_SESSION['e_serviceName']);
 								}
 							?>
@@ -625,7 +625,7 @@ $_SESSION['s_linkStatus'] = "";
 								echo $_SESSION['fr_entityURLAdress'];
 								unset($_SESSION['fr_entityURLAdress']);
 							}
-							?>" name="entityURLAdress" id="entityURLAdress" required
+							?>" name="entityURLAdress" id="entityURLAdress"
 							aria-describedby="entityURLAdresHelps"
 							data-error="Musisz podać adres strony internetowej"	
 							/>
@@ -633,7 +633,7 @@ $_SESSION['s_linkStatus'] = "";
 							<?php
 								if (isset($_SESSION['e_entityURLAdress']))
 								{
-									echo '<div class="error">'.$_SESSION['e_entityURLAdress'].'</div>';
+									echo '<div class="error" role="alert">'.$_SESSION['e_entityURLAdress'].'</div>';
 									unset($_SESSION['e_entityURLAdress']);
 								}
 							?>
@@ -653,7 +653,7 @@ $_SESSION['s_linkStatus'] = "";
 							<?php
 								if (isset($_SESSION['e_imposible_data']))
 								{
-									echo '<div class="error">'.$_SESSION['e_imposible_data'].'</div>';
+									echo '<div class="error" role="alert">'.$_SESSION['e_imposible_data'].'</div>';
 									unset($_SESSION['e_imposible_data']);
 								}
 							?>
@@ -666,7 +666,7 @@ $_SESSION['s_linkStatus'] = "";
 								
 								<label for="yearDateOfPublication">Rok</label>
 								
-								<select name="yearDateOfPublication" id="yearDateOfPublication" required >
+								<select name="yearDateOfPublication" id="yearDateOfPublication">
 									
 									<option value="1990" <?php check_yearDateOfPublication('1990',$_session['option_yearDateOfPublication']);?> >1990</option>
 									<option value="1991" <?php check_yearDateOfPublication('1991',$_session['option_yearDateOfPublication']);?> >1991</option>
@@ -711,7 +711,7 @@ $_SESSION['s_linkStatus'] = "";
 							<div>
 							
 								<label for="monthDateOfPublication">Miesiąc</label>
-								<select name="monthDateOfPublication" id="monthDateOfPublication" required >
+								<select name="monthDateOfPublication" id="monthDateOfPublication">
 								
 									<option value="1" <?php check_monthDateOfPublication('1',$_session['option_monthDateOfPublication']);?> >styczeń</option>
 									<option value="2" <?php check_monthDateOfPublication('2',$_session['option_monthDateOfPublication']);?> >Luty</option>
@@ -734,7 +734,7 @@ $_SESSION['s_linkStatus'] = "";
 							<div>
 							
 								<label for="dayDateOfPublication">Dzień</label>
-								<select name="dayDateOfPublication" id="dayDateOfPublication" required >
+								<select name="dayDateOfPublication" id="dayDateOfPublication">
 	
 									<option value="1" <?php check_dayDateOfPublication('1',$_session['option_dayDateOfPublication']);?> >01</option>
 									<option value="2" <?php check_dayDateOfPublication('2',$_session['option_dayDateOfPublication']);?> >02</option>
@@ -780,7 +780,7 @@ $_SESSION['s_linkStatus'] = "";
 							<?php
 								if (isset($_SESSION['publication_data']))
 								{
-									echo '<div class="error">'.$_SESSION['publication_data'].'</div>';
+									echo '<div class="error" role="alert">'.$_SESSION['publication_data'].'</div>';
 									unset($_SESSION['publication_data']);
 								}
 							?>
@@ -915,7 +915,7 @@ $_SESSION['s_linkStatus'] = "";
 							<?php
 								if (isset($_SESSION['update_data']))
 								{
-									echo '<div class="error">'.$_SESSION['update_data'].'</div>';
+									echo '<div class="error" role="alert">'.$_SESSION['update_data'].'</div>';
 									unset($_SESSION['update_data']);
 							}
 						?>
@@ -961,7 +961,7 @@ $_SESSION['s_linkStatus'] = "";
 								<?php
 									if (isset($_SESSION['e_contentNotAccessibleStatus']))
 									{
-										echo '<div class="error">'.$_SESSION['e_contentNotAccessibleStatus'].'</div>';
+										echo '<div class="error" role="alert">'.$_SESSION['e_contentNotAccessibleStatus'].'</div>';
 										unset($_SESSION['e_contentNotAccessibleStatus']);
 									}
 								?>
@@ -983,7 +983,7 @@ $_SESSION['s_linkStatus'] = "";
 								<?php
 									if (isset($_SESSION['e_offStatus']))
 									{
-										echo '<div class="error">'.$_SESSION['e_offStatus'].'</div>';
+										echo '<div class="error" role="alert">'.$_SESSION['e_offStatus'].'</div>';
 										unset($_SESSION['e_offStatus']);
 									}
 								?>
@@ -1006,7 +1006,7 @@ $_SESSION['s_linkStatus'] = "";
 							<?php
 								if (isset($_SESSION['e_linkStatus']))
 								{
-									echo '<div class="error">'.$_SESSION['e_linkStatus'].'</div>';
+									echo '<div class="error" role="alert">'.$_SESSION['e_linkStatus'].'</div>';
 									unset($_SESSION['e_linkStatus']);
 								}
 							?>
@@ -1147,7 +1147,7 @@ $_SESSION['s_linkStatus'] = "";
 							<?php
 							if (isset($_SESSION['publication_data']))
 							{
-								echo '<div class="error">'.$_SESSION['publication_data'].'</div>';
+								echo '<div class="error" role="alert">'.$_SESSION['publication_data'].'</div>';
 								unset($_SESSION['publication_data']);
 							}
 						?>
@@ -1200,7 +1200,7 @@ $_SESSION['s_linkStatus'] = "";
 								<?php
 									if (isset($_SESSION['e_nameExtermalEntity']))
 									{
-										echo '<div class="error">'.$_SESSION['e_nameExtermalEntity'].'</div>';
+										echo '<div class="error" role="alert">'.$_SESSION['e_nameExtermalEntity'].'</div>';
 										unset($_SESSION['e_nameExtermalEntity']);
 									}
 								?>
@@ -1234,7 +1234,7 @@ $_SESSION['s_linkStatus'] = "";
 							<?php
 								if (isset($_SESSION['e_contactName']))
 								{
-									echo '<div class="error">'.$_SESSION['e_contactName'].'</div>';
+									echo '<div class="error" role="alert">'.$_SESSION['e_contactName'].'</div>';
 										unset($_SESSION['e_contactName']);
 								}
 							?>
@@ -1258,7 +1258,7 @@ $_SESSION['s_linkStatus'] = "";
 							<?php
 								if (isset($_SESSION['e_contactEmail']))
 								{
-									echo '<div class="error">'.$_SESSION['e_contactEmail'].'</div>';
+									echo '<div class="error" role="alert">'.$_SESSION['e_contactEmail'].'</div>';
 									unset($_SESSION['e_contactEmail']);
 								}
 							?>
@@ -1282,7 +1282,7 @@ $_SESSION['s_linkStatus'] = "";
 								<?php
 									if (isset($_SESSION['e_contactTelephon']))
 									{
-										echo '<div class="error">'.$_SESSION['e_contactTelephon'].'</div>';
+										echo '<div class="error" role="alert">'.$_SESSION['e_contactTelephon'].'</div>';
 										unset($_SESSION['e_contactTelephon']);
 									}
 								?>
@@ -1300,7 +1300,7 @@ $_SESSION['s_linkStatus'] = "";
 					<div>
 					
 						<label for="archaccess">Dostępność architektoniczna (wymagane)</label>
-						<textarea id="archaccess" name="archaccess" cols="25" rows="4" required
+						<textarea id="archaccess" name="archaccess" cols="25" rows="4"
 							aria-describedby="archaccessHelp"
 							data-error="Prosze opisać dostępność architektoniczną"><?php
 								if (isset($_SESSION['fr_archaccess']))
@@ -1313,7 +1313,7 @@ $_SESSION['s_linkStatus'] = "";
 							<?php
 								if (isset($_SESSION['e_archaccess']))
 								{
-									echo '<div class="error">'.$_SESSION['e_archaccess'].'</div>';
+									echo '<div class="error" role="alert">'.$_SESSION['e_archaccess'].'</div>';
 									unset($_SESSION['e_archaccess']);
 								}
 							?>
@@ -1356,7 +1356,7 @@ $_SESSION['s_linkStatus'] = "";
 									<?php
 										if (isset($_SESSION['e_describeMobileApp']))
 										{
-											echo '<div class="error">'.$_SESSION['e_describeMobileApp'].'</div>';
+											echo '<div class="error" role="alert">'.$_SESSION['e_describeMobileApp'].'</div>';
 											unset($_SESSION['e_describeMobileApp']);
 										}
 									?>
@@ -1380,7 +1380,7 @@ $_SESSION['s_linkStatus'] = "";
 								<?php
 									if (isset($_SESSION['e_linkMobileApp']))
 									{
-										echo '<div class="error">'.$_SESSION['e_linkMobileApp'].'</div>';
+										echo '<div class="error" role="alert">'.$_SESSION['e_linkMobileApp'].'</div>';
 										unset($_SESSION['e_linkMobileApp']);
 									}
 								?>
@@ -1415,7 +1415,7 @@ $_SESSION['s_linkStatus'] = "";
 							<?php
 								if (isset($_SESSION['e_addInformation']))
 								{
-									echo '<div class="error">'.$_SESSION['e_addInformation'].'</div>';
+									echo '<div class="error" role="alert">'.$_SESSION['e_addInformation'].'</div>';
 									unset($_SESSION['e_addInformation']);
 								}
 							?>
