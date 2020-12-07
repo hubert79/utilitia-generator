@@ -12,7 +12,7 @@
 		if (strlen($entityName) < 1)
 		{
 			$valid_result=false;
-			$_SESSION['e_entityName']="Wprowadź nazwę swojej instytucji!";
+			$_SESSION['e_entityName']="Musisz podać nazwę podmiotu!";
 		}
 		
 		$_SESSION['fr_entityName'] = $entityName;
@@ -21,10 +21,10 @@
 		$serviceName = $_POST['serviceName'];
 		$_SESSION['s_serviceName'] = $serviceName;
 		
-		if (strlen($serviceNames) < 1)
+		if (strlen($serviceName) < 1)
 		{
 			$valid_result=false;
-			$_SESSION['e_serviceName']="Wprowadź nazwę strony internetowej swojej instytucji!";
+			$_SESSION['e_serviceName']="Pole jest wymagane!";
 		}
 		
 		$_SESSION['fr_serviceName'] = $serviceName;
@@ -36,7 +36,7 @@
 		if (strlen($entityURLAdress) < 1)
 		{
 			$valid_result=false;
-			$_SESSION['e_entityURLAdress']="Wprowadź adres URL swojej instytucji!";
+			$_SESSION['e_entityURLAdress']="Pole jest wymagane!";
 		}
 		
 		$_SESSION['fr_entityURLAdress'] = $entityURLAdress;
@@ -586,19 +586,23 @@ $_SESSION['s_linkStatus'] = "";
 								unset($_SESSION['fr_entityName']);
 							}
 							?>" name="entityName" id="entityName"
-							aria-describedby="entityNameHelp"
-							data-error="Musisz podać nazwę podmiotu" />
+							aria-describedby="entityNameError entityNameHelp"
+							data-error="Musisz podać nazwę podmiotu"
+							aria-invalid ="true" />
 							
+							<div id="entityNameError" role="alert">
 							<?php
 								if (isset($_SESSION['e_entityName']))
 								{
-									echo '<div class="error" role="alert">'.$_SESSION['e_entityName'].'</div>';
+									echo '<span>Błąd</span>'.'<span>'.$_SESSION['e_entityName'].'</span>';
 									unset($_SESSION['e_entityName']);
 								}
 							?>
-					
+							</div>
+							
+							<small id="entityNameHelp" aria-hidden="true">Wpisz oficjalną nazwę podmiotu, który publikuje deklarację.</small>
+							
 					</div>
-					<small id="entityNameHelp" aria-hidden="true">Wpisz oficjalną nazwę podmiotu, który publikuje deklarację.</small>
 				
 					<!-- Name URL -->
 					<div>
@@ -610,42 +614,51 @@ $_SESSION['s_linkStatus'] = "";
 								unset($_SESSION['fr_serviceName']);
 							}
 							?>" name="serviceName" id="serviceName"
-							aria-describedby="serviceNameHelp"
+							aria-describedby="serviceNameError serviceNameHelp"
 							data-error="Musisz podać nazwę strony internetowej" 							/>
-							
+						
+						<div id="serviceNameError" role="alert">
 							<?php
 								if (isset($_SESSION['e_serviceName']))
 								{
-									echo '<div class="error" role="alert">'.$_SESSION['e_serviceName'].'</div>';
+									echo '<span>Błąd</span>'.'<span>'.$_SESSION['e_serviceName'].'</span>';
 									unset($_SESSION['e_serviceName']);
 								}
 							?>
+						</div>
+						
+						<small id="serviceNameHelp" aria-hidden="true" >Wpisz oficjalną nazwę strony internetowej.</small>
+						
 					</div>
-					<small id="serviceNameHelp" aria-hidden="true" >Wpisz oficjalną nazwę strony internetowej.</small>
+					
 					
 					<!-- Adres URL -->
 					<div>
 						<label for="entityURLAdress">Adres URL podmiotu (wymagane)</label>
-						<input type="url" value="<?php
+						<input type="text" value="<?php
 							if (isset($_SESSION['fr_entityURLAdress']))
 							{
 								echo $_SESSION['fr_entityURLAdress'];
 								unset($_SESSION['fr_entityURLAdress']);
 							}
 							?>" name="entityURLAdress" id="entityURLAdress"
-							aria-describedby="entityURLAdresHelps"
+							aria-describedby="entityURLAdressError entityURLAdresHelps"
 							data-error="Musisz podać adres strony internetowej"	
 							/>
 							
+						<div id="entityURLAdressError" role="alert">
 							<?php
 								if (isset($_SESSION['e_entityURLAdress']))
 								{
-									echo '<div class="error" role="alert">'.$_SESSION['e_entityURLAdress'].'</div>';
+									echo '<span>Błąd</span>'.'<span>'.$_SESSION['e_entityURLAdress'].'</span>';
 									unset($_SESSION['e_entityURLAdress']);
 								}
 							?>
+						</div>
+							
+						<small id="entityURLAdresHelps" aria-hidden="true" >Wpisz adres strony internetowej.</small>
+						
 					</div>
-					<small id="entityURLAdresHelps" aria-hidden="true" >Wpisz adres strony internetowej.</small>
 				</fieldset>
 			
 				<!-- Data of publication -->
@@ -797,9 +810,7 @@ $_SESSION['s_linkStatus'] = "";
 					</div>
 					
 				</fieldset>
-				
-				<!-- Data last update -->
-				
+								
 				<!-- Data last update -->
 				<fieldset>
 				
@@ -1001,7 +1012,7 @@ $_SESSION['s_linkStatus'] = "";
 						<div>
 						
 							<label for="linkStatus">Link</label>
-							<input type="url" id="linkStatus" value="<?php
+							<input type="text" id="linkStatus" value="<?php
 								if (isset($_SESSION['fr_linkStatus']))
 								{
 									echo $_SESSION['fr_linkStatus'];
@@ -1252,7 +1263,7 @@ $_SESSION['s_linkStatus'] = "";
 					<div>
 					
 						<label for="contactEmail">Adres e-mail</label>
-						<input type="email" value="<?php
+						<input type="text" value="<?php
 							if (isset($_SESSION['fr_contactEmail']))
 							{
 								echo $_SESSION['fr_contactEmail'];
@@ -1276,7 +1287,7 @@ $_SESSION['s_linkStatus'] = "";
 					<div>
 					
 						<label for="contactTelephon">Telefon</label>
-						<input type="tel" value="<?php
+						<input type="text" value="<?php
 								if (isset($_SESSION['fr_contactTelephon']))
 								{
 									echo $_SESSION['fr_contactTelephon'];
@@ -1337,7 +1348,7 @@ $_SESSION['s_linkStatus'] = "";
 					
 					<div>
 					
-						<label for="mobApp">Aplikacja mobilna</label>
+						<label for="mobApp">Podmiot posiada aplikację mobilną.</label>
 						<select id="mobApp" name="mobApp">
 					
 							<option value="Nie" <?php check_mobileApp('Nie',$_session['option_mobApp']);?> >Nie</option>
