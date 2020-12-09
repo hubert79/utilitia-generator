@@ -689,40 +689,41 @@
 								
 								<select name="yearDateOfPublication" id="yearDateOfPublication">
 									
-									<option value="1990" <?php check_yearDateOfPublication('1990',$_session['option_yearDateOfPublication']);?> >1990</option>
-									<option value="1991" <?php check_yearDateOfPublication('1991',$_session['option_yearDateOfPublication']);?> >1991</option>
-									<option value="1992" <?php check_yearDateOfPublication('1992',$_session['option_yearDateOfPublication']);?> >1992</option>
-									<option value="1993" <?php check_yearDateOfPublication('1993',$_session['option_yearDateOfPublication']);?> >1993</option>
-									<option value="1994" <?php check_yearDateOfPublication('1994',$_session['option_yearDateOfPublication']);?> >1994</option>
-									<option value="1995" <?php check_yearDateOfPublication('1995',$_session['option_yearDateOfPublication']);?> >1995</option>
-									<option value="1996" <?php check_yearDateOfPublication('1996',$_session['option_yearDateOfPublication']);?> >1996</option>
-									<option value="1997" <?php check_yearDateOfPublication('1997',$_session['option_yearDateOfPublication']);?> >1997</option>
-									<option value="1998" <?php check_yearDateOfPublication('1998',$_session['option_yearDateOfPublication']);?> >1998</option>
-									<option value="1999" <?php check_yearDateOfPublication('1999',$_session['option_yearDateOfPublication']);?> >1999</option>
-																	<option value="2000" <?php check_yearDateOfPublication('2000',$_session['option_yearDateOfPublication']);?> >2000</option>
-									<option value="2001" <?php check_yearDateOfPublication('2001',$_session['option_yearDateOfPublication']);?>  >2001</option>
-									<option value="2002" <?php check_yearDateOfPublication('2002',$_session['option_yearDateOfPublication']);?>  >2002</option>
-									<option value="2003" <?php check_yearDateOfPublication('2003',$_session['option_yearDateOfPublication']);?>  >2003</option>
-									<option value="2004" <?php check_yearDateOfPublication('2004',$_session['option_yearDateOfPublication']);?>  >2004</option>
-									<option value="2005" <?php check_yearDateOfPublication('2005',$_session['option_yearDateOfPublication']);?>  >2005</option>
-									<option value="2006" <?php check_yearDateOfPublication('2006',$_session['option_yearDateOfPublication']);?>  >2006</option>
-									<option value="2007" <?php check_yearDateOfPublication('2007',$_session['option_yearDateOfPublication']);?>  >2007</option>
-									<option value="2008" <?php check_yearDateOfPublication('2008',$_session['option_yearDateOfPublication']);?>  >2008</option>	
-									<option value="2009" <?php check_yearDateOfPublication('2009',$_session['option_yearDateOfPublication']);?>  >2009</option>
-							
-									<option value="2010" <?php check_yearDateOfPublication('2010',$_session['option_yearDateOfPublication']);?>  >2010</option>
-									<option value="2011" <?php check_yearDateOfPublication('2011',$_session['option_yearDateOfPublication']);?>  >2011</option>
-									<option value="2012" <?php check_yearDateOfPublication('2012',$_session['option_yearDateOfPublication']);?>  >2012</option>
-									<option value="2013" <?php check_yearDateOfPublication('2013',$_session['option_yearDateOfPublication']);?>  >2013</option>
-									<option value="2014" <?php check_yearDateOfPublication('2014',$_session['option_yearDateOfPublication']);?>  >2014</option>
-									<option value="2015" <?php check_yearDateOfPublication('2015',$_session['option_yearDateOfPublication']);?>  >2015</option>
-									<option value="2016" <?php check_yearDateOfPublication('2016',$_session['option_yearDateOfPublication']);?>  >2016</option>
-									<option value="2017" <?php check_yearDateOfPublication('2017',$_session['option_yearDateOfPublication']);?>  >2017</option>
-									<option value="2018" <?php check_yearDateOfPublication('2018',$_session['option_yearDateOfPublication']);?>  >2018</option>
-									<option value="2019" <?php check_yearDateOfPublication('2019',$_session['option_yearDateOfPublication']);?>  >2019</option>
-																	<option value="2020" <?php check_yearDateOfPublication('2020',$_session['option_yearDateOfPublication']);?>  >2020</option>
 									<option value="2021" <?php check_yearDateOfPublication('2021',$_session['option_yearDateOfPublication']);?>  >2021</option>
-									<option value="2022" <?php check_yearDateOfPublication('2022',$_session['option_yearDateOfPublication']);?>  >2022</option>
+									
+									<option value="2020" <?php check_yearDateOfPublication('2020',$_session['option_yearDateOfPublication']);?>  >2020</option>?
+									<option value="2019" <?php check_yearDateOfPublication('2019',$_session['option_yearDateOfPublication']);?>  >2019</option>
+									<option value="2018" <?php check_yearDateOfPublication('2018',$_session['option_yearDateOfPublication']);?>  >2018</option>
+									<option value="2017" <?php check_yearDateOfPublication('2017',$_session['option_yearDateOfPublication']);?>  >2017</option>
+									<option value="2016" <?php check_yearDateOfPublication('2016',$_session['option_yearDateOfPublication']);?>  >2016</option>
+									<option value="2015" <?php check_yearDateOfPublication('2015',$_session['option_yearDateOfPublication']);?>  >2015</option>
+									<option value="2014" <?php check_yearDateOfPublication('2014',$_session['option_yearDateOfPublication']);?>  >2014</option>
+									<option value="2013" <?php check_yearDateOfPublication('2013',$_session['option_yearDateOfPublication']);?>  >2013</option>
+									<option value="2012" <?php check_yearDateOfPublication('2012',$_session['option_yearDateOfPublication']);?>  >2012</option>
+									<option value="2011" <?php check_yearDateOfPublication('2011',$_session['option_yearDateOfPublication']);?>  >2011</option>
+									<option value="2010" <?php check_yearDateOfPublication('2010',$_session['option_yearDateOfPublication']);?>  >2010</option>
+									
+									<option value="2009" <?php check_yearDateOfPublication('2009',$_session['option_yearDateOfPublication']);?>  >2009</option>
+									<option value="2008" <?php check_yearDateOfPublication('2008',$_session['option_yearDateOfPublication']);?>  >2008</option>	
+									<option value="2007" <?php check_yearDateOfPublication('2007',$_session['option_yearDateOfPublication']);?>  >2007</option>
+									<option value="2006" <?php check_yearDateOfPublication('2006',$_session['option_yearDateOfPublication']);?>  >2006</option>
+									<option value="2005" <?php check_yearDateOfPublication('2005',$_session['option_yearDateOfPublication']);?>  >2005</option>
+									<option value="2004" <?php check_yearDateOfPublication('2004',$_session['option_yearDateOfPublication']);?>  >2004</option>
+									<option value="2003" <?php check_yearDateOfPublication('2003',$_session['option_yearDateOfPublication']);?>  >2003</option>
+									<option value="2002" <?php check_yearDateOfPublication('2002',$_session['option_yearDateOfPublication']);?>  >2002</option>
+									<option value="2001" <?php check_yearDateOfPublication('2001',$_session['option_yearDateOfPublication']);?>  >2001</option>
+									<option value="2000" <?php check_yearDateOfPublication('2000',$_session['option_yearDateOfPublication']);?> >2000</option>
+									
+									<option value="1999" <?php check_yearDateOfPublication('1999',$_session['option_yearDateOfPublication']);?> >1999</option>
+									<option value="1998" <?php check_yearDateOfPublication('1998',$_session['option_yearDateOfPublication']);?> >1998</option>
+									<option value="1997" <?php check_yearDateOfPublication('1997',$_session['option_yearDateOfPublication']);?> >1997</option>
+									<option value="1996" <?php check_yearDateOfPublication('1996',$_session['option_yearDateOfPublication']);?> >1996</option>
+									<option value="1995" <?php check_yearDateOfPublication('1995',$_session['option_yearDateOfPublication']);?> >1995</option>
+									<option value="1994" <?php check_yearDateOfPublication('1994',$_session['option_yearDateOfPublication']);?> >1994</option>
+									<option value="1993" <?php check_yearDateOfPublication('1993',$_session['option_yearDateOfPublication']);?> >1993</option>
+									<option value="1992" <?php check_yearDateOfPublication('1992',$_session['option_yearDateOfPublication']);?> >1992</option>
+									<option value="1991" <?php check_yearDateOfPublication('1991',$_session['option_yearDateOfPublication']);?> >1991</option>
+									<option value="1990" <?php check_yearDateOfPublication('1990',$_session['option_yearDateOfPublication']);?> >1990</option>
 									
 								</select>
 								
@@ -826,39 +827,42 @@
 								<label for="yearDateOfLastUpdate">Rok</label>
 								<select name="yearDateOfLastUpdate" id="yearDateOfLastUpdate">
 							
-									<option value="1990" <?php check_yearDateOfLastUpdate('1990',$_session['option_yearDateOfLastUpdate']);?> >1990</option>
-									<option value="1991" <?php check_yearDateOfLastUpdate('1991',$_session['option_yearDateOfLastUpdate']);?> >1991</option>
-									<option value="1992" <?php check_yearDateOfLastUpdate('1992',$_session['option_yearDateOfLastUpdate']);?> >1992</option>
-									<option value="1993" <?php check_yearDateOfLastUpdate('1993',$_session['option_yearDateOfLastUpdate']);?> >1993</option>
-									<option value="1994" <?php check_yearDateOfLastUpdate('1994',$_session['option_yearDateOfLastUpdate']);?> >1994</option>
-									<option value="1995" <?php check_yearDateOfLastUpdate('1995',$_session['option_yearDateOfLastUpdate']);?> >1995</option>
-									<option value="1996" <?php check_yearDateOfLastUpdate('1996',$_session['option_yearDateOfLastUpdate']);?> >1996</option>
-									<option value="1997" <?php check_yearDateOfLastUpdate('1997',$_session['option_yearDateOfLastUpdate']);?> >1997</option>
-									<option value="1998" <?php check_yearDateOfLastUpdate('1998',$_session['option_yearDateOfLastUpdate']);?> >1998</option>
-									<option value="1999" <?php check_yearDateOfLastUpdate('1999',$_session['option_yearDateOfLastUpdate']);?> >1999</option>
-															<option value="2000" <?php check_yearDateOfLastUpdate('2000',$_session['option_yearDateOfLastUpdate']);?> >2000</option>
-									<option value="2001" <?php check_yearDateOfLastUpdate('2001',$_session['option_yearDateOfLastUpdate']);?> >2001</option>
-									<option value="2002" <?php check_yearDateOfLastUpdate('002',$_session['option_yearDateOfLastUpdate']);?> >2002</option>
-									<option value="2003" <?php check_yearDateOfLastUpdate('2003',$_session['option_yearDateOfLastUpdate']);?> >2003</option>
-									<option value="2004" <?php check_yearDateOfLastUpdate('2004',$_session['option_yearDateOfLastUpdate']);?> >2004</option>
-									<option value="2005" <?php check_yearDateOfLastUpdate('2005',$_session['option_yearDateOfLastUpdate']);?> >2005</option>
-									<option value="2006" <?php check_yearDateOfLastUpdate('2006',$_session['option_yearDateOfLastUpdate']);?> >2006</option>
-									<option value="2007" <?php check_yearDateOfLastUpdate('2007',$_session['option_yearDateOfLastUpdate']);?> >2007</option>
-									<option value="2008" <?php check_yearDateOfLastUpdate('2008',$_session['option_yearDateOfLastUpdate']);?> >2008</option>
-									<option value="2009" <?php check_yearDateOfLastUpdate('2009',$_session['option_yearDateOfLastUpdate']);?> >2009</option>
-															<option value="2010" <?php check_yearDateOfLastUpdate('2010',$_session['option_yearDateOfLastUpdate']);?> >2010</option>
-									<option value="2011" <?php check_yearDateOfLastUpdate('2011',$_session['option_yearDateOfLastUpdate']);?> >2011</option>
-									<option value="2012" <?php check_yearDateOfLastUpdate('20012',$_session['option_yearDateOfLastUpdate']);?> >2012</option>
-									<option value="2013" <?php check_yearDateOfLastUpdate('20013',$_session['option_yearDateOfLastUpdate']);?> >2013</option>
-									<option value="2014" <?php check_yearDateOfLastUpdate('20014',$_session['option_yearDateOfLastUpdate']);?> >2014</option>
-									<option value="2015" <?php check_yearDateOfLastUpdate('2015',$_session['option_yearDateOfLastUpdate']);?> >2015</option>
-									<option value="2016" <?php check_yearDateOfLastUpdate('20016',$_session['option_yearDateOfLastUpdate']);?> >2016</option>
-									<option value="2017" <?php check_yearDateOfLastUpdate('20017',$_session['option_yearDateOfLastUpdate']);?> >2017</option>
-									<option value="2018" <?php check_yearDateOfLastUpdate('20018',$_session['option_yearDateOfLastUpdate']);?> >2018</option>
-									<option value="2019" <?php check_yearDateOfLastUpdate('20019',$_session['option_yearDateOfLastUpdate']);?> >2019</option>
-															<option value="2020" <?php check_yearDateOfLastUpdate('2020',$_session['option_yearDateOfLastUpdate']);?> >2020</option>
 									<option value="2021" <?php check_yearDateOfLastUpdate('2021',$_session['option_yearDateOfLastUpdate']);?> >2021</option>
-									<option value="2022" <?php check_yearDateOfLastUpdate('2022',$_session['option_yearDateOfLastUpdate']);?> >2022</option>
+									<option value="2020" <?php check_yearDateOfLastUpdate('2020',$_session['option_yearDateOfLastUpdate']);?> >2020</option>
+									
+									<option value="2019" <?php check_yearDateOfLastUpdate('20019',$_session['option_yearDateOfLastUpdate']);?> >2019</option>
+									<option value="2018" <?php check_yearDateOfLastUpdate('20018',$_session['option_yearDateOfLastUpdate']);?> >2018</option>
+									<option value="2017" <?php check_yearDateOfLastUpdate('20017',$_session['option_yearDateOfLastUpdate']);?> >2017</option>
+									<option value="2016" <?php check_yearDateOfLastUpdate('20016',$_session['option_yearDateOfLastUpdate']);?> >2016</option>
+									<option value="2015" <?php check_yearDateOfLastUpdate('2015',$_session['option_yearDateOfLastUpdate']);?> >2015</option>
+									<option value="2014" <?php check_yearDateOfLastUpdate('20014',$_session['option_yearDateOfLastUpdate']);?> >2014</option>
+									<option value="2013" <?php check_yearDateOfLastUpdate('20013',$_session['option_yearDateOfLastUpdate']);?> >2013</option>
+									<option value="2012" <?php check_yearDateOfLastUpdate('20012',$_session['option_yearDateOfLastUpdate']);?> >2012</option>
+									<option value="2011" <?php check_yearDateOfLastUpdate('2011',$_session['option_yearDateOfLastUpdate']);?> >2011</option>
+									<option value="2010" <?php check_yearDateOfLastUpdate('2010',$_session['option_yearDateOfLastUpdate']);?> >2010</option>
+									
+									<option value="2009" <?php check_yearDateOfLastUpdate('2009',$_session['option_yearDateOfLastUpdate']);?> >2009</option>
+									<option value="2008" <?php check_yearDateOfLastUpdate('2008',$_session['option_yearDateOfLastUpdate']);?> >2008</option>
+									<option value="2007" <?php check_yearDateOfLastUpdate('2007',$_session['option_yearDateOfLastUpdate']);?> >2007</option>
+									<option value="2006" <?php check_yearDateOfLastUpdate('2006',$_session['option_yearDateOfLastUpdate']);?> >2006</option>
+									<option value="2005" <?php check_yearDateOfLastUpdate('2005',$_session['option_yearDateOfLastUpdate']);?> >2005</option>
+									<option value="2004" <?php check_yearDateOfLastUpdate('2004',$_session['option_yearDateOfLastUpdate']);?> >2004</option>
+									<option value="2003" <?php check_yearDateOfLastUpdate('2003',$_session['option_yearDateOfLastUpdate']);?> >2003</option>
+									<option value="2002" <?php check_yearDateOfLastUpdate('2002',$_session['option_yearDateOfLastUpdate']);?> >2002</option>
+									<option value="2001" <?php check_yearDateOfLastUpdate('2001',$_session['option_yearDateOfLastUpdate']);?> >2001</option>
+									<option value="2000" <?php check_yearDateOfLastUpdate('2000',$_session['option_yearDateOfLastUpdate']);?> >2000</option>
+									
+									<option value="1999" <?php check_yearDateOfLastUpdate('1999',$_session['option_yearDateOfLastUpdate']);?> >1999</option>
+									<option value="1998" <?php check_yearDateOfLastUpdate('1998',$_session['option_yearDateOfLastUpdate']);?> >1998</option>
+									<option value="1997" <?php check_yearDateOfLastUpdate('1997',$_session['option_yearDateOfLastUpdate']);?> >1997</option>
+									<option value="1996" <?php check_yearDateOfLastUpdate('1996',$_session['option_yearDateOfLastUpdate']);?> >1996</option>
+									<option value="1995" <?php check_yearDateOfLastUpdate('1995',$_session['option_yearDateOfLastUpdate']);?> >1995</option>
+									<option value="1994" <?php check_yearDateOfLastUpdate('1994',$_session['option_yearDateOfLastUpdate']);?> >1994</option>
+									<option value="1993" <?php check_yearDateOfLastUpdate('1993',$_session['option_yearDateOfLastUpdate']);?> >1993</option>
+									<option value="1992" <?php check_yearDateOfLastUpdate('1992',$_session['option_yearDateOfLastUpdate']);?> >1992</option>
+									<option value="1991" <?php check_yearDateOfLastUpdate('1991',$_session['option_yearDateOfLastUpdate']);?> >1991</option>
+									<option value="1990" <?php check_yearDateOfLastUpdate('1990',$_session['option_yearDateOfLastUpdate']);?> >1990</option>
+									
 									
 								</select>
 							
@@ -968,7 +972,7 @@
 						<div>
 						<label for="contentNotAccessibleStatus">Treść niedostępna</label>
 						<textarea id="contentNotAccessibleStatus" name="contentNotAccessibleStatus" cols="25" rows="4"
-								aria-describedby="contentNotAccessibleStatusHelp"
+								aria-describedby="contentNotAccessibleStatusError contentNotAccessibleStatusHelp"
 								data-error="Musisz wpisać treść niedostępną" ><?php
 									if (isset($_SESSION['fr_contentNotAccessibleStatus']))
 									{
@@ -976,7 +980,9 @@
 										unset($_SESSION['fr_contentNotAccessibleStatus']);
 									}
 								?></textarea>
-									
+							
+							<div id="contentNotAccessibleStatusError" role="alert">
+							
 								<?php
 									if (isset($_SESSION['e_contentNotAccessibleStatus']))
 									{
@@ -984,8 +990,12 @@
 										unset($_SESSION['e_contentNotAccessibleStatus']);
 									}
 								?>
+								
+							</div>
+								
+							<small id="contentNotAccessibleStatusHelp" aria-hidden="true" >Wpisz treść  niedostępną.</small>
+							
 						</div>
-						<small id="contentNotAccessibleStatusHelp" aria-hidden="true" >Wpisz treść  niedostępną.</small>
 						
 						<div>
 						
@@ -1006,9 +1016,11 @@
 										unset($_SESSION['e_offStatus']);
 									}
 								?>
-						
+							
+							<small id="offStatusHelp" aria-hidden="true" >Wpisz treści ustawowo zwolnione z dostępności.</small>
+							
 						</div>
-						<small id="offStatusHelp" aria-hidden="true" >Wpisz treści ustawowo zwolnione z dostępności.</small>
+						
 						
 						<div>
 						
@@ -1030,8 +1042,10 @@
 								}
 							?>
 						
+						
+							<small id="linkStatusHelp" aria-hidden="true" >Wpisz adres URL strony zawierającej dostępne treści.</small>
+							
 						</div>
-						<small id="linkStatusHelp" aria-hidden="true" >Wpisz adres URL strony zawierającej dostępne treści.</small>
 						
 					</div>
 					
@@ -1051,42 +1065,41 @@
 								<label for="yearDateOfMade">Rok</label>
 								<select name="yearDateOfMade" id="yearDateOfMade">
 										
-									<option value="1990" <?php check_yearDateOfMade('1990',$_session['option_yearDateOfMade']);?> >1990</option>
-									<option value="1991" <?php check_yearDateOfMade('1991',$_session['option_yearDateOfMade']);?> >1991</option>
-									<option value="1992" <?php check_yearDateOfMade('1992',$_session['option_yearDateOfMade']);?> >1992</option>
-									<option value="1993" <?php check_yearDateOfMade('1993',$_session['option_yearDateOfMade']);?> >1993</option>
-									<option value="1994" <?php check_yearDateOfMade('1994',$_session['option_yearDateOfMade']);?> >1994</option>
-									<option value="1995" <?php check_yearDateOfMade('1995',$_session['option_yearDateOfMade']);?> >1995</option>
-									<option value="1996" <?php check_yearDateOfMade('1996',$_session['option_yearDateOfMade']);?> >1996</option>
-									<option value="1997" <?php check_yearDateOfMade('1997',$_session['option_yearDateOfMade']);?> >1997</option>
-									<option value="1998" <?php check_yearDateOfMade('1998',$_session['option_yearDateOfMade']);?> >1998</option>
-									<option value="1999" <?php check_yearDateOfMade('1999',$_session['option_yearDateOfMade']);?> >1999</option>
-																	
-									<option value="2000" <?php check_yearDateOfMade('2000',$_session['option_yearDateOfMade']);?> >2000</option>
-									<option value="2001" <?php check_yearDateOfMade('2001',$_session['option_yearDateOfMade']);?>  >2001</option>
-									<option value="2002" <?php check_yearDateOfMade('2002',$_session['option_yearDateOfMade']);?>  >2002</option>
-									<option value="2003" <?php check_yearDateOfMade('2003',$_session['option_yearDateOfMade']);?>  >2003</option>
-									<option value="2004" <?php check_yearDateOfMade('2004',$_session['option_yearDateOfMade']);?>  >2004</option>
-									<option value="2005" <?php check_yearDateOfMade('2005',$_session['option_yearDateOfMade']);?>  >2005</option>
-									<option value="2006" <?php check_yearDateOfMade('2006',$_session['option_yearDateOfMade']);?>  >2006</option>
-									<option value="2007" <?php check_yearDateOfMade('2007',$_session['option_yearDateOfMade']);?>  >2007</option>
-									<option value="2008" <?php check_yearDateOfMade('2008',$_session['option_yearDateOfMade']);?>  >2008</option>	
-									<option value="2009" <?php check_yearDateOfMade('2009',$_session['option_yearDateOfMade']);?>  >2009</option>
-							
-									<option value="2010" <?php check_yearDateOfMade('2010',$_session['option_yearDateOfMade']);?>  >2010</option>
-									<option value="2011" <?php check_yearDateOfMade('2011',$_session['option_yearDateOfMade']);?>  >2011</option>
-									<option value="2012" <?php check_yearDateOfMade('2012',$_session['option_yearDateOfMade']);?>  >2012</option>
-									<option value="2013" <?php check_yearDateOfMade('2013',$_session['option_yearDateOfMade']);?>  >2013</option>
-									<option value="2014" <?php check_yearDateOfMade('2014',$_session['option_yearDateOfMade']);?>  >2014</option>
-									<option value="2015" <?php check_yearDateOfMade('2015',$_session['option_yearDateOfMade']);?>  >2015</option>
-									<option value="2016" <?php check_yearDateOfMade('2016',$_session['option_yearDateOfMade']);?>  >2016</option>
-									<option value="2017" <?php check_yearDateOfMade('2017',$_session['option_yearDateOfMade']);?>  >2017</option>
-									<option value="2018" <?php check_yearDateOfMade('2018',$_session['option_yearDateOfMade']);?>  >2018</option>
-									<option value="2019" <?php check_yearDateOfMade('2019',$_session['option_yearDateOfMade']);?>  >2019</option>
-																	
-									<option value="2020" <?php check_yearDateOfMade('2020',$_session['option_yearDateOfMade']);?>  >2020</option>
 									<option value="2021" <?php check_yearDateOfMade('2021',$_session['option_yearDateOfMade']);?>  >2021</option>
-									<option value="2022" <?php check_yearDateOfMade('2022',$_session['option_yearDateOfMade']);?>  >2022</option>
+									<option value="2020" <?php check_yearDateOfMade('2020',$_session['option_yearDateOfMade']);?>  >2020</option>
+									
+									<option value="2019" <?php check_yearDateOfMade('2019',$_session['option_yearDateOfMade']);?>  >2019</option>
+									<option value="2018" <?php check_yearDateOfMade('2018',$_session['option_yearDateOfMade']);?>  >2018</option>
+									<option value="2017" <?php check_yearDateOfMade('2017',$_session['option_yearDateOfMade']);?>  >2017</option>
+									<option value="2016" <?php check_yearDateOfMade('2016',$_session['option_yearDateOfMade']);?>  >2016</option>
+									<option value="2015" <?php check_yearDateOfMade('2015',$_session['option_yearDateOfMade']);?>  >2015</option>
+									<option value="2014" <?php check_yearDateOfMade('2014',$_session['option_yearDateOfMade']);?>  >2014</option>
+									<option value="2013" <?php check_yearDateOfMade('2013',$_session['option_yearDateOfMade']);?>  >2013</option>
+									<option value="2012" <?php check_yearDateOfMade('2012',$_session['option_yearDateOfMade']);?>  >2012</option>
+									<option value="2011" <?php check_yearDateOfMade('2011',$_session['option_yearDateOfMade']);?>  >2011</option>
+									<option value="2010" <?php check_yearDateOfMade('2010',$_session['option_yearDateOfMade']);?>  >2010</option>
+									
+									<option value="2009" <?php check_yearDateOfMade('2009',$_session['option_yearDateOfMade']);?>  >2009</option>
+									<option value="2008" <?php check_yearDateOfMade('2008',$_session['option_yearDateOfMade']);?>  >2008</option>	
+									<option value="2007" <?php check_yearDateOfMade('2007',$_session['option_yearDateOfMade']);?>  >2007</option>
+									<option value="2006" <?php check_yearDateOfMade('2006',$_session['option_yearDateOfMade']);?>  >2006</option>
+									<option value="2005" <?php check_yearDateOfMade('2005',$_session['option_yearDateOfMade']);?>  >2005</option>
+									<option value="2004" <?php check_yearDateOfMade('2004',$_session['option_yearDateOfMade']);?>  >2004</option>
+									<option value="2003" <?php check_yearDateOfMade('2003',$_session['option_yearDateOfMade']);?>  >2003</option>
+									<option value="2002" <?php check_yearDateOfMade('2002',$_session['option_yearDateOfMade']);?>  >2002</option>
+									<option value="2001" <?php check_yearDateOfMade('2001',$_session['option_yearDateOfMade']);?>  >2001</option>
+									<option value="2000" <?php check_yearDateOfMade('2000',$_session['option_yearDateOfMade']);?> >2000</option>
+									
+									<option value="1999" <?php check_yearDateOfMade('1999',$_session['option_yearDateOfMade']);?> >1999</option>
+									<option value="1998" <?php check_yearDateOfMade('1998',$_session['option_yearDateOfMade']);?> >1998</option>
+									<option value="1997" <?php check_yearDateOfMade('1997',$_session['option_yearDateOfMade']);?> >1997</option>
+									<option value="1996" <?php check_yearDateOfMade('1996',$_session['option_yearDateOfMade']);?> >1996</option>
+									<option value="1995" <?php check_yearDateOfMade('1995',$_session['option_yearDateOfMade']);?> >1995</option>
+									<option value="1994" <?php check_yearDateOfMade('1994',$_session['option_yearDateOfMade']);?> >1994</option>
+									<option value="1993" <?php check_yearDateOfMade('1993',$_session['option_yearDateOfMade']);?> >1993</option>
+									<option value="1992" <?php check_yearDateOfMade('1992',$_session['option_yearDateOfMade']);?> >1992</option>
+									<option value="1991" <?php check_yearDateOfMade('1991',$_session['option_yearDateOfMade']);?> >1991</option>
+									<option value="1990" <?php check_yearDateOfMade('1990',$_session['option_yearDateOfMade']);?> >1990</option>
 									
 								</select>
 							
@@ -1215,7 +1228,8 @@
 								?>"  name="nameExtermalEntity"
 								aria-describedby="nameExtermalEntityHelp" 
 								data-error="Należy podać nazwę podmiotu oceniającego dostępność strony."/>
-									
+							
+							<div id="declarationError">
 								<?php
 									if (isset($_SESSION['e_nameExtermalEntity']))
 									{
@@ -1223,7 +1237,8 @@
 										unset($_SESSION['e_nameExtermalEntity']);
 									}
 								?>
-						
+							</div>
+							
 						</div>
 						
 						<small id="nameExtermalEntityHelp" aria-hidden="true">Wpisz nazwę podmiotu wykonującą oceniającego dostępność strony.</small>
@@ -1249,7 +1264,8 @@
 							?>" name="contactName" id="contactName" 
 							aria-describedby="contactNameHelp"
 							data-error="Musisz podać imię i nazwisko osoby kontaktowej" />
-							
+						
+						<div id="contactNameError">
 							<?php
 								if (isset($_SESSION['e_contactName']))
 								{
@@ -1257,9 +1273,10 @@
 										unset($_SESSION['e_contactName']);
 								}
 							?>
-					
+						</div>
+						<small id="contactNameHelp" aria-hidden="true">Wpisz imię i nazwisko osoby kontaktowej w sprawie dostępności.</small>
+						
 					</div>
-					<small id="contactNameHelp" aria-hidden="true">Wpisz imię i nazwisko osoby kontaktowej w sprawie dostępności.</small>
 				
 					<div>
 					
@@ -1273,7 +1290,8 @@
 							?>" name="contactEmail" id="contactEmail" 
 							aria-describedby="contactEmailHelp"
 							data-error="Prosze wpisać adres e-mail osoby kontaktowej." />
-							
+						
+						<div id="contactEmailError">
 							<?php
 								if (isset($_SESSION['e_contactEmail']))
 								{
@@ -1281,9 +1299,10 @@
 									unset($_SESSION['e_contactEmail']);
 								}
 							?>
+						</div>
+						<small id="contactEmailHelp" aria-hidden="true">Wprowadź adres email osoby kontaktowej.</small>
 						
 					</div>
-					<small id="contactEmailHelp" aria-hidden="true">Wprowadź adres email osoby kontaktowej.</small>
 					
 					<div>
 					
@@ -1298,6 +1317,7 @@
 								aria-describedby="contactTelephonHelp"
 								data-error="Proszę wprowadzić telefon kontaktowy" />
 							
+							<div id="contactTelephonError">
 								<?php
 									if (isset($_SESSION['e_contactTelephon']))
 									{
@@ -1305,6 +1325,7 @@
 										unset($_SESSION['e_contactTelephon']);
 									}
 								?>
+							</div>
 					
 					</div>
 					<small id="contactTelephonHelp" aria-hidden="true">Wprowadż telefon kontaktowy osoby odpowiedzialnej za dostępność.</small>
