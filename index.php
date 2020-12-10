@@ -1395,7 +1395,8 @@
 											unset($_SESSION['fr_describeMobileApp']);
 										}
 									?></textarea>
-									
+								
+								<div id="describeMobileAppError">
 									<?php
 										if (isset($_SESSION['e_describeMobileApp']))
 										{
@@ -1403,9 +1404,12 @@
 											unset($_SESSION['e_describeMobileApp']);
 										}
 									?>
-									
+								</div>
+								
+								<small id="describeMobileAppHelp" aria-hidden="true">Wpisz opis aplikacji mobilnej</small>
+								
 							</div>
-							<small id="describeMobileAppHelp" aria-hidden="true">Wpisz opis aplikacji mobilnej</small>
+							
 							
 							<div>
 							
@@ -1419,7 +1423,8 @@
 								?>" name="linkMobileApp"
 								aria-describedby="linkMobileAppHelp"
 								data-error="Wpisz adres URL" />
-									
+							
+							<div id="linkMobileAppError">
 								<?php
 									if (isset($_SESSION['e_linkMobileApp']))
 									{
@@ -1427,9 +1432,12 @@
 										unset($_SESSION['e_linkMobileApp']);
 									}
 								?>
+							</div>
+							
+							<small id="linkMobileAppHelp" aria-hidden="true">Wpisz adres URL z którego można pobrak aplikację.</small>
 							
 							</div>
-							<small id="linkMobileAppHelp" aria-hidden="true">Wpisz adres URL z którego można pobrak aplikację.</small>
+							
 							
 						</div>
 				
