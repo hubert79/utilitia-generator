@@ -970,7 +970,7 @@
 					<div id="addStatusInput" class="status-is-hidden">
 					
 						<div>
-						<label for="contentNotAccessibleStatus">Treść niedostępna</label>
+						<label for="contentNotAccessibleStatus">Treść niedostępna (wymagane)</label>
 						<textarea id="contentNotAccessibleStatus" name="contentNotAccessibleStatus" cols="25" rows="4"
 								aria-describedby="contentNotAccessibleStatusError contentNotAccessibleStatusHelp"
 								data-error="Musisz wpisać treść niedostępną" ><?php
@@ -1254,7 +1254,7 @@
 				
 					<div>
 					
-						<label for="contactName">Imię i nazwisko</label>
+						<label for="contactName">Imię i nazwisko (wymagane)</label>
 						<input type="text" value="<?php
 							if (isset($_SESSION['fr_contactName']))
 							{
@@ -1280,7 +1280,7 @@
 				
 					<div>
 					
-						<label for="contactEmail">Adres e-mail</label>
+						<label for="contactEmail">Adres e-mail (wymagane)</label>
 						<input type="text" value="<?php
 							if (isset($_SESSION['fr_contactEmail']))
 							{
@@ -1306,7 +1306,7 @@
 					
 					<div>
 					
-						<label for="contactTelephon">Telefon</label>
+						<label for="contactTelephon">Telefon (wymagane)</label>
 						<input type="text" value="<?php
 								if (isset($_SESSION['fr_contactTelephon']))
 								{
@@ -1326,9 +1326,10 @@
 									}
 								?>
 							</div>
-					
+						<small id="contactTelephonHelp" aria-hidden="true">Wprowadż telefon kontaktowy osoby odpowiedzialnej za dostępność.</small>
+						
 					</div>
-					<small id="contactTelephonHelp" aria-hidden="true">Wprowadż telefon kontaktowy osoby odpowiedzialnej za dostępność.</small>
+					
 				
 				</fieldset>
 				
@@ -1385,7 +1386,7 @@
 							
 							<div>
 							
-								<label for="describeMobileApp">Opis</label>
+								<label for="describeMobileApp">Opis aplikacji mobilnej (wymagane)</label>
 								<textarea id="describeMobileApp" name="describeMobileApp" cols="25" rows="4"
 									aria-describedby="describeMobileAppHelp"
 									data-error="P\Należy wpisać opis aplikacji mobilnej"><?php
@@ -1413,8 +1414,8 @@
 							
 							<div>
 							
-								<label for="linkMobileApp">Link</label>
-								<input type="url" id="linkMobileApp" value="<?php
+								<label for="linkMobileApp">Adres URL, z którego można pobrać aplikacje (wymagane)</label>
+								<input type="text" id="linkMobileApp" value="<?php
 									if (isset($_SESSION['fr_linkMobileApp']))
 									{
 										echo $_SESSION['fr_linkMobileApp'];
