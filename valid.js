@@ -31,6 +31,7 @@ var indescribeMobileApp = document.getElementById('describeMobileApp');
 var inlinkMobileApp = document.getElementById('linkMobileApp');
 
 var filterEmail  = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+var filterTel =  /^[0-9\+]{8,13}$/;
 
 form.addEventListener("submit", e => {
     e.preventDefault();
@@ -106,19 +107,20 @@ form.addEventListener("submit", e => {
 		var e = document.getElementById('contactEmailError').innerHTML = '';
 	}
 	
-	if(filterEmail.test(ce.value) == true){
-		alert("tak");
-	}else{
-		alert("nie");
-	}
-	
 	//Contact Telephone
 	var ct = document.getElementById('contactTelephon');
-	if(ct.value.length < 1){
-		
+	if(ct.value.length < 1 ){
+		alert("jeden");
 		var e = document.getElementById('contactTelephonError').innerHTML = '<span>Błąd</span><span>To pole jest wymagane do wygenerowania deklaracji!</spann>';
 		error = true;
-	}  else {
+	}
+	else if(ct.value.length > 1 && filterTel.test(ct.value) == false){
+		alert("dwa");
+		var e = document.getElementById('contactTelephonError').innerHTML = '<span>Błąd</span><span>Wymagane jest wpisanie poprawnego numeru telefonu!</spann>';
+		error = tre;
+	}
+	else if(ct.value.length > 1 && filterTel.test(ct.value) == true){
+		alert("trzy");
 		var e = document.getElementById('contactTelephonError').innerHTML = '';
 	}
 	
