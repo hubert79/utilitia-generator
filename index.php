@@ -12,7 +12,7 @@
 		if (strlen($entityName) < 1)
 		{
 			$valid_result=false;
-			$_SESSION['e_entityName']="Wprowadź nazwę swojej instytucji!";
+			$_SESSION['e_entityName']="Musisz podać nazwę podmiotu!";
 		}
 		
 		$_SESSION['fr_entityName'] = $entityName;
@@ -21,10 +21,10 @@
 		$serviceName = $_POST['serviceName'];
 		$_SESSION['s_serviceName'] = $serviceName;
 		
-		if (strlen($serviceNames) < 1)
+		if (strlen($serviceName) < 1)
 		{
 			$valid_result=false;
-			$_SESSION['e_serviceName']="Wprowadź nazwę strony internetowej swojej instytucji!";
+			$_SESSION['e_serviceName']="Pole jest wymagane!";
 		}
 		
 		$_SESSION['fr_serviceName'] = $serviceName;
@@ -36,7 +36,7 @@
 		if (strlen($entityURLAdress) < 1)
 		{
 			$valid_result=false;
-			$_SESSION['e_entityURLAdress']="Wprowadź adres URL swojej instytucji!";
+			$_SESSION['e_entityURLAdress']="Pole jest wymagane!";
 		}
 		
 		$_SESSION['fr_entityURLAdress'] = $entityURLAdress;
@@ -80,19 +80,19 @@
 		
 		if($yearDateOfPublication > $yearDateOfLastUpdate)
 		{
-			$_SESSION['e_imposible_data'] = "Wprowadzono nieprawidłowe daty";
+			$_SESSION['e_imposible_data'] = "Wprowadzono nieprawidłowe daty! Rok publikacji jest większy niż rok aktualizacji.";
 		}
 		else if ($yearDateOfPublication == $yearDateOfLastUpdate)
 		{
 			if($monthDateOfPublication > $monthDateOfLastUpdate)
 			{
-				$_SESSION['e_imposible_data'] = "Wprowadzono nieprawidłowe daty";
+				$_SESSION['e_imposible_data'] = "Wprowadzono nieprawidłowe daty! Wybrany rok publikacji i rok aktualizacj są identyczne. Miesiąć publikacji jest większy niż miesiąc aktualizacji.";
 			}
 			else if($monthDateOfPublication == $monthDateOfLastUpdate)
 			{
 				if($dayDateOfPublication > $dayDateOfLastUpdate)
 				{
-					$_SESSION['e_imposible_data'] = "Wprowadzono nieprawidłowe daty";
+					$_SESSION['e_imposible_data'] = "Wprowadzono nieprawidłowe daty! Wybrany rok i miesiąc publikacji oraz rok i miesiąc aktualizacj są identyczne. Dzień publikacji jest większy niż dzień aktualizacji.";
 				}
 			}
 		}
@@ -234,10 +234,11 @@
 			}
 		
 			$_SESSION['fr_linkStatus'] = $linkStatus;
+			
 		} else {
 			$_SESSION['s_contentNotAccessibleStatus'] = "";
-$_SESSION['s_offStatus'] = "";
-$_SESSION['s_linkStatus'] = "";
+			$_SESSION['s_offStatus'] = "";
+			$_SESSION['s_linkStatus'] = "";
 		}
 		
 		// Declaration valid
@@ -361,7 +362,7 @@ $_SESSION['s_linkStatus'] = "";
 	
 	<?php
 		// Status list
-		$_session['option_selectStatus'] = 'Zgodna';
+		$_session['option_selectStatus'] = 'zgodna';
 		
 		if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['selectStatus']))
 		{
@@ -586,19 +587,23 @@ $_SESSION['s_linkStatus'] = "";
 								unset($_SESSION['fr_entityName']);
 							}
 							?>" name="entityName" id="entityName"
-							aria-describedby="entityNameHelp"
-							data-error="Musisz podać nazwę podmiotu" />
+							aria-describedby="entityNameError entityNameHelp"
+							data-error="Musisz podać nazwę podmiotu"
+							aria-invalid ="true" />
 							
+							<div id="entityNameError" role="alert">
 							<?php
 								if (isset($_SESSION['e_entityName']))
 								{
-									echo '<div class="error" role="alert">'.$_SESSION['e_entityName'].'</div>';
+									echo '<span>Błąd</span>'.'<span>'.$_SESSION['e_entityName'].'</span>';
 									unset($_SESSION['e_entityName']);
 								}
 							?>
-					
+							</div>
+							
+							<small id="entityNameHelp" aria-hidden="true">Wpisz oficjalną nazwę podmiotu, który publikuje deklarację.</small>
+							
 					</div>
-					<small id="entityNameHelp" aria-hidden="true">Wpisz oficjalną nazwę podmiotu, który publikuje deklarację.</small>
 				
 					<!-- Name URL -->
 					<div>
@@ -610,42 +615,51 @@ $_SESSION['s_linkStatus'] = "";
 								unset($_SESSION['fr_serviceName']);
 							}
 							?>" name="serviceName" id="serviceName"
-							aria-describedby="serviceNameHelp"
+							aria-describedby="serviceNameError serviceNameHelp"
 							data-error="Musisz podać nazwę strony internetowej" 							/>
-							
+						
+						<div id="serviceNameError" role="alert">
 							<?php
 								if (isset($_SESSION['e_serviceName']))
 								{
-									echo '<div class="error" role="alert">'.$_SESSION['e_serviceName'].'</div>';
+									echo '<span>Błąd</span>'.'<span>'.$_SESSION['e_serviceName'].'</span>';
 									unset($_SESSION['e_serviceName']);
 								}
 							?>
+						</div>
+						
+						<small id="serviceNameHelp" aria-hidden="true" >Wpisz oficjalną nazwę strony internetowej.</small>
+						
 					</div>
-					<small id="serviceNameHelp" aria-hidden="true" >Wpisz oficjalną nazwę strony internetowej.</small>
+					
 					
 					<!-- Adres URL -->
 					<div>
 						<label for="entityURLAdress">Adres URL podmiotu (wymagane)</label>
-						<input type="url" value="<?php
+						<input type="text" value="<?php
 							if (isset($_SESSION['fr_entityURLAdress']))
 							{
 								echo $_SESSION['fr_entityURLAdress'];
 								unset($_SESSION['fr_entityURLAdress']);
 							}
 							?>" name="entityURLAdress" id="entityURLAdress"
-							aria-describedby="entityURLAdresHelps"
+							aria-describedby="entityURLAdressError entityURLAdresHelps"
 							data-error="Musisz podać adres strony internetowej"	
 							/>
 							
+						<div id="entityURLAdressError" role="alert">
 							<?php
 								if (isset($_SESSION['e_entityURLAdress']))
 								{
-									echo '<div class="error" role="alert">'.$_SESSION['e_entityURLAdress'].'</div>';
+									echo '<span>Błąd</span>'.'<span>'.$_SESSION['e_entityURLAdress'].'</span>';
 									unset($_SESSION['e_entityURLAdress']);
 								}
 							?>
+						</div>
+							
+						<small id="entityURLAdresHelps" aria-hidden="true" >Wpisz adres strony internetowej.</small>
+						
 					</div>
-					<small id="entityURLAdresHelps" aria-hidden="true" >Wpisz adres strony internetowej.</small>
 				</fieldset>
 			
 				<!-- Data of publication -->
@@ -797,9 +811,7 @@ $_SESSION['s_linkStatus'] = "";
 					</div>
 					
 				</fieldset>
-				
-				<!-- Data last update -->
-				
+								
 				<!-- Data last update -->
 				<fieldset>
 				
@@ -944,8 +956,8 @@ $_SESSION['s_linkStatus'] = "";
 						<select name="selectStatus" id="selectStatus">
 						
 							<option value="zgodna" <?php check_selected('zgodna',$_session['option_selectStatus']);?> >Zgodna</option>
-							<option value="częściowo zgodna" <?php check_selected('Częściowo zgodna',$_session['option_selectStatus']);?> >Częściowo zgodna</option>
-							<option value="niezgodna" <?php check_selected('Niezgodna',$_session['option_selectStatus']);?> >Niezgodna</option>
+							<option value="częściowo zgodna" <?php check_selected('częściowo zgodna',$_session['option_selectStatus']);?> >Częściowo zgodna</option>
+							<option value="niezgodna" <?php check_selected('niezgodna',$_session['option_selectStatus']);?> >Niezgodna</option>
 							
 						</select>
 					
@@ -1001,7 +1013,7 @@ $_SESSION['s_linkStatus'] = "";
 						<div>
 						
 							<label for="linkStatus">Link</label>
-							<input type="url" id="linkStatus" value="<?php
+							<input type="text" id="linkStatus" value="<?php
 								if (isset($_SESSION['fr_linkStatus']))
 								{
 									echo $_SESSION['fr_linkStatus'];
@@ -1039,42 +1051,42 @@ $_SESSION['s_linkStatus'] = "";
 								<label for="yearDateOfMade">Rok</label>
 								<select name="yearDateOfMade" id="yearDateOfMade">
 										
-									<option value="1990" <?php check_yearDateOfMade('1990',$_session['option_yearDateOfPublication']);?> >1990</option>
-									<option value="1991" <?php check_yearDateOfMade('1991',$_session['option_yearDateOfPublication']);?> >1991</option>
-									<option value="1992" <?php check_yearDateOfMade('1992',$_session['option_yearDateOfPublication']);?> >1992</option>
-									<option value="1993" <?php check_yearDateOfMade('1993',$_session['option_yearDateOfPublication']);?> >1993</option>
-									<option value="1994" <?php check_yearDateOfMade('1994',$_session['option_yearDateOfPublication']);?> >1994</option>
-									<option value="1995" <?php check_yearDateOfMade('1995',$_session['option_yearDateOfPublication']);?> >1995</option>
-									<option value="1996" <?php check_yearDateOfMade('1996',$_session['option_yearDateOfPublication']);?> >1996</option>
-									<option value="1997" <?php check_yearDateOfMade('1997',$_session['option_yearDateOfPublication']);?> >1997</option>
-									<option value="1998" <?php check_yearDateOfMade('1998',$_session['option_yearDateOfPublication']);?> >1998</option>
-									<option value="1999" <?php check_yearDateOfMade('1999',$_session['option_yearDateOfPublication']);?> >1999</option>
+									<option value="1990" <?php check_yearDateOfMade('1990',$_session['option_yearDateOfMade']);?> >1990</option>
+									<option value="1991" <?php check_yearDateOfMade('1991',$_session['option_yearDateOfMade']);?> >1991</option>
+									<option value="1992" <?php check_yearDateOfMade('1992',$_session['option_yearDateOfMade']);?> >1992</option>
+									<option value="1993" <?php check_yearDateOfMade('1993',$_session['option_yearDateOfMade']);?> >1993</option>
+									<option value="1994" <?php check_yearDateOfMade('1994',$_session['option_yearDateOfMade']);?> >1994</option>
+									<option value="1995" <?php check_yearDateOfMade('1995',$_session['option_yearDateOfMade']);?> >1995</option>
+									<option value="1996" <?php check_yearDateOfMade('1996',$_session['option_yearDateOfMade']);?> >1996</option>
+									<option value="1997" <?php check_yearDateOfMade('1997',$_session['option_yearDateOfMade']);?> >1997</option>
+									<option value="1998" <?php check_yearDateOfMade('1998',$_session['option_yearDateOfMade']);?> >1998</option>
+									<option value="1999" <?php check_yearDateOfMade('1999',$_session['option_yearDateOfMade']);?> >1999</option>
 																	
-									<option value="2000" <?php check_yearDateOfMade('2000',$_session['option_yearDateOfPublication']);?> >2000</option>
-									<option value="2001" <?php check_yearDateOfMade('2001',$_session['option_yearDateOfPublication']);?>  >2001</option>
-									<option value="2002" <?php check_yearDateOfMade('2002',$_session['option_yearDateOfPublication']);?>  >2002</option>
-									<option value="2003" <?php check_yearDateOfMade('2003',$_session['option_yearDateOfPublication']);?>  >2003</option>
-									<option value="2004" <?php check_yearDateOfMade('2004',$_session['option_yearDateOfPublication']);?>  >2004</option>
-									<option value="2005" <?php check_yearDateOfMade('2005',$_session['option_yearDateOfPublication']);?>  >2005</option>
-									<option value="2006" <?php check_yearDateOfMade('2006',$_session['option_yearDateOfPublication']);?>  >2006</option>
-									<option value="2007" <?php check_yearDateOfMade('2007',$_session['option_yearDateOfPublication']);?>  >2007</option>
-									<option value="2008" <?php check_yearDateOfMade('2008',$_session['option_yearDateOfPublication']);?>  >2008</option>	
-									<option value="2009" <?php check_yearDateOfMade('2009',$_session['option_yearDateOfPublication']);?>  >2009</option>
+									<option value="2000" <?php check_yearDateOfMade('2000',$_session['option_yearDateOfMade']);?> >2000</option>
+									<option value="2001" <?php check_yearDateOfMade('2001',$_session['option_yearDateOfMade']);?>  >2001</option>
+									<option value="2002" <?php check_yearDateOfMade('2002',$_session['option_yearDateOfMade']);?>  >2002</option>
+									<option value="2003" <?php check_yearDateOfMade('2003',$_session['option_yearDateOfMade']);?>  >2003</option>
+									<option value="2004" <?php check_yearDateOfMade('2004',$_session['option_yearDateOfMade']);?>  >2004</option>
+									<option value="2005" <?php check_yearDateOfMade('2005',$_session['option_yearDateOfMade']);?>  >2005</option>
+									<option value="2006" <?php check_yearDateOfMade('2006',$_session['option_yearDateOfMade']);?>  >2006</option>
+									<option value="2007" <?php check_yearDateOfMade('2007',$_session['option_yearDateOfMade']);?>  >2007</option>
+									<option value="2008" <?php check_yearDateOfMade('2008',$_session['option_yearDateOfMade']);?>  >2008</option>	
+									<option value="2009" <?php check_yearDateOfMade('2009',$_session['option_yearDateOfMade']);?>  >2009</option>
 							
-									<option value="2010" <?php check_yearDateOfMade('2010',$_session['option_yearDateOfPublication']);?>  >2010</option>
-									<option value="2011" <?php check_yearDateOfMade('2011',$_session['option_yearDateOfPublication']);?>  >2011</option>
-									<option value="2012" <?php check_yearDateOfMade('2012',$_session['option_yearDateOfPublication']);?>  >2012</option>
-									<option value="2013" <?php check_yearDateOfMade('2013',$_session['option_yearDateOfPublication']);?>  >2013</option>
-									<option value="2014" <?php check_yearDateOfMade('2014',$_session['option_yearDateOfPublication']);?>  >2014</option>
-									<option value="2015" <?php check_yearDateOfMade('2015',$_session['option_yearDateOfPublication']);?>  >2015</option>
-									<option value="2016" <?php check_yearDateOfMade('2016',$_session['option_yearDateOfPublication']);?>  >2016</option>
-									<option value="2017" <?php check_yearDateOfMade('2017',$_session['option_yearDateOfPublication']);?>  >2017</option>
-									<option value="2018" <?php check_yearDateOfMade('2018',$_session['option_yearDateOfPublication']);?>  >2018</option>
-									<option value="2019" <?php check_yearDateOfMade('2019',$_session['option_yearDateOfPublication']);?>  >2019</option>
+									<option value="2010" <?php check_yearDateOfMade('2010',$_session['option_yearDateOfMade']);?>  >2010</option>
+									<option value="2011" <?php check_yearDateOfMade('2011',$_session['option_yearDateOfMade']);?>  >2011</option>
+									<option value="2012" <?php check_yearDateOfMade('2012',$_session['option_yearDateOfMade']);?>  >2012</option>
+									<option value="2013" <?php check_yearDateOfMade('2013',$_session['option_yearDateOfMade']);?>  >2013</option>
+									<option value="2014" <?php check_yearDateOfMade('2014',$_session['option_yearDateOfMade']);?>  >2014</option>
+									<option value="2015" <?php check_yearDateOfMade('2015',$_session['option_yearDateOfMade']);?>  >2015</option>
+									<option value="2016" <?php check_yearDateOfMade('2016',$_session['option_yearDateOfMade']);?>  >2016</option>
+									<option value="2017" <?php check_yearDateOfMade('2017',$_session['option_yearDateOfMade']);?>  >2017</option>
+									<option value="2018" <?php check_yearDateOfMade('2018',$_session['option_yearDateOfMade']);?>  >2018</option>
+									<option value="2019" <?php check_yearDateOfMade('2019',$_session['option_yearDateOfMade']);?>  >2019</option>
 																	
-									<option value="2020" <?php check_yearDateOfMade('2020',$_session['option_yearDateOfPublication']);?>  >2020</option>
-									<option value="2021" <?php check_yearDateOfMade('2021',$_session['option_yearDateOfPublication']);?>  >2021</option>
-									<option value="2022" <?php check_yearDateOfMade('2022',$_session['option_yearDateOfPublication']);?>  >2022</option>
+									<option value="2020" <?php check_yearDateOfMade('2020',$_session['option_yearDateOfMade']);?>  >2020</option>
+									<option value="2021" <?php check_yearDateOfMade('2021',$_session['option_yearDateOfMade']);?>  >2021</option>
+									<option value="2022" <?php check_yearDateOfMade('2022',$_session['option_yearDateOfMade']);?>  >2022</option>
 									
 								</select>
 							
@@ -1086,18 +1098,18 @@ $_SESSION['s_linkStatus'] = "";
 								<label for="monthDateOfMade">Miesiąc</label>
 								<select name="monthDateOfMade" id="monthDateOfMade">
 								
-									<option value="1" <?php check_monthDateOfMade('1',$_session['option_monthDateOfPublication']);?> >styczeń</option>
-									<option value="2" <?php check_monthDateOfMade('2',$_session['option_monthDateOfPublication']);?> >Luty</option>
-									<option value="3" <?php check_monthDateOfMade('3',$_session['option_monthDateOfPublication']);?> >marzec</option>
-									<option value="4" <?php check_monthDateOfMade('4',$_session['option_monthDateOfPublication']);?> >kwiecień</option>
-									<option value="5" <?php check_monthDateOfMade('5',$_session['option_monthDateOfPublication']);?> >maj</option>
-									<option value="6" <?php check_monthDateOfMade('6',$_session['option_monthDateOfPublication']);?> >czerwiec</option>
-									<option value="7" <?php check_monthDateOfMade('7',$_session['option_monthDateOfPublication']);?> >lipiec</option>
-									<option value="8" <?php check_monthDateOfMade('8',$_session['option_monthDateOfPublication']);?> >sierpień</option>
-									<option value="9" <?php check_monthDateOfMade('9',$_session['option_monthDateOfPublication']);?> >wrzesień</option>
-									<option value="10" <?php check_monthDateOfMade('10',$_session['option_monthDateOfPublication']);?> >październik</option>
-									<option value="11" <?php check_monthDateOfMade('11',$_session['option_monthDateOfPublication']);?> >listopad</option>
-									<option value="12" <?php check_monthDateOfMade('12',$_session['option_monthDateOfPublication']);?> >grudzień</option>
+									<option value="1" <?php check_monthDateOfMade('1',$_session['option_monthDateOfMade']);?> >styczeń</option>
+									<option value="2" <?php check_monthDateOfMade('2',$_session['option_monthDateOfMade']);?> >Luty</option>
+									<option value="3" <?php check_monthDateOfMade('3',$_session['option_monthDateOfMade']);?> >marzec</option>
+									<option value="4" <?php check_monthDateOfMade('4',$_session['option_monthDateOfMade']);?> >kwiecień</option>
+									<option value="5" <?php check_monthDateOfMade('5',$_session['option_monthDateOfMade']);?> >maj</option>
+									<option value="6" <?php check_monthDateOfMade('6',$_session['option_monthDateOfMade']);?> >czerwiec</option>
+									<option value="7" <?php check_monthDateOfMade('7',$_session['option_monthDateOfMade']);?> >lipiec</option>
+									<option value="8" <?php check_monthDateOfMade('8',$_session['option_monthDateOfMade']);?> >sierpień</option>
+									<option value="9" <?php check_monthDateOfMade('9',$_session['option_monthDateOfMade']);?> >wrzesień</option>
+									<option value="10" <?php check_monthDateOfMade('10',$_session['option_monthDateOfMade']);?> >październik</option>
+									<option value="11" <?php check_monthDateOfMade('11',$_session['option_monthDateOfMade']);?> >listopad</option>
+									<option value="12" <?php check_monthDateOfMade('12',$_session['option_monthDateOfMade']);?> >grudzień</option>
 										
 								</select>
 							
@@ -1109,40 +1121,40 @@ $_SESSION['s_linkStatus'] = "";
 								<label for="dayDateOfMade">Dzień</label>
 								<select name="dayDateOfMade" id="dayDateOfMade">
 								
-									<option value="1" <?php check_dayDateOfMade('1',$_session['option_dayDateOfPublication']);?> >01</option>
-									<option value="2" <?php check_dayDateOfMade('2',$_session['option_dayDateOfPublication']);?> >02</option>
-									<option value="3" <?php check_dayDateOfMade('3',$_session['option_dayDateOfPublication']);?> >03</option>
-									<option value="4" <?php check_dayDateOfMade('4',$_session['option_dayDateOfPublication']);?> >04</option>
-									<option value="5" <?php check_dayDateOfMade('5',$_session['option_dayDateOfPublication']);?> >05</option>
-									<option value="6" <?php check_dayDateOfMade('6',$_session['option_dayDateOfPublication']);?> >06</option>
-									<option value="7" <?php check_dayDateOfMade('7',$_session['option_dayDateOfPublication']);?> >07</option>
-									<option value="8" <?php check_dayDateOfMade('8',$_session['option_dayDateOfPublication']);?> >08</option>
-									<option value="9" <?php check_dayDateOfMade('9',$_session['option_dayDateOfPublication']);?> >09</option>
+									<option value="1" <?php check_dayDateOfMade('1',$_session['option_dayDateOfMade']);?> >01</option>
+									<option value="2" <?php check_dayDateOfMade('2',$_session['option_dayDateOfMade']);?> >02</option>
+									<option value="3" <?php check_dayDateOfMade('3',$_session['option_dayDateOfMade']);?> >03</option>
+									<option value="4" <?php check_dayDateOfMade('4',$_session['option_dayDateOfMade']);?> >04</option>
+									<option value="5" <?php check_dayDateOfMade('5',$_session['option_dayDateOfMade']);?> >05</option>
+									<option value="6" <?php check_dayDateOfMade('6',$_session['option_dayDateOfMade']);?> >06</option>
+									<option value="7" <?php check_dayDateOfMade('7',$_session['option_dayDateOfMade']);?> >07</option>
+									<option value="8" <?php check_dayDateOfMade('8',$_session['option_dayDateOfMade']);?> >08</option>
+									<option value="9" <?php check_dayDateOfMade('9',$_session['option_dayDateOfMade']);?> >09</option>
 									
-									<option value="10" <?php check_dayDateOfMade('10',$_session['option_dayDateOfPublication']);?> >10</option>
-									<option value="11" <?php check_dayDateOfMade('11',$_session['option_dayDateOfPublication']);?> >11</option>
-									<option value="12" <?php check_dayDateOfMade('12',$_session['option_dayDateOfPublication']);?> >12</option>
-									<option value="13" <?php check_dayDateOfMade('13',$_session['option_dayDateOfPublication']);?> >13</option>
-									<option value="14" <?php check_dayDateOfMade('14',$_session['option_dayDateOfPublication']);?> >14</option>
-									<option value="15" <?php check_dayDateOfMade('15',$_session['option_dayDateOfPublication']);?> >15</option>
-									<option value="16" <?php check_dayDateOfMade('16',$_session['option_dayDateOfPublication']);?> >16</option>
-									<option value="17" <?php check_dayDateOfMade('17',$_session['option_dayDateOfPublication']);?> >17</option>
-									<option value="18" <?php check_dayDateOfMade('18',$_session['option_dayDateOfPublication']);?> >18</option>
-									<option value="19" <?php check_dayDateOfMade('19',$_session['option_dayDateOfPublication']);?> >19</option>
+									<option value="10" <?php check_dayDateOfMade('10',$_session['option_dayDateOfMade']);?> >10</option>
+									<option value="11" <?php check_dayDateOfMade('11',$_session['option_dayDateOfMade']);?> >11</option>
+									<option value="12" <?php check_dayDateOfMade('12',$_session['option_dayDateOfMade']);?> >12</option>
+									<option value="13" <?php check_dayDateOfMade('13',$_session['option_dayDateOfMade']);?> >13</option>
+									<option value="14" <?php check_dayDateOfMade('14',$_session['option_dayDateOfMade']);?> >14</option>
+									<option value="15" <?php check_dayDateOfMade('15',$_session['option_dayDateOfMade']);?> >15</option>
+									<option value="16" <?php check_dayDateOfMade('16',$_session['option_dayDateOfMade']);?> >16</option>
+									<option value="17" <?php check_dayDateOfMade('17',$_session['option_dayDateOfMade']);?> >17</option>
+									<option value="18" <?php check_dayDateOfMade('18',$_session['option_dayDateOfMade']);?> >18</option>
+									<option value="19" <?php check_dayDateOfMade('19',$_session['option_dayDateOfMade']);?> >19</option>
 							
-									<option value="20" <?php check_dayDateOfMade('20',$_session['option_dayDateOfPublication']);?> >20</option>
-									<option value="21" <?php check_dayDateOfMade('21',$_session['option_dayDateOfPublication']);?> >21</option>
-									<option value="22" <?php check_dayDateOfMade('22',$_session['option_dayDateOfPublication']);?> >22</option>
-									<option value="23" <?php check_dayDateOfMade('23',$_session['option_dayDateOfPublication']);?> >23</option>
-									<option value="24" <?php check_dayDateOfMade('24',$_session['option_dayDateOfPublication']);?> >24</option>
-									<option value="25" <?php check_dayDateOfMade('25',$_session['option_dayDateOfPublication']);?> >25</option>
-									<option value="26" <?php check_dayDateOfMade('26',$_session['option_dayDateOfPublication']);?> >26</option>
-									<option value="27" <?php check_dayDateOfMade('27',$_session['option_dayDateOfPublication']);?> >27</option>
-									<option value="28" <?php check_dayDateOfMade('28',$_session['option_dayDateOfPublication']);?> >28</option>
-									<option value="29" <?php check_dayDateOfMade('29',$_session['option_dayDateOfPublication']);?> >29</option>
+									<option value="20" <?php check_dayDateOfMade('20',$_session['option_dayDateOfMade']);?> >20</option>
+									<option value="21" <?php check_dayDateOfMade('21',$_session['option_dayDateOfMade']);?> >21</option>
+									<option value="22" <?php check_dayDateOfMade('22',$_session['option_dayDateOfMade']);?> >22</option>
+									<option value="23" <?php check_dayDateOfMade('23',$_session['option_dayDateOfMade']);?> >23</option>
+									<option value="24" <?php check_dayDateOfMade('24',$_session['option_dayDateOfMade']);?> >24</option>
+									<option value="25" <?php check_dayDateOfMade('25',$_session['option_dayDateOfMade']);?> >25</option>
+									<option value="26" <?php check_dayDateOfMade('26',$_session['option_dayDateOfMade']);?> >26</option>
+									<option value="27" <?php check_dayDateOfMade('27',$_session['option_dayDateOfMade']);?> >27</option>
+									<option value="28" <?php check_dayDateOfMade('28',$_session['option_dayDateOfMade']);?> >28</option>
+									<option value="29" <?php check_dayDateOfMade('29',$_session['option_dayDateOfMade']);?> >29</option>
 																
-									<option value="30" <?php check_dayDateOfMade('30',$_session['option_dayDateOfPublication']);?> >30</option>
-									<option value="31" <?php check_dayDateOfMade('31',$_session['option_dayDateOfPublication']);?> >31</option>
+									<option value="30" <?php check_dayDateOfMade('30',$_session['option_dayDateOfMade']);?> >30</option>
+									<option value="31" <?php check_dayDateOfMade('31',$_session['option_dayDateOfMade']);?> >31</option>
 									
 								</select>
 							
@@ -1177,7 +1189,7 @@ $_SESSION['s_linkStatus'] = "";
 						
 							<option value="samooceny przeprowadzonej przez podmiot publiczny" 
 								<?php
-									check_declaration('Samooceny przeprowadzonej przez podmiot publiczny',$_session['option_declaration']);
+									check_declaration('samooceny przeprowadzonej przez podmiot publiczny',$_session['option_declaration']);
 								?>
 								>Samooceny przeprowadzonej przez podmiot publiczny
 							</option>
@@ -1252,7 +1264,7 @@ $_SESSION['s_linkStatus'] = "";
 					<div>
 					
 						<label for="contactEmail">Adres e-mail</label>
-						<input type="email" value="<?php
+						<input type="text" value="<?php
 							if (isset($_SESSION['fr_contactEmail']))
 							{
 								echo $_SESSION['fr_contactEmail'];
@@ -1276,7 +1288,7 @@ $_SESSION['s_linkStatus'] = "";
 					<div>
 					
 						<label for="contactTelephon">Telefon</label>
-						<input type="tel" value="<?php
+						<input type="text" value="<?php
 								if (isset($_SESSION['fr_contactTelephon']))
 								{
 									echo $_SESSION['fr_contactTelephon'];
@@ -1308,7 +1320,7 @@ $_SESSION['s_linkStatus'] = "";
 					
 						<label for="archaccess">Dostępność architektoniczna (wymagane)</label>
 						<textarea id="archaccess" name="archaccess" cols="25" rows="4"
-							aria-describedby="archaccessHelp"
+							aria-describedby="archaccessError archaccessHelp"
 							data-error="Prosze opisać dostępność architektoniczną"><?php
 								if (isset($_SESSION['fr_archaccess']))
 								{
@@ -1316,17 +1328,20 @@ $_SESSION['s_linkStatus'] = "";
 									unset($_SESSION['fr_archaccess']);
 								}
 							?></textarea>
-									
+						
+						<div id="archaccessError">
 							<?php
 								if (isset($_SESSION['e_archaccess']))
 								{
-									echo '<div class="error" role="alert">'.$_SESSION['e_archaccess'].'</div>';
+									echo '<span>Błąd</span>'.'<span>'.$_SESSION['e_archaccess'].'</span>';
 									unset($_SESSION['e_archaccess']);
 								}
 							?>
+						</div>
 					
+						<small id="archaccessHelp" aria-hidden="true">Opisz dostępność architektoniczną</small>
+						
 					</div>
-					<small id="archaccessHelp" aria-hidden="true">Opisz dostępność architektoniczną</small>
 				
 				</fieldset>
 				
@@ -1337,11 +1352,11 @@ $_SESSION['s_linkStatus'] = "";
 					
 					<div>
 					
-						<label for="mobApp">Aplikacja mobilna</label>
+						<label for="mobApp">Podmiot posiada aplikację mobilną.</label>
 						<select id="mobApp" name="mobApp">
 					
-							<option value="Nie" <?php check_mobileApp('Nie',$_session['option_mobApp']);?> >Nie</option>
-							<option value="Tak" <?php check_mobileApp('Tak',$_session['option_mobApp']);?> >Tak</option>
+							<option value="Nie" <?php check_mobileApp('nie',$_session['option_mobApp']);?> >Nie</option>
+							<option value="Tak" <?php check_mobileApp('tak',$_session['option_mobApp']);?> >Tak</option>
 							
 						</select>
 				
