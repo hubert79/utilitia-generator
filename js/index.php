@@ -1034,7 +1034,6 @@
 							?>" name="linkStatus" aria-describedby="linkStatusHelp"
 							data-error="Musisz wpisać link do strony z dostępnymi treściami" />
 						
-						<div id="linkStatusError">
 							<?php
 								if (isset($_SESSION['e_linkStatus']))
 								{
@@ -1042,7 +1041,7 @@
 									unset($_SESSION['e_linkStatus']);
 								}
 							?>
-						</div>
+						
 						
 							<small id="linkStatusHelp" aria-hidden="true" >Wpisz adres URL strony zawierającej dostępne treści.</small>
 							
