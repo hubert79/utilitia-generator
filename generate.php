@@ -119,7 +119,7 @@
 			Strona internetowa jest <strong id="a11y-status">'.$selectStatus.'</strong>  z ustawą o dostępności cyfrowej stron internetowych i aplikacji  mobilnych podmiotów publicznych z powodu niezgodności lub wyłączeń wymienionych poniżej. Zapewnienie dostępności niosłoby za sobą nadmierne obciążenia dla podmiotu publicznego. 
 			
 			</p> ';
-			} else {
+			} else if($selectStatus !== 'zgodna' && $offStatus !== "") {
 				$statusInfo = '
 		<h2>Status pod względem zgodności z ustawą</h2>
 		'.'	<p>
@@ -138,13 +138,21 @@
 				'.'<p>
 				
 				'.$offStatus.'
-				</p>'.
-				'<h3>link</h3>
+				</p>';
+			} else if($selectStatus !== 'zgodna' && $offStatus === "") {
+				$statusInfo = '
+		<h2>Status pod względem zgodności z ustawą</h2>
+		'.'	<p>
+		
+				Strona internetowa jest <strong id="a11y-status">'.$selectStatus.'</strong>  z ustawą o dostępności cyfrowej stron internetowych i aplikacji mobilnych podmiotów publicznych z powodu niezgodności lub wyłączeń wymienionych poniżej. Zapewnienie dostępności niosłoby za sobą nadmierne obciążenia dla podmiotu publicznego. 
+		
+			</p> '.
+				'<h3>Treść niedostępna</h3>
 				'.'<p>
 				
-				'.$linkStatus.'
-				
-				</p>';
+					'.$contentNotAccessibleStatus.
+					
+				'</p>';
 			}
 			
 			if($declaration === "samooceny przeprowadzonej przez podmiot publiczny"){
@@ -272,14 +280,18 @@
 		
 			'.$archaccess.'
 			
-		</p>
+		</p>';
 		
-		'.'<h2 id=”a11y-informacje-dodatkowe”>Informacje dodatkowe</h2>
-		
-		'.'	<p>
-				'.$addInformation.'
+		if($addInformation === ""){
+			$Add = "";
+		} else {
+			$Add = '<h2 id=”a11y-informacje-dodatkowe”>Informacje dodatkowe</h2>
 			
-			</p>';	
+			'.'	<p>
+					'.$addInformation.'
+				
+				</p>';	
+			}	
 			
 			if($mobApp === "Tak"){
 				$amInfo = '
@@ -295,7 +307,7 @@
 		<textarea readonly id="declarationTxt" cols="70" rows="20"><?php
 				
 				$deklaracja = $generalInfo.$statusInfo.
-				$preInfo.$KontaktInfo.$amInfo.$prawoInfo;
+				$preInfo.$KontaktInfo.$amInfo.$prawoInfo.$Add;
 				
 				
 				echo $deklaracja;

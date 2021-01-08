@@ -215,23 +215,11 @@
 			$offStatus = $_POST['offStatus'];
 			$_SESSION['s_offStatus'] = $offStatus;
 		
-			if (strlen($offStatus) < 1)
-			{
-				$valid_result=false;
-				$_SESSION['e_offStatus']="Wprowadź opis treści niedostępnej!";
-			}
-		
 			$_SESSION['fr_offStatus'] = $offStatus;
 			
 			// Link Status valid
 			$linkStatus = $_POST['linkStatus'];
 			$_SESSION['s_linkStatus'] = $linkStatus;
-		
-			if (strlen($linkStatus) < 1)
-			{
-				$valid_result=false;
-				$_SESSION['e_linkStatus']="Wprowadź adres treści niedostępnej!";
-			}
 		
 			$_SESSION['fr_linkStatus'] = $linkStatus;
 			
@@ -264,10 +252,18 @@
 		$_SESSION['s_yearDateOfMade'] = $yearDateOfMade;
 		
 		$monthDateOfMade = $_POST['monthDateOfMade'];
-		$_SESSION['s_monthDateOfMade'] = $monthDateOfMade;
+		if($monthDateOfMade < 10){
+			$_SESSION['s_monthDateOfMade'] = '0'.$monthDateOfMade;
+		}else {
+			$_SESSION['s_monthDateOfMade'] = $monthDateOfMade;
+		}
 		
 		$dayDateOfMade = $_POST['dayDateOfMade'];
-		$_SESSION['s_dayDateOfMade'] = $dayDateOfMade;
+		if($dayDateOfMade < 10){
+			$_SESSION['s_dayDateOfMade'] = '0'.$dayDateOfMade;
+		} else {
+			$_SESSION['s_dayDateOfMade'] = $dayDateOfMade;
+		}
 		
 		//Contact 
 		$contactName = $_POST['contactName'];
@@ -1032,7 +1028,7 @@
 									unset($_SESSION['fr_linkStatus']);
 								}
 							?>" name="linkStatus" aria-describedby="linkStatusHelp"
-							data-error="Musisz wpisać link do strony z dostępnymi treściami" />
+							/>
 						
 						<div id="linkStatusError">
 							<?php
