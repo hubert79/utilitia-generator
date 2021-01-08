@@ -65,7 +65,6 @@
 	 		$selectStatus = $_SESSION['s_selectStatus'];
 			$contentNotAccessibleStatus = $_SESSION['s_contentNotAccessibleStatus'];
 			$offStatus = $_SESSION['s_offStatus'];
-			$linkStatus = $_SESSION['s_linkStatus'];
 			
 			$declaration = $_SESSION['s_declaration'];
 			$nameExtermalEntity = $_SESSION['s_nameExtermalEntity'];

@@ -218,15 +218,15 @@
 			$_SESSION['fr_offStatus'] = $offStatus;
 			
 			// Link Status valid
-			$linkStatus = $_POST['linkStatus'];
-			$_SESSION['s_linkStatus'] = $linkStatus;
+			//$linkStatus = $_POST['linkStatus'];
+			//$_SESSION['s_linkStatus'] = $linkStatus;
 		
-			$_SESSION['fr_linkStatus'] = $linkStatus;
+			//$_SESSION['fr_linkStatus'] = $linkStatus;
 			
 		} else {
 			$_SESSION['s_contentNotAccessibleStatus'] = "";
 			$_SESSION['s_offStatus'] = "";
-			$_SESSION['s_linkStatus'] = "";
+			//$_SESSION['s_linkStatus'] = "";
 		}
 		
 		// Declaration valid
@@ -1014,33 +1014,6 @@
 								?>
 							
 							<small id="offStatusHelp" aria-hidden="true" >Wpisz treści ustawowo zwolnione z dostępności.</small>
-							
-						</div>
-						
-						
-						<div>
-						
-							<label for="linkStatus">Link</label>
-							<input type="text" id="linkStatus" value="<?php
-								if (isset($_SESSION['fr_linkStatus']))
-								{
-									echo $_SESSION['fr_linkStatus'];
-									unset($_SESSION['fr_linkStatus']);
-								}
-							?>" name="linkStatus" aria-describedby="linkStatusHelp"
-							/>
-						
-						<div id="linkStatusError">
-							<?php
-								if (isset($_SESSION['e_linkStatus']))
-								{
-									echo '<div class="error" role="alert">'.$_SESSION['e_linkStatus'].'</div>';
-									unset($_SESSION['e_linkStatus']);
-								}
-							?>
-						</div>
-						
-							<small id="linkStatusHelp" aria-hidden="true" >Wpisz adres URL strony zawierającej dostępne treści.</small>
 							
 						</div>
 						

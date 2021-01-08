@@ -95,7 +95,7 @@ form.addEventListener("submit", e => {
 		var e = document.getElementById('contentNotAccessibleStatusError').innerHTML = '';
 	}
 
-	if(inlinkStatus.value != "" && filterUrl.test(inlinkStatus.value) == false){
+	/*if(inlinkStatus.value != "" && filterUrl.test(inlinkStatus.value) == false){
 		var e = document.getElementById('linkStatusError').innerHTML = '<span>Błąd</span><span>Wprowadzony ciąg znaków, nie jest adresem URL!</spann>';
 		error = true;
 	}
@@ -103,7 +103,7 @@ form.addEventListener("submit", e => {
 		
 		error = false;
 		var e = document.getElementById('linkStatusError').innerHTML = '';
-	}
+	}*/
 	
 	//Valid Personal data
 	//Contact name
