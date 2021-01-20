@@ -10,7 +10,12 @@ body {
 }
 
 :focus {
-	outline: solid 2px red;
+	outline: solid 4px darkorange;
+}
+
+[role="alert"] {
+	font-weight: 600;
+	color: #eb0000;
 }
 
 header,
@@ -71,6 +76,8 @@ form legend {
 }
 
 form label {
+	width: 100%;
+	max-width: 800px;
 	font-weight: 600;
 }
 
@@ -93,7 +100,8 @@ form small {
 }
 
 form input[type="submit"],
-#copyBtn {
+#copyBtn,
+#qa > details > summary {
 	display: inline-block;
 	width: auto;
 	padding: 10px 20px;
@@ -108,7 +116,9 @@ form input[type="submit"],
 form input[type="submit"]:hover,
 form input[type="submit"]:focus,
 #copyBtn:hover,
-#copyBtn:focus {
+#copyBtn:focus,
+#qa > details > summary:hover,
+#qa > details > summary:focus {
 	background-color: #fed74d;
 }
 
@@ -143,4 +153,21 @@ form input[type="submit"]:focus,
 	margin: 2em 0;
 	font: inherit;
 	font-weight: 600;
+}
+
+#qa {
+	margin-top: 2em;
+}
+
+#qa details > details {
+	margin-top: 1.5em;
+}
+
+#qa summary::-webkit-details-marker {
+  display: none;
+}
+
+#qa summary {
+	font-weight: 600;
+	cursor: pointer;
 }

@@ -351,8 +351,8 @@
 	</head>
 	<body>
 	<header>
-		<a href="http://utilitia.pl">
-			<img src="http://utilitia.pl/wp-content/uploads/2020/07/utilitia-logo-2.png" alt="Utilitia">
+		<a href="https://utilitia.pl">
+			<img src="https://utilitia.pl/wp-content/uploads/2020/07/utilitia-logo-2.png" alt="Utilitia">
 		</a>
 	</header>
 	
@@ -565,6 +565,64 @@
 		<main id="content">
 		
 			<h1>Generator deklaracji dostępności</h1>
+
+			<div id="qa">
+				<details>
+					<summary>Często zadawane pytania dotyczące deklaracji dostępności</summary>
+					<details>
+						<summary>Gdzie na stronie internetowej / aplikacji mobilnej należy umieścić deklarację dostępności? Czy wystarczy na BIP?</summary>
+						<p>Deklarację dostępności należy umieścić na wszystkich stronach internetowych będących własnością danego podmiotu. Zatem deklaracja Dostępności powinna być umieszczona w BIP-ie i na stronie internetowej. Dobrą praktyką jest, aby była widoczna zaraz po wejściu na stronę główną serwisu. Ustawa mówi, iż deklaracja dostępności powinna być umieszczona na każdej z zarządzanych stron internetowych.</p>
+					</details>
+					<details>
+						<summary>Czy jeśli klienci nas fizycznie nie odwiedzają, to deklaracja dostępności powinna zawierać deklarację dostępności architektonicznej?</summary>
+						<p>Tak. Deklaracja dostępności służy nie tylko klientom, ale jest to informacja również dla osób ubiegających się o pracę, zatrudnionych, kontrahentów i innych odwiedzających budynek.</p>
+					</details>
+					<details>
+						<summary>Czy opublikowanie deklaracji na stronie oznacza, że strona jest dostępna w 100%?</summary>
+						<p>Nie. Deklaracja to informacja o dostępności lub niedostępności serwisu internetowego, aplikacji mobilnej, budynku bądź ich elementów, dla osób ze szczególnymi potrzebami. Deklaracja nie jest gwarantem dostępności.</p>
+					</details>
+					<details>
+						<summary>Czy za brak deklaracji dostępności na stronie grożą sankcje finansowe? Jeśli tak to jakie?</summary>
+						<p>Tak. Zgodnie z zapisami ustawy o dostępności cyfrowej stron internetowych i aplikacji mobilnych karze finansowej podlegają podmioty publiczne które:</p>
+						<ul>
+							<li>w sposób nieuzasadniony i uporczywy nie zapewniają dostępności cyfrowej strony internetowej lub aplikacji mobilnej</li>
+							<li>nie sporządzają i nie publikują deklaracji dostępności lub nie zawierają w tej deklaracji elementów wskazanych w art.&nbsp;10, ust.&nbsp;3-5</li>
+							<li>nie zapewniają dostępności strony internetowej BIP (art.&nbsp;8, ust.&nbsp;2, pkt.&nbsp;1) oraz elementów i funkcji strony internetowej i aplikacji mobilnych</li>
+						</ul>
+						<p>Wysokość kar kształtuje się następująco:</p>
+						<ul>
+							<li>brak deklaracji dostępności na stronie internetowej – do 5000&nbsp;zł</li>
+							<li>brak zapewnienia dostępności strony internetowej lub aplikacji mobilnej – do 10000&nbsp;zł</li>
+							<li>brak dostępności dla BIP bądź jego elementu – do 5000&nbsp;zł</li>
+						</ul>
+						<p>Należy tu zaznaczyć, że nie jest to kara jednorazowa. Może być ona nakładana na podmiot aż do skutku, czyli aż podmiot nie zapewni dostępności cyfrowej.</p>
+					</details>
+					<details>
+						<summary>Czy deklaracja może być tylko w „pliku do pobrania” czy musi być w treści np. BIP?</summary>
+						<p>Ustawa mówi, iż deklaracja dostępności powinna być sporządzona w sposób dostępny cyfrowo. Zaleca się, aby była umieszczona w treści zarówno na BIP, jak i na stronie internetowej podmiotu.</p>
+					</details>
+					<details>
+						<summary>Czy deklaracja dostępności powinna zawierać wszystkie obszary dostępności czy tylko dostępność cyfrową stron www?</summary>
+						<p>Deklaracja dostępności podmiotu publicznego powinna zawierać informacje o dostępności wszystkich obszarów tj. cyfrowej, architektonicznej i komunikacyjno‑informacyjnej.</p>
+					</details>
+					<details>
+						<summary>Czyje dane kontaktowe umieszczać w deklaracji dostępności, w kontekście zgłaszania niedostępności cyfrowej - koordynatora/‑ki czy informatyka/‑czki?</summary>
+						<p>W deklaracji dostępności zawsze należy umieścić dane teleadresowe koordynatora ds. dostępności. Jednak w przypadku dostępności cyfrowej, mogą to być dane kontaktowe do osoby, która w danej jednostce publicznej została wyznaczona do realizacji spraw w tym zakresie. Zatem może to być również informatyk.</p>
+					</details>
+					<details>
+						<summary>Czy deklaracja dostępności umieszczona na BIP w zakładce „Dostępność” powinna być podpisana przez Burmistrza Miasta?</summary>
+						<p>Deklaracja dostępności nie wymaga podpisu. Jest to wersja elektroniczna umieszczana na stronie internetowej i lub w aplikacji mobilnej.</p>
+					</details>
+					<details>
+						<summary>Czy deklaracja dostępności powinna być przyjęta w formie jakiegoś aktu wewnętrznego urzędu typu zarządzenie?</summary>
+						<p>Deklaracja dostępności ma postać elektroniczną. Ustawodawca nie przewiduje Deklaracji jako odrębnego wewnętrznego aktu czy zarządzenia.</p>
+					</details>
+					<details>
+						<summary>Czy deklaracje dostępności należy aktualizować? Jeśli tak to jak często?</summary>
+						<p>Deklarację należy aktualizować każdego roku do końca marca, lub po każdej większej przebudowie strony internetowej lub aplikacji mobilnej. Wszelkie zmiany dotyczące dostępności (architektonicznej bądź informacyjno-komunikacyjnej) należy na bieżąco aktualizować. Informacja o dacie ostatniej aktualizacji powinna znajdować się w deklaracji Dostępności. Za brak aktualizacji lub niekompletność deklaracji grozi kara nawet do 5000&nbsp;zł.</p>
+					</details>
+				</details>
+			</div>
 			
 			<form class="form" method="post">
 			
@@ -584,8 +642,7 @@
 							}
 							?>" name="entityName" id="entityName"
 							aria-describedby="entityNameError entityNameHelp"
-							data-error="Musisz podać nazwę podmiotu"
-							aria-invalid ="true" />
+							data-error="Musisz podać nazwę podmiotu" />
 							
 							<div id="entityNameError" role="alert">
 							<?php
@@ -732,7 +789,7 @@
 								<select name="monthDateOfPublication" id="monthDateOfPublication">
 								
 									<option value="1" <?php check_monthDateOfPublication('1',$_session['option_monthDateOfPublication']);?> >styczeń</option>
-									<option value="2" <?php check_monthDateOfPublication('2',$_session['option_monthDateOfPublication']);?> >Luty</option>
+									<option value="2" <?php check_monthDateOfPublication('2',$_session['option_monthDateOfPublication']);?> >luty</option>
 									<option value="3" <?php check_monthDateOfPublication('3',$_session['option_monthDateOfPublication']);?> >marzec</option>
 									<option value="4" <?php check_monthDateOfPublication('4',$_session['option_monthDateOfPublication']);?> >kwiecień</option>
 									<option value="5" <?php check_monthDateOfPublication('5',$_session['option_monthDateOfPublication']);?> >maj</option>
@@ -871,7 +928,7 @@
 								<select name="monthDateOfLastUpdate" id="monthDateOfLastUpdate">
 								
 									<option value="1" <?php check_monthDateOfLastUpdate('1',$_session['option_monthDateOfLastUpdate']);?> >styczeń</option>
-									<option value="2" <?php check_monthDateOfLastUpdate('2',$_session['option_monthDateOfLastUpdate']);?> >Luty</option>
+									<option value="2" <?php check_monthDateOfLastUpdate('2',$_session['option_monthDateOfLastUpdate']);?> >luty</option>
 									<option value="3" <?php check_monthDateOfLastUpdate('3',$_session['option_monthDateOfLastUpdate']);?> >marzec</option>
 									<option value="4" <?php check_monthDateOfLastUpdate('4',$_session['option_monthDateOfLastUpdate']);?> >kwiecień</option>
 									<option value="5" <?php check_monthDateOfLastUpdate('5',$_session['option_monthDateOfLastUpdate']);?> >maj</option>
@@ -1082,7 +1139,7 @@
 								<select name="monthDateOfMade" id="monthDateOfMade">
 								
 									<option value="1" <?php check_monthDateOfMade('1',$_session['option_monthDateOfMade']);?> >styczeń</option>
-									<option value="2" <?php check_monthDateOfMade('2',$_session['option_monthDateOfMade']);?> >Luty</option>
+									<option value="2" <?php check_monthDateOfMade('2',$_session['option_monthDateOfMade']);?> >luty</option>
 									<option value="3" <?php check_monthDateOfMade('3',$_session['option_monthDateOfMade']);?> >marzec</option>
 									<option value="4" <?php check_monthDateOfMade('4',$_session['option_monthDateOfMade']);?> >kwiecień</option>
 									<option value="5" <?php check_monthDateOfMade('5',$_session['option_monthDateOfMade']);?> >maj</option>
@@ -1188,7 +1245,7 @@
 						
 						<div id="addDeclarationInput" class="declaration-is-hidden">
 						
-							<label for="nameExtermalEntity">Nazwa podmiotu zewnętrznego</label>
+							<label for="nameExtermalEntity">Nazwa podmiotu zewnętrznego (wymagane)</label>
 							<input type="text" id="nameExtermalEntity" value="<?php
 									if (isset($_SESSION['fr_nameExtermalEntity']))
 									{
@@ -1199,7 +1256,7 @@
 								aria-describedby="nameExtermalEntityHelp" 
 								data-error="Należy podać nazwę podmiotu oceniającego dostępność strony."/>
 							
-							<div id="declarationError">
+							<div id="declarationError" role="alert">
 								<?php
 									if (isset($_SESSION['e_nameExtermalEntity']))
 									{
@@ -1235,7 +1292,7 @@
 							aria-describedby="contactNameHelp"
 							data-error="Musisz podać imię i nazwisko osoby kontaktowej" />
 						
-						<div id="contactNameError">
+						<div id="contactNameError" role="alert">
 							<?php
 								if (isset($_SESSION['e_contactName']))
 								{
@@ -1261,7 +1318,7 @@
 							aria-describedby="contactEmailHelp"
 							data-error="Prosze wpisać adres e-mail osoby kontaktowej." />
 						
-						<div id="contactEmailError">
+						<div id="contactEmailError" role="alert">
 							<?php
 								if (isset($_SESSION['e_contactEmail']))
 								{
@@ -1287,7 +1344,7 @@
 								aria-describedby="contactTelephonHelp"
 								data-error="Proszę wprowadzić telefon kontaktowy" />
 							
-							<div id="contactTelephonError">
+							<div id="contactTelephonError" role="alert">
 								<?php
 									if (isset($_SESSION['e_contactTelephon']))
 									{
@@ -1321,7 +1378,7 @@
 								}
 							?></textarea>
 						
-						<div id="archaccessError">
+						<div id="archaccessError" role="alert">
 							<?php
 								if (isset($_SESSION['e_archaccess']))
 								{
@@ -1367,7 +1424,7 @@
 										}
 									?></textarea>
 								
-								<div id="describeMobileAppError">
+								<div id="describeMobileAppError" role="alert">
 									<?php
 										if (isset($_SESSION['e_describeMobileApp']))
 										{
@@ -1395,7 +1452,7 @@
 								aria-describedby="linkMobileAppHelp"
 								data-error="Wpisz adres URL" />
 							
-							<div id="linkMobileAppError">
+							<div id="linkMobileAppError" role="alert">
 								<?php
 									if (isset($_SESSION['e_linkMobileApp']))
 									{
@@ -1443,7 +1500,7 @@
 							?>
 					
 					</div>
-					<small id="addInformationHelp" aria-hidden="true" >Wpisz informacje dodatkowe</->
+					<small id="addInformationHelp" aria-hidden="true" >Wpisz informacje dodatkowe</small>
 					
 				</fieldset>
 				

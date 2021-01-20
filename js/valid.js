@@ -49,7 +49,7 @@ form.addEventListener("submit", e => {
 	//Validate entity name
 	if(inEntityName.value.length < 1){
 		
-		var e = document.getElementById('entityNameError').innerHTML = '<span>Błąd</span><span>To pole jest wymagane do wygenerowania deklaracji!</spann>';
+		var e = document.getElementById('entityNameError').innerHTML = '<strong>Błąd! To pole jest wymagane do wygenerowania deklaracji!</strong>';
 		error = true;
 	}
 	else {
@@ -59,7 +59,7 @@ form.addEventListener("submit", e => {
 	
 	//Validate Service name
 	if(inserviceName.value.length < 1){
-		var e = document.getElementById('serviceNameError').innerHTML = '<span>Błąd</span><span>To pole jest wymagane do wygenerowania deklaracji!</spann>';
+		var e = document.getElementById('serviceNameError').innerHTML = '<strong>Błąd! To pole jest wymagane do wygenerowania deklaracji!</strong>';
 		error = true;
 	} else {
 		var e = document.getElementById('serviceNameError').innerHTML = '';
@@ -68,12 +68,12 @@ form.addEventListener("submit", e => {
 	//Validate entity URL
 	if(inentityURLAdress.value.length < 1){
 		
-		var e = document.getElementById('entityURLAdressError').innerHTML = '<span>Błąd</span><span>To pole jest wymagane do wygenerowania deklaracji!</spann>';
+		var e = document.getElementById('entityURLAdressError').innerHTML = '<strong>Błąd! To pole jest wymagane do wygenerowania deklaracji!</strong>';
 		error = true;
 	}
 	else if(inentityURLAdress.value.length > 1 && filterUrl.test(inentityURLAdress.value) == false){
 		
-		var e = document.getElementById('entityURLAdressError').innerHTML = '<span>Błąd</span><span>Wprowadzony ciąg znaków, nie jest adresem URL!</spann>';
+		var e = document.getElementById('entityURLAdressError').innerHTML = '<strong>Błąd! Wprowadzony ciąg znaków, nie jest adresem URL!</strong>';
 		error = true;
 	}
 	else if(inentityURLAdress.value.length > 1 && filterUrl.test(inentityURLAdress.value) == true){
@@ -86,7 +86,7 @@ form.addEventListener("submit", e => {
 	var y = document.getElementById('selectStatus');
 	if(x == "" && y.value != "zgodna"){
 		
-		var e = document.getElementById('contentNotAccessibleStatusError').innerHTML = '<span>Błąd</span><span>To pole jest wymagane do wygenerowania deklaracji!</spann>';
+		var e = document.getElementById('contentNotAccessibleStatusError').innerHTML = '<strong>Błąd! To pole jest wymagane do wygenerowania deklaracji!</strong>';
 		error = true;
 	}
 	else {
@@ -110,7 +110,7 @@ form.addEventListener("submit", e => {
 	var cn = document.getElementById('contactName');
 	if(cn.value.length < 1){
 		
-		var e = document.getElementById('contactNameError').innerHTML = '<span>Błąd</span><span>To pole jest wymagane do wygenerowania deklaracji!</spann>';
+		var e = document.getElementById('contactNameError').innerHTML = '<strong>Błąd! To pole jest wymagane do wygenerowania deklaracji!</strong>';
 		error = true;
 } else {
 	
@@ -122,12 +122,12 @@ form.addEventListener("submit", e => {
 	var ce = document.getElementById('contactEmail');
 	if(ce.value.length < 1 ){
 		
-		var e = document.getElementById('contactEmailError').innerHTML = '<span>Błąd</span><span>To pole jest wymagane do wygenerowania deklaracji!</spann>';
+		var e = document.getElementById('contactEmailError').innerHTML = '<strong>Błąd! To pole jest wymagane do wygenerowania deklaracji!</strong>';
 		error = true;
 	}
 	else if(ce.value.length > 1 && filterEmail.test(ce.value) == false){
 		
-		var e = document.getElementById('contactEmailError').innerHTML = '<span>Błąd</span><span>Wprowadzony ciąg znaków, nie jest adresem e-mail!</spann>';
+		var e = document.getElementById('contactEmailError').innerHTML = '<strong>Błąd! Wprowadzony ciąg znaków, nie jest adresem e-mail!</strong>';
 		error = true;
 	}
 	else if(ce.value.length > 1 && filterEmail.test(ce.value) == true){
@@ -140,12 +140,12 @@ form.addEventListener("submit", e => {
 	var ct = document.getElementById('contactTelephon');
 	if(ct.value.length < 1 ){
 
-		var e = document.getElementById('contactTelephonError').innerHTML = '<span>Błąd</span><span>To pole jest wymagane do wygenerowania deklaracji!</spann>';
+		var e = document.getElementById('contactTelephonError').innerHTML = '<strong>Błąd! To pole jest wymagane do wygenerowania deklaracji!</strong>';
 		error = true;
 	}
 	else if(ct.value.length > 1 && filterTel.test(ct.value) == false){
 
-		var e = document.getElementById('contactTelephonError').innerHTML = '<span>Błąd</span><span>Wprowadzony ciąg znaków, nie jest numerem telefonu!</spann>';
+		var e = document.getElementById('contactTelephonError').innerHTML = '<strong>Błąd! Wprowadzony ciąg znaków, nie jest numerem telefonu!</strong>';
 		error = tre;
 	}
 	else if(ct.value.length > 1 && filterTel.test(ct.value) == true){
@@ -158,7 +158,7 @@ form.addEventListener("submit", e => {
 	var dme = document.getElementById('nameExtermalEntity');
 	if(dme.value == "" && decm.value == "badania przeprowadzonego przez podmiot zewnętrzny"){
 		
-		var e = document.getElementById('declarationError').innerHTML = '<span>Błąd</span><span>To pole jest wymagane do wygenerowania deklaracji!</spann>';
+		var e = document.getElementById('declarationError').innerHTML = '<strong>Błąd! To pole jest wymagane do wygenerowania deklaracji!</strong>';
 		error = true;
 	} else {
 		var e = document.getElementById('declarationError').innerHTML = '';
@@ -167,7 +167,7 @@ form.addEventListener("submit", e => {
 	//inarchaccess
 	if(inarchaccess.value.length < 1){
 		
-		var e = document.getElementById('archaccessError').innerHTML = '<span>Błąd</span><span>To pole jest wymagane do wygenerowania deklaracji!</spann>';
+		var e = document.getElementById('archaccessError').innerHTML = '<strong>Błąd! To pole jest wymagane do wygenerowania deklaracji!</strong>';
 		error = true;
 	} else {
 		var e = document.getElementById('archaccessError').innerHTML = "";
@@ -176,16 +176,16 @@ form.addEventListener("submit", e => {
 	var ma = document.getElementById('mobApp');
 	if(ma.value != "Nie"){
 		if(indescribeMobileApp .value.length < 1){
-		 	var e = document.getElementById('describeMobileAppError').innerHTML = '<span>Błąd</span><span>To pole jest wymagane do wygenerowania deklaracji!</spann>';
+		 	var e = document.getElementById('describeMobileAppError').innerHTML = '<strong>Błąd! To pole jest wymagane do wygenerowania deklaracji!</strong>';
 			error = true;
 		} else { 
 			var e = document.getElementById('describeMobileAppError').innerHTML = "";
 		}
 		if(inlinkMobileApp.value.length < 1){
-		 	var e = document.getElementById('linkMobileAppError').innerHTML = '<span>Błąd</span><span>To pole jest wymagane do wygenerowania deklaracji!</spann>';
+		 	var e = document.getElementById('linkMobileAppError').innerHTML = '<strong>Błąd! To pole jest wymagane do wygenerowania deklaracji!</strong>';
 			error = true;
 	} else if(inlinkMobileApp.value.length > 1 && filterUrl.test(inlinkMobileApp.value) == false){
-		var e = document.getElementById('linkMobileAppError').innerHTML = '<span>Błąd</span><span>Wprowadź prawidłowy adres URL!</spann>';
+		var e = document.getElementById('linkMobileAppError').innerHTML = '<strong>Błąd! Wprowadź prawidłowy adres URL!</strong>';
 		error = true;
 	}
 	else if(inlinkMobileApp.value.length > 1 && filterUrl.test(inlinkMobileApp.value) == true){
