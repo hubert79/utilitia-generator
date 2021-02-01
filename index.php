@@ -1224,7 +1224,7 @@
 					
 					<div>
 					
-						<label for="declaration">Deklaracje sporządzona została na podstawie</label>
+						<label for="declaration">Deklaracja sporządzona została na podstawie</label>
 						<select id="declaration" name="declaration">
 						
 							<option value="samooceny przeprowadzonej przez podmiot publiczny" 
