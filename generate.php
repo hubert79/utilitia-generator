@@ -116,7 +116,7 @@
 		<h2>Status pod względem zgodności z ustawą</h2>
 			'.'<p>
 			
-			Strona internetowa jest <strong id="a11y-status">'.$selectStatus.'</strong>  z ustawą o dostępności cyfrowej stron internetowych i aplikacji  mobilnych podmiotów publicznych z powodu niezgodności lub wyłączeń wymienionych poniżej. Zapewnienie dostępności niosłoby za sobą nadmierne obciążenia dla podmiotu publicznego. 
+			Strona internetowa jest <strong id="a11y-status">'.$selectStatus.'</strong>  z ustawą o dostępności cyfrowej stron internetowych i aplikacji  mobilnych podmiotów publicznych. 
 			
 			</p> ';
 			} else if($selectStatus !== 'zgodna' && $offStatus !== "") {
