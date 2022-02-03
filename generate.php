@@ -88,10 +88,10 @@
 			
 	'.'	<h2>Informacje ogólne</h2>
 	
-	'.'		<p id="a11y-informacje_ogólne">
+	'.'		<p id="a11y-wstep">
 	
 				<span id="a11y-podmiot">'.$entityName.'</span> zobowiązuje się zapewnić dostępność swojej
-				strony internetowej zgodnie z przepisami ustawy z dnia 4 kwietnia 2019 r. o dostępności
+				strony internetowej zgodnie z ustawyą z dnia 4 kwietnia 2019 r. o dostępności
 				cyfrowej stron internetowych i aplikacji mobilnych podmiotów publicznych. Oświadczenie
 				w sprawie dostępności ma zastosowanie do strony internetowej
 				'.'<a id="a11y-url" href="'.$entityURLAdress.'">'.$serviceName.'</a>.
@@ -114,9 +114,9 @@
 			if($selectStatus === "zgodna"){
 				$statusInfo = '
 		<h2>Status pod względem zgodności z ustawą</h2>
-			'.'<p>
+			'.'<p id="a11y-status">
 			
-			Strona internetowa jest <strong id="a11y-status">'.$selectStatus.'</strong>  z ustawą o dostępności cyfrowej stron internetowych i aplikacji  mobilnych podmiotów publicznych. 
+			Strona internetowa jest '.$selectStatus.'  z ustawą o dostępności cyfrowej stron internetowych i aplikacji  mobilnych podmiotów publicznych. 
 			
 			</p> ';
 			} else if($selectStatus !== 'zgodna' && $offStatus !== "") {
@@ -134,7 +134,7 @@
 					
 				'</p>
 				
-				'.'<h3>wyłączenia</h3>
+				'.'<h3>Wyłączenia</h3>
 				'.'<p>
 				
 				'.$offStatus.'
@@ -201,7 +201,7 @@
 		<h2 id="a11y-kontakt">Informacje zwrotne i dane kontaktowe</h2> 
 			<p>
 			
-				Za rozpatrywanie uwag i wniosków odpowiada: <span id=”a11y-imię-i-nazwisko-osoby-kontaktowej”>'.$contactName.'<span>, e-mail: <span id=”a11y-email-osoby-kontaktowej”>'.$contactEmail.'</span>, telefon:<span id+”a11y-telefon-osoby-kontaktowej">'.$contactTelephon.'</span>.
+				Za rozpatrywanie uwag i wniosków odpowiada: <span id="a11y-osoba">'.$contactName.'<span>, e-mail: <span id="a11y-email">'.$contactEmail.'</span>, telefon: <span id="a11y-telefon">'.$contactTelephon.'</span>.
 				
 			</p>
 	
@@ -274,7 +274,7 @@
 				
 			</p>
 			
-		<h2 id="a11y-dostępność-architektoniczna">Dostępność architektoniczna</h2>
+		<h2 id="a11y-architektura">Dostępność architektoniczna</h2>
 		
 		'.'<p>
 		
@@ -285,7 +285,7 @@
 		if($addInformation === ""){
 			$Add = "";
 		} else {
-			$Add = '<h2 id=”a11y-informacje-dodatkowe”>Informacje dodatkowe</h2>
+			$Add = '<h2 id="a11y-informacje-dodatkowe">Informacje dodatkowe</h2>
 			
 			'.'	<p>
 					'.$addInformation.'
@@ -307,7 +307,7 @@
 		<textarea readonly id="declarationTxt" cols="70" rows="20"><?php
 				
 				$deklaracja = $generalInfo.$statusInfo.
-				$preInfo.$KontaktInfo.$amInfo.$prawoInfo.$Add;
+				$preInfo.$KontaktInfo.$prawoInfo.$amInfo.$Add;
 				
 				
 				echo $deklaracja;

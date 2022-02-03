@@ -1,47 +1,6 @@
 <?php
 	session_start ();
-
-function extractEntityName($d){
-    $flaga = "set";
-    $arr = array();
-    $awstep = ['a11y-wstep'];
-    $extract = $d->getElementById($awstep[0])->nodeValue;
-    $words = explode(" ", $extract);
-    foreach($words as $w){
-        if($w === "zobowiązuje" && $flaga === "set"){
-            $flaga = "nie";
-        } else if($flaga === "set" && $w !== 'zobowiązuje'){
-            array_push($arr, $w);
-            array_push($arr, " ");
-        }
-    }
-    $_SESSION['fr_entityName'] = implode(" ", $arr);
-}
-
-function extractURLName($d){
-   $aURLname = ['a11y-url'];
-   $extract = $d->getElementById($aURLname[0])->nodeValue;
-  $_SESSION['fr_serviceName'] = $extract;
-}
-
-$url = $_POST['url'];
-        if ($url) {
-            $aw = 'a11y-wstep';
-            $ids = ['a11y-wstep', 'a11y-podmiot', 'a11y-url', 'a11y-data-publikacja', 'a11y-data-aktualizacja', 'a11y-status', 'a11y-ocena', 'a11y-kontakt', 'a11y-osoba', 'a11y-email', 'a11y-telefon', 'a11y-procedura', 'a11y-data-sporzadzenie', 'a11y-audytor', 'a11y-data-przeglad', 'a11y-aplikacje', 'a11y-architektura'];
-            $file = file_get_contents($url);
-            $dom = new DOMDocument();
-            $dom->loadHTML('<?xml encoding="UTF-8">' . $file);
-            
-           /*----------------------*/
-          
-           
-            extractEntityName($dom);
-            extractURLName($dom);
-            
-            /*--------------------*/
-            
-        }
-
+	$_SESSION['fr_entityName'] = 'lalala';
 	if (isset($_POST['entityName']))
 	{
 		$valid_result = true;
@@ -389,13 +348,6 @@ $url = $_POST['url'];
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Generator deklaracji dostępności – Utilitia</title>
 		<link rel="stylesheet" href="css/style.css">
-		<meta name="description" content="Szybko i wygodnie przygotuj deklarację dostępności za pomocą naszego generatora online.">
-		<!-- Open Graph / Facebook -->
-		<meta property="og:type" content="website">
-		<meta property="og:url" content="https://utilitia.pl/deklaracja/">
-		<meta property="og:title" content="Generator deklaracji dostępności – Utilitia">
-		<meta property="og:description" content="Szybko i wygodnie przygotuj deklarację dostępności za pomocą naszego generatora online.">
-		<meta property="og:image" content="https://utilitia.pl/deklaracja/img/generator-cover.png">
 	</head>
 	<body>
 	<header>
@@ -671,11 +623,7 @@ $url = $_POST['url'];
 					</details>
 				</details>
 			</div>
-			<form name="eks" action="./" method="post">
-				<label for="url">Podaj adres URL deklaracji dostępności</label>
-				<input type="url" name="url" id="url">
-				<button type="submit">Pobierz dane</button>
-			</form>
+
 			<form class="form" method="post">
 
 				<!-- General information -->
@@ -685,6 +633,11 @@ $url = $_POST['url'];
 
 					<!-- Entity name -->
 					<div>
+						<?php
+
+						$la = "ajax";
+						$_SESSION['fr_entityName'] = $la;
+						?>
 						<label for="entityName">Nazwa podmiotu (wymagane)</label>
 						<input type="text" value="<?php
 							if (isset($_SESSION['fr_entityName']))
@@ -794,7 +747,6 @@ $url = $_POST['url'];
 
 								<select name="yearDateOfPublication" id="yearDateOfPublication">
 
-									<option value="2022" <?php check_yearDateOfPublication('2022',$_session['option_yearDateOfPublication']);?>  >2022</option>
 									<option value="2021" <?php check_yearDateOfPublication('2021',$_session['option_yearDateOfPublication']);?>  >2021</option>
 
 									<option value="2020" <?php check_yearDateOfPublication('2020',$_session['option_yearDateOfPublication']);?>  >2020</option>?
@@ -933,7 +885,6 @@ $url = $_POST['url'];
 								<label for="yearDateOfLastUpdate">Rok</label>
 								<select name="yearDateOfLastUpdate" id="yearDateOfLastUpdate">
 
-									<option value="2022" <?php check_yearDateOfLastUpdate('2022',$_session['option_yearDateOfLastUpdate']);?> >2022</option>
 									<option value="2021" <?php check_yearDateOfLastUpdate('2021',$_session['option_yearDateOfLastUpdate']);?> >2021</option>
 									<option value="2020" <?php check_yearDateOfLastUpdate('2020',$_session['option_yearDateOfLastUpdate']);?> >2020</option>
 
@@ -1146,7 +1097,6 @@ $url = $_POST['url'];
 								<label for="yearDateOfMade">Rok</label>
 								<select name="yearDateOfMade" id="yearDateOfMade">
 
-									<option value="2022" <?php check_yearDateOfMade('2022',$_session['option_yearDateOfMade']);?>  >2022</option>
 									<option value="2021" <?php check_yearDateOfMade('2021',$_session['option_yearDateOfMade']);?>  >2021</option>
 									<option value="2020" <?php check_yearDateOfMade('2020',$_session['option_yearDateOfMade']);?>  >2020</option>
 
@@ -1464,32 +1414,32 @@ $url = $_POST['url'];
 
 						</select>
 
-
 						<div id="addMobileAppInput" class="mobileApp-is-hidden">
 
 							<div>
 
-								<label for="describeMobileApp">Nazwa aplikacji mobilnej (wymagane)</label>
-								<input type="text" id="describeMobileApp" value="<?php
-								if (isset($_SESSION['fr_describeMobileApp']))
-								{
-								echo $_SESSION['fr_describeMobileApp'];
-								unset($_SESSION['fr_describeMobileApp']);
-								}
-								?>"name="describeMobileApp"
-								aria-describedby="describeMobileAppHelp"
-								data-error="P\Należy wpisać opis aplikacji mobilnej"/>
-								<div id="describeMobileAppError" role="alert">
-								<?php
-								if (isset($_SESSION['e_describeMobileApp']))
-								{
-								echo '<div class="error" role="alert">'.$_SESSION['e_describeMobileApp'].'</div>';
-								unset($_SESSION['e_describeMobileApp']);
-								}
-								?>
-								</div>
-								<small id="describeMobileAppHelp" aria-hidden="true">Wpisz opis aplikacji mobilnej</small>
+								<label for="describeMobileApp">Opis aplikacji mobilnej (wymagane)</label>
+								<textarea id="describeMobileApp" name="describeMobileApp" cols="25" rows="4"
+									aria-describedby="describeMobileAppHelp"
+									data-error="P\Należy wpisać opis aplikacji mobilnej"><?php
+										if (isset($_SESSION['fr_describeMobileApp']))
+										{
+											echo $_SESSION['fr_describeMobileApp'];
+											unset($_SESSION['fr_describeMobileApp']);
+										}
+									?></textarea>
 
+								<div id="describeMobileAppError" role="alert">
+									<?php
+										if (isset($_SESSION['e_describeMobileApp']))
+										{
+											echo '<div class="error" role="alert">'.$_SESSION['e_describeMobileApp'].'</div>';
+											unset($_SESSION['e_describeMobileApp']);
+										}
+									?>
+								</div>
+
+								<small id="describeMobileAppHelp" aria-hidden="true">Wpisz opis aplikacji mobilnej</small>
 
 							</div>
 
@@ -1567,7 +1517,7 @@ $url = $_POST['url'];
 	</body>
 
 	<!-- Validators script-->
-	<script type="text/javascript" src="js/qqqvalid.js"></script>
+	<script type="text/javascript" src="js/valid.js"></script>
 
 	<!-- status select list script-->
 	<script type="text/javascript" src="js/status.js"></script>
