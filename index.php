@@ -1,6 +1,24 @@
 <?php
 	session_start ();
+$wolny="";
 
+if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['selectStatus']))
+{
+   // $_session['option_selectStatus'] = $_POST['selectStatus'];
+}
+
+//$_session['option_selectStatus'] = 'zgodna';
+
+function check_selected($field_value, $option)
+{
+    if($field_value === $option)
+    {
+        echo ' selected';
+        unset($_SESSION['option_selectStatus']);
+    } else {echo '';}
+}
+
+// The functions extracts the entity name
 function extractEntityName($d){
     $flaga = "set";
     $arr = array();
@@ -10,7 +28,7 @@ function extractEntityName($d){
     foreach($words as $w){
         if($w === "zobowiązuje" && $flaga === "set"){
             $flaga = "nie";
-        } else if($flaga === "set" && $w !== 'zobowiązuje'){
+        } else if($flaga === "set" && $w !== 'z'){
             array_push($arr, $w);
             array_push($arr, " ");
         }
@@ -18,11 +36,17 @@ function extractEntityName($d){
     $_SESSION['fr_entityName'] = implode(" ", $arr);
 }
 
+// The function extracts URL name
 function extractURLName($d){
-   $aURLname = ['a11y-url'];
-   $extract = $d->getElementById($aURLname[0])->nodeValue;
-  $_SESSION['fr_serviceName'] = $extract;
+    $aURLname = ['a11y-url'];
+    $extract = $d->getElementById($aURLname[0])->nodeValue;
+    $_SESSION['fr_serviceName'] = $extract;
 }
+
+//The function extracts the status
+
+
+
 
 $url = $_POST['url'];
         if ($url) {
@@ -30,14 +54,38 @@ $url = $_POST['url'];
             $ids = ['a11y-wstep', 'a11y-podmiot', 'a11y-url', 'a11y-data-publikacja', 'a11y-data-aktualizacja', 'a11y-status', 'a11y-ocena', 'a11y-kontakt', 'a11y-osoba', 'a11y-email', 'a11y-telefon', 'a11y-procedura', 'a11y-data-sporzadzenie', 'a11y-audytor', 'a11y-data-przeglad', 'a11y-aplikacje', 'a11y-architektura'];
             $file = file_get_contents($url);
             $dom = new DOMDocument();
-            $dom->loadHTML('<?xml encoding="UTF-8">' . $file);
+           $dom->loadHTML('<?xml encoding="UTF-8">' . $file);
+            
+             $sflaga = "set";
+                        $sarr = array();
+                        $aStatus = ['a11y-status'];
+                        $sextract = $dom->getElementById($aStatus[0])->nodeValue;
+                        
+                        $words = explode(" ", $sextract);
+                        foreach($words as $w){
+                            if($w === "z" && $sflaga === "set"){
+                                $sflaga = "nie";
+                            } else if($sflaga === "set" && $w !== 'z'){
+                                array_push($sarr, $w);
+                                
+                            }
+                        }
+            
+    
+               
+                 unset($sarr[0]);
+                 unset($sarr[1]);
+                 unset($sarr[2]);
+                 //array_splice
+                $wolny = implode(" ", $sarr);
+            $_session['option_selectStatus'] = $wolny;
             
            /*----------------------*/
-          
-           
+            //echo $dom->getElementById("a11y-url") ->attributes->getNamedItem('href')->value;
             extractEntityName($dom);
             extractURLName($dom);
-            
+            //extractStatus($dom);
+            $_session['option_selectStatus'] = 'częściowo zgodna';
             /*--------------------*/
             
         }
@@ -382,6 +430,8 @@ $url = $_POST['url'];
 	}
 ?>
 
+<!--*****************************************************************************************************-->
+
 <!DOCTYPE html>
 <html lang="pl">
 	<head>
@@ -406,21 +456,9 @@ $url = $_POST['url'];
 
 	<?php
 		// Status list
-		$_session['option_selectStatus'] = 'zgodna';
+		// #####@@@@@!!!!!$$$$$$
 
-		if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['selectStatus']))
-		{
-			$_session['option_selectStatus'] = $_POST['selectStatus'];
-		}
-
-		function check_selected($field_value, $option)
-		{
-			if($field_value === $option)
-			{
-				echo ' selected';
-				unset($_SESSION['option_selectStatus']);
-			} else {echo '';}
-		}
+		// ##############
 
 		// Declaration list
 		$_session['option_declaration'] = 'Samooceny przeprowadzonej przez podmiot publiczny';
