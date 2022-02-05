@@ -1,91 +1,164 @@
 <?php
 	session_start ();
-$wolny="";
 
-if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['selectStatus']))
-{
-   // $_session['option_selectStatus'] = $_POST['selectStatus'];
-}
 
-//$_session['option_selectStatus'] = 'zgodna';
-
-function check_selected($field_value, $option)
-{
-    if($field_value === $option)
+    if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['selectStatus']))
     {
-        echo ' selected';
-        unset($_SESSION['option_selectStatus']);
-    } else {echo '';}
-}
-
-// The functions extracts the entity name
-function extractEntityName($d){
-    $flaga = "set";
-    $arr = array();
-    $awstep = ['a11y-wstep'];
-    $extract = $d->getElementById($awstep[0])->nodeValue;
-    $words = explode(" ", $extract);
-    foreach($words as $w){
-        if($w === "zobowiązuje" && $flaga === "set"){
-            $flaga = "nie";
-        } else if($flaga === "set" && $w !== 'z'){
-            array_push($arr, $w);
-            array_push($arr, " ");
-        }
+        // $_session['option_selectStatus'] = $_POST['selectStatus'];
     }
-    $_SESSION['fr_entityName'] = implode(" ", $arr);
-}
 
-// The function extracts URL name
-function extractURLName($d){
-    $aURLname = ['a11y-url'];
-    $extract = $d->getElementById($aURLname[0])->nodeValue;
-    $_SESSION['fr_serviceName'] = $extract;
-}
+    //Session variable of list checker
+    $_session['option_selectStatus'] = 'zgodna';
+    $_session['option_yearDateOfPublication'] = '1980';
+    $_session['option_monthDateOfPublication'] = 'styczeń';
+    $_session['option_dayDateOfPublication'] = '01';
 
-//The function extracts the status
+    function check_selected($field_value, $option)
+    {
+        if($field_value === $option)
+        {
+            echo ' selected';
+            unset($_SESSION['option_selectStatus']);
+        } else {echo '';}
+    }
+
+    // The functions extracts the entity name
+    function extractEntityName($d){
+        $flaga = "set";
+        $arr = array();
+        $awstep = ['a11y-wstep'];
+        $extract = $d->getElementById($awstep[0])->nodeValue;
+        $words = explode(" ", $extract);
+        foreach($words as $w){
+            if($w === "zobowiązuje" && $flaga === "set"){
+                $flaga = "nie";
+            } else if($flaga === "set" && $w !== 'zobowiązuje'){
+                array_push($arr, $w);
+                array_push($arr, " ");
+            }
+        }
+        $_SESSION['fr_entityName'] = implode(" ", $arr);
+    }
+
+    // The function extracts URL name
+    function extractURLName($d){
+        $aURLname = ['a11y-url'];
+        $extract = $d->getElementById($aURLname[0])->nodeValue;
+        $_SESSION['fr_serviceName'] = $extract;
+    }
+    
+    function extractContactName($d){
+        $aContactName = ['a11y-osoba'];
+        $extract = $d->getElementById($aContactName[0])->nodeValue;
+        $_SESSION['fr_contactName'] = $extract;
+    }
+
+    function extractEmailContact($d){
+        $aEmailContact = ['a11y-email'];
+        $extract = $d->getElementById($aEmailContact[0])->nodeValue;
+        $_SESSION['fr_contactEmail'] = $extract;
+    }
+
+function extractTelephonContact($d){
+    $aTelephonContact = ['a11y-telefon'];
+    $extract = $d->getElementById($aTelephonContact[0])->nodeValue;
+    $_SESSION['fr_contactTelephon'] = $extract;
+  }
+
+function extractArchAccess($d){
+    $aArchAccess = ['a11y-architektura'];
+    $extract = $d->getElementById($aArchAccess[0])->nodeValue;
+    $_SESSION['fr_archaccess'] = $extract;
+  }
 
 
-
-
-$url = $_POST['url'];
+    $url = $_POST['url'];
         if ($url) {
             $aw = 'a11y-wstep';
             $ids = ['a11y-wstep', 'a11y-podmiot', 'a11y-url', 'a11y-data-publikacja', 'a11y-data-aktualizacja', 'a11y-status', 'a11y-ocena', 'a11y-kontakt', 'a11y-osoba', 'a11y-email', 'a11y-telefon', 'a11y-procedura', 'a11y-data-sporzadzenie', 'a11y-audytor', 'a11y-data-przeglad', 'a11y-aplikacje', 'a11y-architektura'];
             $file = file_get_contents($url);
             $dom = new DOMDocument();
-           $dom->loadHTML('<?xml encoding="UTF-8">' . $file);
+            $dom->loadHTML('<?xml encoding="UTF-8">' . $file);
             
-             $sflaga = "set";
-                        $sarr = array();
-                        $aStatus = ['a11y-status'];
-                        $sextract = $dom->getElementById($aStatus[0])->nodeValue;
-                        
-                        $words = explode(" ", $sextract);
-                        foreach($words as $w){
-                            if($w === "z" && $sflaga === "set"){
-                                $sflaga = "nie";
-                            } else if($sflaga === "set" && $w !== 'z'){
-                                array_push($sarr, $w);
-                                
-                            }
-                        }
+            $statusFlag = "set";
+            $statusArr = array();
+            $aStatus = ['a11y-status'];
+            $statusExtract = $dom->getElementById($aStatus[0])->nodeValue;
             
-    
-               
-                 unset($sarr[0]);
-                 unset($sarr[1]);
-                 unset($sarr[2]);
-                 //array_splice
-                $wolny = implode(" ", $sarr);
+            $statusWords = explode(" ", $statusExtract);
+            foreach($statusWords as $w){
+            if($w === "z" && $statusFlag === "set"){
+                $statusFlag = "nie";
+            } else if($statusFlag === "set" && $w !== 'z'){
+                        array_push($statusArr, $w);
+                    }
+            }
+            unset($statusArr[0]);
+            unset($statusArr[1]);
+            unset($statusArr[2]);
+            //array_splice
+            $wolny = implode(" ", $statusArr);
             $_session['option_selectStatus'] = $wolny;
+            
+            $aDataPublication = ['a11y-data-publikacja'];
+            $aDataPublicationExtract = $dom->getElementById($aDataPublication[0])->nodeValue;
+            
+            $dyop = substr($aDataPublicationExtract, 0, 4);
+            $_session['option_yearDateOfPublication'] = $dyop;
+            
+            $dmop = substr($aDataPublicationExtract, 5, 2);
+            if($dmop === '01'){ $_session['option_monthDateOfPublication'] = '1';}
+            else if($dmop === '02'){ $_session['option_monthDateOfPublication'] = '2';}
+            else if($dmop === '03'){ $_session['option_monthDateOfPublication'] = '3';}
+            else if($dmop === '04'){ $_session['option_monthDateOfPublication'] = '4';}
+            else if($dmop === '05'){ $_session['option_monthDateOfPublication'] = '5';}
+            else if($dmop === '06'){ $_session['option_monthDateOfPublication'] = '6';}
+            else if($dmop === '07'){ $_session['option_monthDateOfPublication'] = '7';}
+            else if($dmop === '08'){ $_session['option_monthDateOfPublication'] = '8';}
+            else if($dmop === '09'){ $_session['option_monthDateOfPublication'] = '9';}
+            else { $_session['option_monthDateOfPublication'] = $dmop;}
+            
+            echo $ddop = substr($aDataPublicationExtract, 8, 2);
+            if($ddop === '01'){ $_session['option_dayDateOfPublication'] = '1'; }
+            else if($ddop === '02'){ $_session['option_dayDateOfPublication'] = '2'; }
+            else if($ddop === '03'){ $_session['option_dayDateOfPublication'] = '3'; }
+            else if($ddop === '04'){ $_session['option_dayDateOfPublication'] = '4'; }
+            else if($ddop === '05'){ $_session['option_dayDateOfPublication'] = '5'; }
+            else if($ddop === '06'){ $_session['option_dayDateOfPublication'] = '6'; }
+            else if($ddop === '07'){ $_session['option_dayDateOfPublication'] = '7'; }
+            else if($ddop === '08'){ $_session['option_dayDateOfPublication'] = '8'; }
+            else if($ddop === '09'){ $_session['option_dayDateOfPublication'] = '9'; }
+            else { $_session['option_dayDateOfPublication'] = $ddop; }
+            
+            /* Extract year of public */
+            
+            //$_session['option_monthDateOfPublication']
+            //$_session['option_dayDateOfPublication']
+                     
+            //$_SESSION['fr_offStatus']
+            //$_session['option_monthDateOfMade']
+            //$_session['option_yearDateOfMade']
+            //$_session['option_dayDateOfMade']
+            //$_session['option_declaration']
+            //$_session['option_declaration']
+            //$_SESSION['fr_nameExtermalEntity']
+            
+            //$_session['option_mobApp']
+            //$_SESSION['fr_describeMobileApp']
+            //$_SESSION['fr_linkMobileApp']
+            //$_SESSION['fr_addInformation']
+            //$_session['option_yearDateOfLastUpdate']
+            //$_session['option_monthDateOfLastUpdate']
+            //$_session['option_dayDateOfLastUpdate']
             
            /*----------------------*/
             //echo $dom->getElementById("a11y-url") ->attributes->getNamedItem('href')->value;
             extractEntityName($dom);
             extractURLName($dom);
-            //extractStatus($dom);
-            $_session['option_selectStatus'] = 'częściowo zgodna';
+            extractContactName($dom);
+            extractEmailContact($dom);
+            extractTelephonContact($dom);
+            extractArchAccess($dom);
             /*--------------------*/
             
         }
@@ -131,8 +204,9 @@ $url = $_POST['url'];
 		$_SESSION['fr_entityURLAdress'] = $entityURLAdress;
 
 		// Data valid
-		$yearDateOfPublication = $_POST['yearDateOfPublication'];
-		$_SESSION['s_yearDateOfPublication'] = $yearDateOfPublication;
+        $dayDateOfPublication = $_POST['dayDateOfPublication'];
+        $yearDateOfPublication = $_POST['yearDateOfPublication'];
+        $_SESSION['s_yearDateOfPublication'] = $yearDateOfPublication;
 
 		$monthDateOfPublication = $_POST['monthDateOfPublication'];
 			/*if(monthDateOfPublication < 10){
@@ -141,7 +215,7 @@ $url = $_POST['url'];
 				$_SESSION['s_monthDateOfPublication'] = $monthDateOfPublication;
 			/*}*/
 
-		$dayDateOfPublication = $_POST['dayDateOfPublication'];
+		
 		/*if(dayDateOfPublication < 10){
 			$_SESSION['s_dayDateOfPublication'] = '0'.$dayDateOfPublication;
 		} else {*/
@@ -496,7 +570,7 @@ $url = $_POST['url'];
 
 		// Data publication list
 
-		$_session['option_yearDateOfPublication'] = '1980';
+//		$_session['option_yearDateOfPublication'] = '1980';
 
 		if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['yearDateOfPublication']))
 		{
@@ -513,7 +587,7 @@ $url = $_POST['url'];
 		}
 
 		// monthDateOfPublication
-		$_session['option_monthDateOfPublication'] = 'styczeń';
+		//$_session['option_monthDateOfPublication'] = 'styczeń';
 
 		if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['monthDateOfPublication']))
 		{
@@ -530,7 +604,7 @@ $url = $_POST['url'];
 		}
 
 		// dayDateOfPublication
-		$_session['option_dayDateOfPublication'] = '01';
+//		$_session['option_dayDateOfPublication'] = '01';
 
 		if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['dayDateOfPublication']))
 		{
