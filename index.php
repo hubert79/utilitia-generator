@@ -1,10 +1,9 @@
 <?php
 	session_start ();
 
-
     if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['selectStatus']))
     {
-        // $_session['option_selectStatus'] = $_POST['selectStatus'];
+        $_session['option_selectStatus'] = $_POST['selectStatus'];
     }
 
     //Session variable of list checker
@@ -12,6 +11,9 @@
     $_session['option_yearDateOfPublication'] = '1980';
     $_session['option_monthDateOfPublication'] = 'styczeń';
     $_session['option_dayDateOfPublication'] = '01';
+    $_SESSION['option_yearDateOfLastUpdate'] = '1980';
+    $_session['option_monthDateOfLastUpdate'] = 'styczeń';
+    $_session['option_dayDateOfLastUpdate'] = '01';
 
     function check_selected($field_value, $option)
     {
@@ -59,17 +61,17 @@
         $_SESSION['fr_contactEmail'] = $extract;
     }
 
-function extractTelephonContact($d){
-    $aTelephonContact = ['a11y-telefon'];
-    $extract = $d->getElementById($aTelephonContact[0])->nodeValue;
-    $_SESSION['fr_contactTelephon'] = $extract;
-  }
+    function extractTelephonContact($d){
+        $aTelephonContact = ['a11y-telefon'];
+        $extract = $d->getElementById($aTelephonContact[0])->nodeValue;
+        $_SESSION['fr_contactTelephon'] = $extract;
+    }
 
-function extractArchAccess($d){
-    $aArchAccess = ['a11y-architektura'];
-    $extract = $d->getElementById($aArchAccess[0])->nodeValue;
-    $_SESSION['fr_archaccess'] = $extract;
-  }
+    function extractArchAccess($d){
+        $aArchAccess = ['a11y-architektura'];
+        $extract = $d->getElementById($aArchAccess[0])->nodeValue;
+        $_SESSION['fr_archaccess'] = $extract;
+    }
 
 
     $url = $_POST['url'];
@@ -118,7 +120,7 @@ function extractArchAccess($d){
             else if($dmop === '09'){ $_session['option_monthDateOfPublication'] = '9';}
             else { $_session['option_monthDateOfPublication'] = $dmop;}
             
-            echo $ddop = substr($aDataPublicationExtract, 8, 2);
+            $ddop = substr($aDataPublicationExtract, 8, 2);
             if($ddop === '01'){ $_session['option_dayDateOfPublication'] = '1'; }
             else if($ddop === '02'){ $_session['option_dayDateOfPublication'] = '2'; }
             else if($ddop === '03'){ $_session['option_dayDateOfPublication'] = '3'; }
@@ -130,10 +132,37 @@ function extractArchAccess($d){
             else if($ddop === '09'){ $_session['option_dayDateOfPublication'] = '9'; }
             else { $_session['option_dayDateOfPublication'] = $ddop; }
             
-            /* Extract year of public */
+            $aDataLastUpdate = ['a11y-data-aktualizacja'];
+            $aDataLastUpdateExtract = $dom->getElementById($aDataLastUpdate[0])->nodeValue;
             
-            //$_session['option_monthDateOfPublication']
-            //$_session['option_dayDateOfPublication']
+            $dyolu = substr($aDataLastUpdateExtract, 0, 4);
+            $_session['option_yearDateOfLastUpdate'] = $dyolu;
+            
+            $dmolu = substr($aDataLastUpdateExtract, 5, 2);
+            if($dmolu === '01'){ $_session['option_monthDateOfLastUpdate'] = '1';}
+            else if($dmolu === '02'){ $_session['option_monthDateOfLastUpdate'] = '2';}
+            else if($dmolu === '03'){ $_session['option_monthDateOfLastUpdate'] = '3';}
+            else if($dmolu === '04'){ $_session['option_monthDateOfLastUpdate'] = '4';}
+            else if($dmolu === '05'){ $_session['option_monthDateOfLastUpdate'] = '5';}
+            else if($dmolu === '06'){ $_session['option_monthDateOfLastUpdate'] = '6';}
+            else if($dmolu === '07'){ $_session['option_monthDateOfLastUpdate'] = '7';}
+            else if($dmolu === '08'){ $_session['option_monthDateOfLastUpdate'] = '8';}
+            else if($dmolu === '09'){ $_session['option_monthDateOfLastUpdate'] = '9';}
+            else { $_session['option_monthDateOfLastUpdate'] = $dmolu;}
+
+            $ddolu = substr($aDataLastUpdateExtract, 8, 2);
+            if($ddolu === '01'){ $_session['option_dayDateOfPublication'] = '1'; }
+            else if($ddolu === '02'){ $_session['option_dayDateOfLastUpdate'] = '2'; }
+            else if($ddolu === '03'){ $_session['option_dayDateOfLastUpdate'] = '3'; }
+            else if($ddolu === '04'){ $_session['option_dayDateOfLastUpdate'] = '4'; }
+            else if($ddolu === '05'){ $_session['option_dayDateOfLastUpdate'] = '5'; }
+            else if($ddolu === '06'){ $_session['option_dayDateOfLastUpdate'] = '6'; }
+            else if($ddolu === '07'){ $_session['option_dayDateOfLastUpdate'] = '7'; }
+            else if($ddolu === '08'){ $_session['option_dayDateOfLastUpdate'] = '8'; }
+            else if($ddolu === '09'){ $_session['option_dayDateOfLastUpdate'] = '9'; }
+            else { $_session['option_dayDateOfLastUpdate'] = $ddolu; }
+            
+            /* Extract year of public */
                      
             //$_SESSION['fr_offStatus']
             //$_session['option_monthDateOfMade']
@@ -147,7 +176,7 @@ function extractArchAccess($d){
             //$_SESSION['fr_describeMobileApp']
             //$_SESSION['fr_linkMobileApp']
             //$_SESSION['fr_addInformation']
-            //$_session['option_yearDateOfLastUpdate']
+            
             //$_session['option_monthDateOfLastUpdate']
             //$_session['option_dayDateOfLastUpdate']
             
@@ -162,6 +191,7 @@ function extractArchAccess($d){
             /*--------------------*/
             
         }
+/**#######################################################################################*/
 
 	if (isset($_POST['entityName']))
 	{
@@ -215,7 +245,6 @@ function extractArchAccess($d){
 				$_SESSION['s_monthDateOfPublication'] = $monthDateOfPublication;
 			/*}*/
 
-		
 		/*if(dayDateOfPublication < 10){
 			$_SESSION['s_dayDateOfPublication'] = '0'.$dayDateOfPublication;
 		} else {*/
@@ -296,7 +325,7 @@ function extractArchAccess($d){
 
 		// Publication data valid
 		$valid_publication_data = true;
-
+        
 			if((($yearDateOfPublication % 4 == 0) && ($yearDateOfPublication % 100 != 0)) || ($yearDateOfPublication % 400 == 0))
 			{
 				if($monthDateOfPublication == 2 && ($dayDateOfPublication > 29))
@@ -621,7 +650,7 @@ function extractArchAccess($d){
 		}
 
 		// yearDateOfLastUpdate
-		$_session['option_yearDateOfLastUpdate'] = '1980';
+//		$_session['option_yearDateOfLastUpdate'] = '1980';
 
 		if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['yearDateOfLastUpdate']))
 		{
@@ -638,7 +667,7 @@ function extractArchAccess($d){
 		}
 
 		// monthDateOfLastUpdate
-		$_session['option_monthDateOfLastUpdate'] = 'styczeń';
+		//$_session['option_monthDateOfLastUpdate'] = 'styczeń';
 
 		if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['monthDateOfLastUpdate']))
 		{
@@ -655,7 +684,7 @@ function extractArchAccess($d){
 		}
 
 		// dayDateOfLastUpdate
-		$_session['option_dayDateOfLastUpdate'] = '01';
+		//$_session['option_dayDateOfLastUpdate'] = '01';
 
 		if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['dayDateOfLastUpdate']))
 		{
