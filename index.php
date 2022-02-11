@@ -1,19 +1,80 @@
-<?php
-	session_start ();
 
-    if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['selectStatus']))
-    {
-        $_session['option_selectStatus'] = $_POST['selectStatus'];
-    }
+<?php
+    session_start ();
 
     //Session variable of list checker
     $_session['option_selectStatus'] = 'zgodna';
     $_session['option_yearDateOfPublication'] = '1980';
     $_session['option_monthDateOfPublication'] = 'styczeń';
     $_session['option_dayDateOfPublication'] = '01';
-    $_SESSION['option_yearDateOfLastUpdate'] = '1980';
+    $_session['option_yearDateOfLastUpdate'] = '1980';
     $_session['option_monthDateOfLastUpdate'] = 'styczeń';
     $_session['option_dayDateOfLastUpdate'] = '01';
+    $_session['option_yearDateOfMade'] = '1980';
+    $_session['option_monthDateOfMade'] = 'styczeń';
+    $_session['option_dayDateOfMade'] = '01';
+    $_session['option_declaration'] = 'Samooceny przeprowadzonej przez podmiot publiczny';
+    $_session['option_mobApp'] = 'Nie';
+
+    if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['selectStatus']))
+    {
+        $_session['option_selectStatus'] = $_POST['selectStatus'];
+    }
+
+    if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['declaration']))
+    {
+        $_session['option_declaration'] = $_POST['declaration'];
+    }
+
+    if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['mobApp']))
+    {
+        $_session['option_mobApp'] = $_POST['mobApp'];
+    }
+
+    if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['yearDateOfPublication']))
+    {
+        $_session['option_yearDateOfPublication'] = $_POST['yearDateOfPublication'];
+    }
+
+    if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['monthDateOfPublication']))
+    {
+        $_session['option_monthDateOfPublication'] = $_POST['monthDateOfPublication'];
+    }
+
+    if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['dayDateOfPublication']))
+    {
+        $_session['option_dayDateOfPublication'] = $_POST['dayDateOfPublication'];
+    }
+
+    if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['yearDateOfLastUpdate']))
+    {
+        $_session['option_yearDateOfLastUpdate'] = $_POST['yearDateOfLastUpdate'];
+    }
+
+    if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['monthDateOfLastUpdate']))
+    {
+        $_session['option_monthDateOfLastUpdate'] = $_POST['monthDateOfLastUpdate'];
+    }
+
+    if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['dayDateOfLastUpdate']))
+    {
+        $_session['option_dayDateOfLastUpdate'] = $_POST['dayDateOfLastUpdate'];
+    }
+
+    if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['yearDateOfMade']))
+    {
+        $_session['option_yearDateOfMade'] = $_POST['yearDateOfMade'];
+    }
+
+    if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['monthDateOfMade']))
+    {
+        $_session['option_monthDateOfMade'] = $_POST['monthDateOfMade'];
+    }
+
+    if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['dayDateOfMade']))
+    {
+        $_session['option_dayDateOfMade'] = $_POST['dayDateOfMade'];
+    }
 
     function check_selected($field_value, $option)
     {
@@ -21,6 +82,105 @@
         {
             echo ' selected';
             unset($_SESSION['option_selectStatus']);
+        } else {echo '';}
+    }
+
+    function check_declaration($field_value, $option)
+    {
+        if($field_value === $option)
+        {
+            echo ' selected';
+            unset($_SESSION['option_declaration']);
+        } else {echo '';}
+    }
+
+    function check_mobileApp($field_value, $option)
+    {
+        if($field_value === $option)
+        {
+            echo ' selected';
+            unset($_SESSION['option_mobApp']);
+        } else {echo '';}
+    }
+
+    function check_yearDateOfPublication($field_value, $option)
+    {
+        if($field_value === $option)
+        {
+            echo ' selected';
+            unset($_SESSION['option_yearDateOfPublication']);
+        } else {echo '';}
+    }
+
+    function check_monthDateOfPublication($field_value, $option)
+    {
+        if($field_value === $option)
+        {
+            echo ' selected';
+            unset($_SESSION['option_monthDateOfPublication']);
+        } else {echo '';}
+    }
+
+    function check_dayDateOfPublication($field_value, $option)
+    {
+        if($field_value === $option)
+        {
+            echo ' selected';
+            unset($_SESSION['option_dayDateOfPublication']);
+        } else {echo '';}
+    }
+
+    function check_yearDateOfLastUpdate($field_value, $option)
+    {
+        if($field_value === $option)
+        {
+            echo ' selected';
+            unset($_session['option_yearDateOfLastUpdate']);
+        } else {echo '';}
+    }
+
+    function check_monthDateOfLastUpdate($field_value, $option)
+    {
+        if($field_value === $option)
+        {
+            echo ' selected';
+            unset($_SESSION['option_monthDateOfLastUpdate']);
+        } else {echo '';}
+    }
+
+    function check_dayDateOfLastUpdate($field_value, $option)
+    {
+        if($field_value === $option)
+        {
+            echo ' selected';
+            unset($_SESSION['option_ dayDateOfLastUpdate']);
+        } else {echo '';}
+    }
+
+    function check_yearDateOfMade($field_value, $option)
+    {
+        if($field_value === $option)
+        {
+            echo ' selected';
+            unset($_SESSION['option_yearDateOfMade']);
+        } else {echo '';}
+    }
+
+    function check_monthDateOfMade($field_value, $option)
+    {
+        if($field_value === $option)
+        {
+            echo ' selected';
+            unset($_SESSION['option_monthDateOfMade']);
+        } else {echo '';}
+    }
+
+    function check_dayDateOfMade($field_value, $option)
+    {
+        if($field_value === $option)
+        {
+            echo ' selected';
+            unset($_SESSION['option_dayDateOfMade']);
         } else {echo '';}
     }
 
@@ -36,10 +196,13 @@
                 $flaga = "nie";
             } else if($flaga === "set" && $w !== 'zobowiązuje'){
                 array_push($arr, $w);
-                array_push($arr, " ");
+                //array_push($arr, " ");
             }
         }
-        $_SESSION['fr_entityName'] = implode(" ", $arr);
+        $str = implode(" ", $arr);
+        $str = ltrim($str);
+        $str = rtrim($str);
+        $_SESSION['fr_entityName'] = $str;
     }
 
     // The function extracts URL name
@@ -68,16 +231,54 @@
     }
 
     function extractArchAccess($d){
-        $aArchAccess = ['a11y-architektura'];
+        $aArchAccess = ['a11y-opis-architektury'];
         $extract = $d->getElementById($aArchAccess[0])->nodeValue;
         $_SESSION['fr_archaccess'] = $extract;
     }
+    
+    function extractNotAccessContent($d){
+        $aNotAccessContent = ['a11y-tresci-niedostepne'];
+        $extract = $d->getElementById($aNotAccessContent[0])->nodeValue;
+        $_SESSION['fr_addInformation'] = $extract;
+    }
 
+    function extractOff($d){
+        $aOff = ['a11y-wylaczenia'];
+        $extract = $d->getElementById($aOff[0])->nodeValue;
+        $_SESSION['fr_offStatus'] = $extract;
+    }
+
+    function extractExtremalEntityName($d){
+        $aExtermalEntityName = ['a11y-wylaczenia'];
+        $extract = $d->getElementById($aExtermalEntityName[0])->nodeValue;
+        $_SESSION['fr_nameExtermalEntity'] = $extract;
+    }
+
+    function extractURL($d){
+        $kodToLink = $d->saveHtml($node);
+        //echo $kodToLink;
+        $word = explode(" ", $kodToLink);
+        $indexTab = 1;
+        $s = "";
+        foreach($word as $w){
+            $indexTab += 1;
+            if($w === 'id="a11y-url"'){
+                $s = $word[$indexTab - 1];
+            }
+        }
+        $s = ltrim($s);
+        $s = rtrim($s);
+        $s = strchr($s, '"');
+        $s = substr($s, strpos($s,'"') + 1,
+                    strRpos($s, '"') - strpos($s, '"') - 1);
+        $_SESSION['fr_entityURLAdress'] = $s;
+        echo $s;
+    }
 
     $url = $_POST['url'];
         if ($url) {
             $aw = 'a11y-wstep';
-            $ids = ['a11y-wstep', 'a11y-podmiot', 'a11y-url', 'a11y-data-publikacja', 'a11y-data-aktualizacja', 'a11y-status', 'a11y-ocena', 'a11y-kontakt', 'a11y-osoba', 'a11y-email', 'a11y-telefon', 'a11y-procedura', 'a11y-data-sporzadzenie', 'a11y-audytor', 'a11y-data-przeglad', 'a11y-aplikacje', 'a11y-architektura'];
+            $ids = ['a11y-wstep', 'a11y-podmiot', 'a11y-url', 'a11y-data-publikacja', 'a11y-data-aktualizacja', 'a11y-status', 'a11y-ocena', 'a11y-kontakt', 'a11y-osoba', 'a11y-email', 'a11y-telefon', 'a11y-procedura', 'a11y-data-sporzadzenie', 'a11y-audytor', 'a11y-aplikacje', 'a11y-architektura'];
             $file = file_get_contents($url);
             $dom = new DOMDocument();
             $dom->loadHTML('<?xml encoding="UTF-8">' . $file);
@@ -162,20 +363,52 @@
             else if($ddolu === '09'){ $_session['option_dayDateOfLastUpdate'] = '9'; }
             else { $_session['option_dayDateOfLastUpdate'] = $ddolu; }
             
+            $todayDate=date("Y-m-d");
+            
+            $dym = substr($todayDate, 0, 4);
+            $_session['option_yearDateOfMade'] = $dym;
+            
+            $dmm = substr($todayDate, 5, 2);
+            if($dmm === '01'){ $_session['option_monthDateOfMade'] = '1';}
+            else if($dmm === '02'){ $_session['option_monthDateOfMade'] = '2';}
+            else if($dmm === '03'){ $_session['option_monthDateOfMade'] = '3';}
+            else if($dmm === '04'){ $_session['option_monthDateOfMade'] = '4';}
+            else if($dmm === '05'){ $_session['option_monthDateOfMade'] = '5';}
+            else if($dmolu === '06'){ $_session['option_monthDateOfMade'] = '6';}
+            else if($dmm === '07'){ $_session['option_monthDateOfMade'] = '7';}
+            else if($dmm === '08'){ $_session['option_monthDateOfMade'] = '8';}
+            else if($dmm === '09'){ $_session['option_monthDateOfMade'] = '9';}
+            else { $_session['option_monthDateOfMade'] = $dmm;}
+            
+            $ddm = substr($todayDate, 8, 2);
+            if($ddm === '01'){ $_session['option_dayDateOfMade'] = '1'; }
+            else if($ddm === '02'){ $_session['option_dayDateOfMade'] = '2'; }
+            else if($ddm === '03'){ $_session['option_dayDateOfMade'] = '3'; }
+            else if($ddm === '04'){ $_session['option_dayDateOfMade'] = '4'; }
+            else if($ddm === '05'){ $_session['option_dayDateOfMade'] = '5'; }
+            else if($ddm === '06'){ $_session['option_dayDateOfMade'] = '6'; }
+            else if($ddm === '07'){ $_session['option_dayDateOfMade'] = '7'; }
+            else if($ddm === '08'){ $_session['option_dayDateOfMade'] = '8'; }
+            else if($ddm === '09'){ $_session['option_dayDateOfMade'] = '9'; }
+            else { $_session['option_dayDateOfMade'] = $ddm; }
+            
+            
+            
+            
+            
+            
             /* Extract year of public */
-                     
-            //$_SESSION['fr_offStatus']
+            
             //$_session['option_monthDateOfMade']
-            //$_session['option_yearDateOfMade']
+            
             //$_session['option_dayDateOfMade']
             //$_session['option_declaration']
             //$_session['option_declaration']
-            //$_SESSION['fr_nameExtermalEntity']
+            
             
             //$_session['option_mobApp']
             //$_SESSION['fr_describeMobileApp']
             //$_SESSION['fr_linkMobileApp']
-            //$_SESSION['fr_addInformation']
             
             //$_session['option_monthDateOfLastUpdate']
             //$_session['option_dayDateOfLastUpdate']
@@ -188,10 +421,13 @@
             extractEmailContact($dom);
             extractTelephonContact($dom);
             extractArchAccess($dom);
+            extractNotAccessContent($dom);
+            extractExtremalEntityName($dom);
+            extractOff($dom);
+            extractURL($dom);
             /*--------------------*/
             
         }
-/**#######################################################################################*/
 
 	if (isset($_POST['entityName']))
 	{
@@ -557,200 +793,6 @@
 		</a>
 	</header>
 
-	<?php
-		// Status list
-		// #####@@@@@!!!!!$$$$$$
-
-		// ##############
-
-		// Declaration list
-		$_session['option_declaration'] = 'Samooceny przeprowadzonej przez podmiot publiczny';
-
-		if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['declaration']))
-		{
-			$_session['option_declaration'] = $_POST['declaration'];
-		}
-
-		function check_declaration($field_value, $option)
-		{
-			if($field_value === $option)
-			{
-				echo ' selected';
-				unset($_SESSION['option_declaration']);
-			} else {echo '';}
-		}
-
-		// Mobile app list mobApp
-		$_session['option_mobApp'] = 'Nie';
-
-		if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['mobApp']))
-		{
-			$_session['option_mobApp'] = $_POST['mobApp'];
-		}
-
-		function check_mobileApp($field_value, $option)
-		{
-			if($field_value === $option)
-			{
-				echo ' selected';
-				unset($_SESSION['option_mobApp']);
-			} else {echo '';}
-		}
-
-		// Data publication list
-
-//		$_session['option_yearDateOfPublication'] = '1980';
-
-		if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['yearDateOfPublication']))
-		{
-			$_session['option_yearDateOfPublication'] = $_POST['yearDateOfPublication'];
-		}
-
-		function check_yearDateOfPublication($field_value, $option)
-		{
-			if($field_value === $option)
-			{
-				echo ' selected';
-				unset($_SESSION['option_yearDateOfPublication']);
-			} else {echo '';}
-		}
-
-		// monthDateOfPublication
-		//$_session['option_monthDateOfPublication'] = 'styczeń';
-
-		if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['monthDateOfPublication']))
-		{
-			$_session['option_monthDateOfPublication'] = $_POST['monthDateOfPublication'];
-		}
-
-		function check_monthDateOfPublication($field_value, $option)
-		{
-			if($field_value === $option)
-			{
-				echo ' selected';
-				unset($_SESSION['option_monthDateOfPublication']);
-			} else {echo '';}
-		}
-
-		// dayDateOfPublication
-//		$_session['option_dayDateOfPublication'] = '01';
-
-		if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['dayDateOfPublication']))
-		{
-			$_session['option_dayDateOfPublication'] = $_POST['dayDateOfPublication'];
-		}
-
-		function check_dayDateOfPublication($field_value, $option)
-		{
-			if($field_value === $option)
-			{
-				echo ' selected';
-				unset($_SESSION['option_dayDateOfPublication']);
-			} else {echo '';}
-		}
-
-		// yearDateOfLastUpdate
-//		$_session['option_yearDateOfLastUpdate'] = '1980';
-
-		if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['yearDateOfLastUpdate']))
-		{
-			$_session['option_yearDateOfLastUpdate'] = $_POST['yearDateOfLastUpdate'];
-		}
-
-		function check_yearDateOfLastUpdate($field_value, $option)
-		{
-			if($field_value === $option)
-			{
-				echo ' selected';
-				unset($_SESSION['option_yearDateOfLastUpdate']);
-			} else {echo '';}
-		}
-
-		// monthDateOfLastUpdate
-		//$_session['option_monthDateOfLastUpdate'] = 'styczeń';
-
-		if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['monthDateOfLastUpdate']))
-		{
-			$_session['option_monthDateOfLastUpdate'] = $_POST['monthDateOfLastUpdate'];
-		}
-
-		function check_monthDateOfLastUpdate($field_value, $option)
-		{
-			if($field_value === $option)
-			{
-				echo ' selected';
-				unset($_SESSION['option_monthDateOfLastUpdate']);
-			} else {echo '';}
-		}
-
-		// dayDateOfLastUpdate
-		//$_session['option_dayDateOfLastUpdate'] = '01';
-
-		if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['dayDateOfLastUpdate']))
-		{
-			$_session['option_dayDateOfLastUpdate'] = $_POST['dayDateOfLastUpdate'];
-		}
-
-		function check_dayDateOfLastUpdate($field_value, $option)
-		{
-			if($field_value === $option)
-			{
-				echo ' selected';
-				unset($_SESSION['option_ dayDateOfLastUpdate']);
-			} else {echo '';}
-		}
-
-		//Date made declaration
-		$_session['option_yearDateOfMade'] = '1980';
-
-		if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['yearDateOfMade']))
-		{
-			$_session['option_yearDateOfMade'] = $_POST['yearDateOfMade'];
-		}
-
-		function check_yearDateOfMade($field_value, $option)
-		{
-			if($field_value === $option)
-			{
-				echo ' selected';
-				unset($_SESSION['option_yearDateOfMade']);
-			} else {echo '';}
-		}
-
-		// monthDateOfMade
-		$_session['option_monthDateOfMade'] = 'styczeń';
-
-		if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['monthDateOfMade']))
-		{
-			$_session['option_monthDateOfMade'] = $_POST['monthDateOfMade'];
-		}
-
-		function check_monthDateOfMade($field_value, $option)
-		{
-			if($field_value === $option)
-			{
-				echo ' selected';
-				unset($_SESSION['option_monthDateOfMade']);
-			} else {echo '';}
-		}
-
-		// dayDateOfMade
-		$_session['option_dayDateOfMade'] = '01';
-
-		if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['dayDateOfMade']))
-		{
-			$_session['option_dayDateOfMade'] = $_POST['dayDateOfMade'];
-		}
-
-		function check_dayDateOfMade($field_value, $option)
-		{
-			if($field_value === $option)
-			{
-				echo ' selected';
-				unset($_SESSION['option_dayDateOfMade']);
-			} else {echo '';}
-		}
-	?>
 		<main id="content">
 
 			<h1>Generator deklaracji dostępności</h1>
@@ -835,7 +877,7 @@
 							}
 							?>" name="entityName" id="entityName"
 							aria-describedby="entityNameError entityNameHelp"
-							data-error="Musisz podać nazwę podmiotu" />
+							data-error="Musisz wpisać nazwę podmiotu publikującego Deklarację Dostępności:" />
 
 							<div id="entityNameError" role="alert">
 							<?php
@@ -847,7 +889,7 @@
 							?>
 							</div>
 
-							<small id="entityNameHelp" aria-hidden="true">Wpisz oficjalną nazwę podmiotu, który publikuje deklarację.</small>
+							<small id="entityNameHelp" aria-hidden="true">Wpisz nazwę podmiotu publikującego Deklarację Dostępności:</small>
 
 					</div>
 
@@ -1078,7 +1120,7 @@
 									<option value="2021" <?php check_yearDateOfLastUpdate('2021',$_session['option_yearDateOfLastUpdate']);?> >2021</option>
 									<option value="2020" <?php check_yearDateOfLastUpdate('2020',$_session['option_yearDateOfLastUpdate']);?> >2020</option>
 
-									<option value="2019" <?php check_yearDateOfLastUpdate('20019',$_session['option_yearDateOfLastUpdate']);?> >2019</option>
+									<option value="2019" <?php check_yearDateOfLastUpdate('2019',$_session['option_yearDateOfLastUpdate']);?> >2019</option>
 									<option value="2018" <?php check_yearDateOfLastUpdate('20018',$_session['option_yearDateOfLastUpdate']);?> >2018</option>
 									<option value="2017" <?php check_yearDateOfLastUpdate('20017',$_session['option_yearDateOfLastUpdate']);?> >2017</option>
 									<option value="2016" <?php check_yearDateOfLastUpdate('20016',$_session['option_yearDateOfLastUpdate']);?> >2016</option>
@@ -1464,7 +1506,7 @@
 
 						</div>
 
-						<small id="nameExtermalEntityHelp" aria-hidden="true">Wpisz nazwę podmiotu wykonującą oceniającego dostępność strony.</small>
+						<small id="nameExtermalEntityHelp" aria-hidden="true">Wpisz nazwę podmiotu oceniającego dostępność strony.</small>
 
 					</div>
 

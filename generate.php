@@ -24,9 +24,9 @@
 		<h1>Deklaracja dostępności</h1>
 		
 		<p>
-			Poniżej w polu "textarea" znajduje się kod HTML deklaracji dostępności z danymi, które zostały wprowadzone w formularzu. 
+			Poniżej w polu tekstowym znajduje się kod HTML deklaracji dostępności z danymi, które zostały wprowadzone w formularzu.
 			Kod należy skopiować i dodać do serwisu internetowego podmiotu, którego dane zostały wprowadzone w formularzu.
-			Poniżej pola z kodem HTML można podglądnąć, jak deklaracja będzie prezentowana w przeglądarce internetowej.
+			Poniżej pola z kodem HTML można podejrzeć, jak deklaracja będzie prezentowana w przeglądarce internetowej.
 			Aby dodać kod deklaracji należy skopiować kod z pola "textarea" i wkleić go w odpowiednie miejsce w serwisie.
 		</p>
 		
@@ -122,33 +122,33 @@
 			} else if($selectStatus !== 'zgodna' && $offStatus !== "") {
 				$statusInfo = '
 		<h2>Status pod względem zgodności z ustawą</h2>
-		'.'	<p>
+		'.'	<p id="a11y-status">
 		
-				Strona internetowa jest <strong id="a11y-status">'.$selectStatus.'</strong>  z ustawą o dostępności cyfrowej stron internetowych i aplikacji mobilnych podmiotów publicznych z powodu niezgodności lub wyłączeń wymienionych poniżej. Zapewnienie dostępności niosłoby za sobą nadmierne obciążenia dla podmiotu publicznego. 
+				Strona internetowa jest <strong>'.$selectStatus.'</strong>  z ustawą o dostępności cyfrowej stron internetowych i aplikacji mobilnych podmiotów publicznych z powodu niezgodności lub wyłączeń wymienionych poniżej. Zapewnienie dostępności niosłoby za sobą nadmierne obciążenia dla podmiotu publicznego.
 		
 			</p> '.
 				'<h3>Treść niedostępna</h3>
-				'.'<p>
+				'.'<p id="a11y-tresci-niedostepne">
 				
 					'.$contentNotAccessibleStatus.
 					
 				'</p>
 				
 				'.'<h3>Wyłączenia</h3>
-				'.'<p>
+				'.'<p id="a11y-wylaczenia>
 				
 				'.$offStatus.'
 				</p>';
 			} else if($selectStatus !== 'zgodna' && $offStatus === "") {
 				$statusInfo = '
 		<h2>Status pod względem zgodności z ustawą</h2>
-		'.'	<p>
+		'.'	<p id="a11y-status">
 		
-				Strona internetowa jest <strong id="a11y-status">'.$selectStatus.'</strong>  z ustawą o dostępności cyfrowej stron internetowych i aplikacji mobilnych podmiotów publicznych z powodu niezgodności lub wyłączeń wymienionych poniżej. Zapewnienie dostępności niosłoby za sobą nadmierne obciążenia dla podmiotu publicznego. 
+				Strona internetowa jest <strong>'.$selectStatus.'</strong>  z ustawą o dostępności cyfrowej stron internetowych i aplikacji mobilnych podmiotów publicznych z powodu niezgodności lub wyłączeń wymienionych poniżej. Zapewnienie dostępności niosłoby za sobą nadmierne obciążenia dla podmiotu publicznego.
 		
 			</p> '.
 				'<h3>Treść niedostępna</h3>
-				'.'<p>
+				'.'<p id="a11y-tresci-niedostepne">
 				
 					'.$contentNotAccessibleStatus.
 					
@@ -167,7 +167,7 @@
 				
 			'.'</ul> 
 			
-			'.'<p>
+			'.'<p id="a11y-wykonawca-badania">
 			
 				Deklarację sporządzono na podstawie '.$declaration.'.
 				
@@ -185,14 +185,14 @@
 				
 			'.'</ul>
 	
-			'.'<p>
+			'.'<p id="a11y-wykonawca-badania">
 			
 				Deklarację sporządzono na podstawie'.$declaration.
 			
 			'.</p>'.
 			
 				'<h3>Nazwa podmiotu zewnętrznego</h3>'.
-				'<p>'.$nameExtermalEntity.'</p>'
+				'<p id="a11y-audytor-zewnetrzny">'.$nameExtermalEntity.'</p>'
 				;
 			}
 			
@@ -270,13 +270,13 @@
 		
 			<p>
 			
-				W przypadku, gdy podmiot publiczny odmówi realizacji żądania zapewnienia dostępności lub alternatywnego sposobu dostępu do informacji, wnoszący żądanie możne złożyć skargę w sprawie zapewniana dostępności cyfrowej strony internetowej, aplikacji mobilnej lub elementu strony internetowej, lub aplikacji mobilnej. Po wyczerpaniu wskazanej wyżej procedury można także złożyć wniosek do <a href=”https://www.rpo.gov.pl/content/jak-zglosic-sie-do-rzecznika-praw-obywatelskich”>Rzecznika Praw Obywatelskich</a>.
+				W przypadku, gdy podmiot publiczny odmówi realizacji żądania zapewnienia dostępności lub alternatywnego sposobu dostępu do informacji, wnoszący żądanie może złożyć skargę w sprawie zapewniania dostępności cyfrowej strony internetowej, aplikacji mobilnej lub elementu strony internetowej, lub aplikacji mobilnej. Po wyczerpaniu wskazanej wyżej procedury można także złożyć wniosek do <a href=”https://www.rpo.gov.pl/content/jak-zglosic-sie-do-rzecznika-praw-obywatelskich”>Rzecznika Praw Obywatelskich</a>.
 				
 			</p>
 			
 		<h2 id="a11y-architektura">Dostępność architektoniczna</h2>
 		
-		'.'<p>
+		'.'<p id="a11y-opis-architektury">
 		
 			'.$archaccess.'
 			
@@ -287,7 +287,7 @@
 		} else {
 			$Add = '<h2 id="a11y-informacje-dodatkowe">Informacje dodatkowe</h2>
 			
-			'.'	<p>
+			'.'	<p id="a11y-tresc-informacji-dodatkowych">
 					'.$addInformation.'
 				
 				</p>';	
