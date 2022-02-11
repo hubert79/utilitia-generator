@@ -209,48 +209,64 @@
     function extractURLName($d){
         $aURLname = ['a11y-url'];
         $extract = $d->getElementById($aURLname[0])->nodeValue;
+        $extract = ltrim($extract, " ");
+        $extract = rtrim($extract, " ");
         $_SESSION['fr_serviceName'] = $extract;
     }
     
     function extractContactName($d){
         $aContactName = ['a11y-osoba'];
         $extract = $d->getElementById($aContactName[0])->nodeValue;
+        $extract = ltrim($extract, " ");
+        $extract = rtrim($extract, " ");
         $_SESSION['fr_contactName'] = $extract;
     }
 
     function extractEmailContact($d){
         $aEmailContact = ['a11y-email'];
         $extract = $d->getElementById($aEmailContact[0])->nodeValue;
+        $extract = ltrim($extract, " ");
+        $extract = rtrim($extract, " ");
         $_SESSION['fr_contactEmail'] = $extract;
     }
 
     function extractTelephonContact($d){
         $aTelephonContact = ['a11y-telefon'];
         $extract = $d->getElementById($aTelephonContact[0])->nodeValue;
+        $extract = ltrim($extract, " ");
+        $extract = rtrim($extract, " ");
         $_SESSION['fr_contactTelephon'] = $extract;
     }
 
     function extractArchAccess($d){
         $aArchAccess = ['a11y-opis-architektury'];
         $extract = $d->getElementById($aArchAccess[0])->nodeValue;
+        $extract = ltrim($extract, " ");
+        $extract = rtrim($extract, " ");
         $_SESSION['fr_archaccess'] = $extract;
     }
     
     function extractNotAccessContent($d){
         $aNotAccessContent = ['a11y-tresci-niedostepne'];
         $extract = $d->getElementById($aNotAccessContent[0])->nodeValue;
-        $_SESSION['fr_addInformation'] = $extract;
+        $extract = ltrim($extract, " ");
+        $extract = rtrim($extract, " ");
+        $_SESSION['fr_contentNotAccessibleStatus'] = $extract;
     }
 
     function extractOff($d){
         $aOff = ['a11y-wylaczenia'];
         $extract = $d->getElementById($aOff[0])->nodeValue;
+        $extract = ltrim($extract, " ");
+        $extract = rtrim($extract, " ");
         $_SESSION['fr_offStatus'] = $extract;
     }
 
     function extractExtremalEntityName($d){
         $aExtermalEntityName = ['a11y-wylaczenia'];
         $extract = $d->getElementById($aExtermalEntityName[0])->nodeValue;
+        $extract = ltrim($extract, " ");
+        $extract = rtrim($extract, " ");
         $_SESSION['fr_nameExtermalEntity'] = $extract;
     }
 
@@ -272,7 +288,38 @@
         $s = substr($s, strpos($s,'"') + 1,
                     strRpos($s, '"') - strpos($s, '"') - 1);
         $_SESSION['fr_entityURLAdress'] = $s;
-        echo $s;
+    }
+
+    function extractAddInformation($d){
+        $aAddInformation = ['a11y-tresc-informacji-dodatkowych'];
+        $extract = $d->getElementById($aAddInformation[0])->nodeValue;
+        $extract = ltrim($extract);
+        $extract = rtrim($extract);
+        $_SESSION['fr_addInformation'] = $extract;
+    }
+
+    function extractMobileAppURL($d){
+        $kodToLink = $d->saveHtml($node);
+        //echo $kodToLink;
+        $word = explode(" ", $kodToLink);
+        $indexTab = 1;
+        $s = "";
+        foreach($word as $w){
+            $indexTab += 1;
+            if($w === 'id="url-aplikacja"'){
+                $s = $word[$indexTab - 1];
+            }
+        }
+        $s = ltrim($s);
+        $s = rtrim($s);
+        $s = strchr($s, '"');
+        $s = substr($s, strpos($s,'"') + 1,
+                    strRpos($s, '"') - strpos($s, '"') - 1);
+        $_SESSION['fr_linkMobileApp'] = $s;
+        
+        $extractDescribe = $d->getElementById('url-aplikacja')->nodeValue;
+        $_SESSION['fr_describeMobileApp'] = $extractDescribe;
+        
     }
 
     $url = $_POST['url'];
@@ -393,20 +440,16 @@
             else { $_session['option_dayDateOfMade'] = $ddm; }
             
             
-            
-            
-            
-            
             /* Extract year of public */
             
             //$_session['option_monthDateOfMade']
             
             //$_session['option_dayDateOfMade']
             //$_session['option_declaration']
-            //$_session['option_declaration']
             
             
-            //$_session['option_mobApp']
+            
+            
             //$_SESSION['fr_describeMobileApp']
             //$_SESSION['fr_linkMobileApp']
             
@@ -425,8 +468,17 @@
             extractExtremalEntityName($dom);
             extractOff($dom);
             extractURL($dom);
+            extractAddInformation($dom);
+            extractMobileAppURL($dom);
             /*--------------------*/
+            if(strlen($_SESSION['fr_describeMobileApp']) > 1 ||
+               strlen($_SESSION['fr_linkMobileApp']) > 1){
+                $_session['option_mobApp'] =  'tak';
+            }
             
+            if(strlen($_SESSION['fr_nameExtermalEntity']) > 1){
+                $_session['option_declaration'] = "Badania przeprowadzonego przez podmiot zewnętrzny";
+            }
         }
 
 	if (isset($_POST['entityName']))
